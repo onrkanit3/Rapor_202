@@ -16,49 +16,48 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
+ * FXML Controller class
  *
  * @author izmir
  */
-public class FXMLDocumentController implements Initializable {
+public class MainPageController implements Initializable {
+
+    @FXML
+    private Button calisanekle;
     
     @FXML
-    private Label label;
+    private Button projeekle;
     
     @FXML
-    private ImageView deneme;
+    private Button radyoaktifekle;
     
     @FXML
-    private TextField username;
+    private Button ekipmanekle;
     
     @FXML
-    private PasswordField password;
+    private Button firmaekle;
     
     @FXML
-    private Button login;
+    private Button manyetikekle;
     
-    public void changeScreenButtonPushed(ActionEvent event) throws IOException
+    public void calisanEkle(ActionEvent event) throws IOException
     {
-        Parent MainPageParent = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
-        Scene MainPageScene = new Scene(MainPageParent);
+        Parent CalisanEkleParent = FXMLLoader.load(getClass().getResource("CalisanEkle.fxml"));
+        Scene CalisanEkleScene = new Scene(CalisanEkleParent);
         
         
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         
-        window.setScene(MainPageScene);
+        window.setScene(CalisanEkleScene);
         window.show();
     }
     
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
-        
+        // TODO
     }    
     
 }
