@@ -82,6 +82,30 @@ public class MainPageController implements Initializable {
         window.show();
     }
     
+    public void ProjeEkle(ActionEvent event) throws IOException
+    {
+        Parent ProjeEkleParent = FXMLLoader.load(getClass().getResource("ProjeEkle.fxml"));
+        Scene ProjeEkleScene = new Scene(ProjeEkleParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(ProjeEkleScene);
+        window.show();
+    }
+    
+    public void EkipmanEkle(ActionEvent event) throws IOException
+    {
+        Parent EkipmanEkleParent = FXMLLoader.load(getClass().getResource("EkipmanEkle.fxml"));
+        Scene EkipmanEkleScene = new Scene(EkipmanEkleParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(EkipmanEkleScene);
+        window.show();
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

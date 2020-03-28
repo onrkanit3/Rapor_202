@@ -14,7 +14,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.CalisanEkleController">
    <children>
-      <Button layoutX="644.0" layoutY="657.0" mnemonicParsing="false" onAction="#anaSayfayaDon" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Ana Sayfaya Geri Dön" textFill="#37474f" wrapText="true">
+      <Button layoutX="644.0" layoutY="657.0" mnemonicParsing="false" onAction="#anaSayfayaDon" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Ana Sayfaya Geri Dön" textAlignment="CENTER" textFill="#37474f" wrapText="true">
          <font>
             <Font name="Century" size="18.0" />
          </font>
@@ -53,36 +53,21 @@
             </TableView>
             <HBox prefHeight="49.0" prefWidth="776.0">
                <children>
-                  <TextField fx:id="firstNameTextField" prefHeight="42.0" prefWidth="131.0" promptText="İsim">
-                     <font>
-                        <Font size="18.0" />
-                     </font></TextField>
-                  <TextField fx:id="lastNameTextField" prefHeight="42.0" prefWidth="130.0" promptText="Soyisim">
-                     <font>
-                        <Font size="18.0" />
-                     </font></TextField>
-                  <TextField fx:id="IDTextField" prefHeight="42.0" prefWidth="130.0" promptText="ID">
-                     <font>
-                        <Font size="18.0" />
-                     </font></TextField>
-                  <TextField fx:id="ŞifreTextField" prefHeight="42.0" prefWidth="130.0" promptText="Şifre">
-                     <font>
-                        <Font size="18.0" />
-                     </font></TextField>
-                  <TextField fx:id="LevelTextField" prefHeight="42.0" prefWidth="130.0" promptText="Level">
-                     <font>
-                        <Font size="18.0" />
-                     </font></TextField>
+                  <TextField fx:id="firstNameTextField" alignment="CENTER" prefHeight="42.0" prefWidth="131.0" promptText="İsim" />
+                  <TextField fx:id="lastNameTextField" alignment="CENTER" prefHeight="42.0" prefWidth="130.0" promptText="Soyisim" />
+                  <TextField fx:id="IDTextField" alignment="CENTER" prefHeight="42.0" prefWidth="130.0" promptText="ID" />
+                  <TextField fx:id="ŞifreTextField" alignment="CENTER" prefHeight="42.0" prefWidth="130.0" promptText="Şifre" />
+                  <TextField fx:id="LevelTextField" alignment="CENTER" prefHeight="42.0" prefWidth="130.0" promptText="Level" />
                   <DatePicker fx:id="sertifikatarihiDatePicker" prefHeight="42.0" prefWidth="130.0" promptText="Sertifika" />
                </children>
             </HBox>
             <HBox prefHeight="78.0" prefWidth="776.0" spacing="517.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#newMitarbeiterButtonPushed" prefHeight="102.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF;" text="Personel Ekle" textFill="#37474f" wrapText="true">
+                  <Button mnemonicParsing="false" onAction="#newMitarbeiterButtonPushed" prefHeight="102.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF;" text="Personel Ekle" textAlignment="CENTER" textFill="#37474f" wrapText="true">
                      <font>
                         <Font name="Century" size="18.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="102.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF;" text="Personel Sil" textFill="#37474f" wrapText="true">
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="102.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF;" text="Personel Sil" textAlignment="CENTER" textFill="#37474f" wrapText="true">
                      <font>
                         <Font name="Century" size="18.0" />
                      </font></Button>

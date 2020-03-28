@@ -8,17 +8,17 @@
 
 <AnchorPane id="AnchorPane" prefHeight="739.0" prefWidth="1098.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.MainPageController">
    <children>
-      <Button layoutX="650.0" layoutY="421.0" mnemonicParsing="false" onAction="#YuzeyDurumuEkle" prefHeight="102.0" prefWidth="201.0" text="Yüzey Durumu Ekle/Düzenle/İncele" textFill="#37474f" wrapText="true">
+      <Button layoutX="650.0" layoutY="421.0" mnemonicParsing="false" onAction="#YuzeyDurumuEkle" prefHeight="102.0" prefWidth="201.0" text="Yüzey Durumu Ekle/Düzenle/İncele" textAlignment="CENTER" textFill="#37474f" wrapText="true">
          <font>
             <Font name="Century" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="ekipmanekle" layoutX="851.0" layoutY="319.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="201.0" text="Ekipman Ekle/Düzenle/İncele" textFill="#37474f" wrapText="true">
+      <Button fx:id="ekipmanekle" layoutX="851.0" layoutY="319.0" mnemonicParsing="false" onAction="#EkipmanEkle" prefHeight="102.0" prefWidth="201.0" text="Ekipman Ekle/Düzenle/İncele" textAlignment="CENTER" textFill="#37474f" wrapText="true">
          <font>
             <Font name="Century" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="calisanekle" layoutX="650.0" layoutY="217.0" mnemonicParsing="false" onAction="#calisanEkle" prefHeight="102.0" prefWidth="201.0" text="Personel Ekle/Düzenle/İncele" textFill="#37474f" wrapText="true">
+      <Button fx:id="calisanekle" layoutX="650.0" layoutY="217.0" mnemonicParsing="false" onAction="#calisanEkle" prefHeight="102.0" prefWidth="201.0" text="Personel Ekle/Düzenle/İncele" textAlignment="CENTER" textFill="#37474f" wrapText="true">
          <font>
             <Font name="Century" size="18.0" />
          </font>
@@ -31,25 +31,33 @@
             <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
          </padding>
       </Label>
-      <Button fx:id="radyoaktifekle" layoutX="47.0" layoutY="319.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="201.0" text="Radyoaktif Muayene Raporu Ekle/Düzenle/İncele" textFill="#37474f" wrapText="true">
+      <Button fx:id="radyoaktifekle" layoutX="47.0" layoutY="319.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="201.0" text="Radyoaktif Muayene Raporu Ekle/Düzenle/İncele" textAlignment="CENTER" textFill="#37474f" wrapText="true">
          <font>
             <Font name="Century" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="manyetikekle" layoutX="248.0" layoutY="421.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="201.0" text="Manyetik Parçacık Muayene Raporu Ekle/Düzenle/İncele" textFill="#37474f" wrapText="true">
+      <Button fx:id="manyetikekle" layoutX="248.0" layoutY="421.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="201.0" text="Manyetik Parçacık Muayene Raporu Ekle/Düzenle/İncele" textAlignment="CENTER" textFill="#37474f" wrapText="true">
          <font>
             <Font name="Century" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="firmaekle" layoutX="449.0" layoutY="319.0" mnemonicParsing="false" onAction="#FirmaEkle" prefHeight="102.0" prefWidth="201.0" text="Firma Ekle/Düzenle/İncele" textFill="#37474f" wrapText="true">
+      <Button fx:id="firmaekle" layoutX="449.0" layoutY="319.0" mnemonicParsing="false" onAction="#FirmaEkle" prefHeight="102.0" prefWidth="201.0" text="Firma Ekle/Düzenle/İncele" textAlignment="CENTER" textFill="#37474f" wrapText="true">
          <font>
             <Font name="Century" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="projeekle" layoutX="248.0" layoutY="217.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="201.0" text="Proje Ekle/Düzenle/İncele" textFill="#37474f" wrapText="true">
+      <Button fx:id="projeekle" layoutX="248.0" layoutY="217.0" mnemonicParsing="false" onAction="#ProjeEkle" prefHeight="102.0" prefWidth="201.0" text="Proje Ekle/Düzenle/İncele" textAlignment="CENTER" textFill="#37474f" wrapText="true">
          <font>
             <Font name="Century" size="18.0" />
          </font>
       </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="113.0" layoutY="82.0" prefHeight="135.0" prefWidth="873.0" text="ANA SAYFA" textAlignment="CENTER" textFill="#37474f">
+         <font>
+            <Font name="Century" size="18.0" />
+         </font>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </Label>
    </children>
 </AnchorPane>

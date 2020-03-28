@@ -25,7 +25,7 @@
             </Label>
          </children>
       </HBox>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="196.0" layoutY="138.0" prefHeight="71.0" prefWidth="483.0" text="PERSONEL" textAlignment="CENTER" textFill="#37474f">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="188.0" layoutY="141.0" prefHeight="71.0" prefWidth="483.0" text="YÜZEY DURUMU" textAlignment="CENTER" textFill="#37474f">
          <font>
             <Font name="Century" size="18.0" />
          </font>
@@ -43,18 +43,18 @@
             </TableView>
             <HBox prefHeight="80.0" prefWidth="764.0">
                <children>
-                  <TextField fx:id="YuzeyDurumNumarasiTextField" prefHeight="42.0" prefWidth="382.0" promptText="Yüzey Durum Numarası" />
-                  <TextField fx:id="YuzeyDurumuTextField" prefHeight="42.0" prefWidth="382.0" promptText="Yüzey Durumu" />
+                  <TextField fx:id="YuzeyDurumNumarasiTextField" alignment="CENTER" prefHeight="42.0" prefWidth="382.0" promptText="Yüzey Durum Numarası" />
+                  <TextField fx:id="YuzeyDurumuTextField" alignment="CENTER" prefHeight="42.0" prefWidth="382.0" promptText="Yüzey Durumu" />
                </children>
             </HBox>
             <HBox prefHeight="81.0" prefWidth="764.0" spacing="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#newYuzeyDurumuButtonPushed" prefHeight="81.0" prefWidth="283.0" style="-fx-background-color: #FFFFFF;" text="Yüzey Durumu Ekle">
+                  <Button mnemonicParsing="false" onAction="#newYuzeyDurumuButtonPushed" prefHeight="81.0" prefWidth="283.0" style="-fx-background-color: #FFFFFF;" text="Yüzey Durumu Ekle" textFill="#37474f">
                      <font>
                         <Font name="Century" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="81.0" prefWidth="283.0" style="-fx-background-color: #FFFFFF;" text="Yüzey Durumu Sil">
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="81.0" prefWidth="283.0" style="-fx-background-color: #FFFFFF;" text="Yüzey Durumu Sil" textFill="#37474f">
                      <font>
                         <Font name="Century" size="18.0" />
                      </font>
@@ -63,7 +63,7 @@
             </HBox>
          </children>
       </VBox>
-      <Button layoutX="638.0" layoutY="684.0" mnemonicParsing="false" onAction="#anaSayfayaDon" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Ana Sayfaya Geri Dön" wrapText="true">
+      <Button layoutX="611.0" layoutY="684.0" mnemonicParsing="false" onAction="#anaSayfayaDon" prefHeight="78.0" prefWidth="209.0" style="-fx-background-color: #FFFFFF;" text="Ana Sayfaya Geri Dön" textAlignment="CENTER" textFill="#37474f" wrapText="true">
          <font>
             <Font name="Century" size="18.0" />
          </font>

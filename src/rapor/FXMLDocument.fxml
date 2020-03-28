@@ -34,12 +34,12 @@
                         <Image url="@Icons/user.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="username" focusTraversable="false" layoutX="122.0" layoutY="21.0" promptText="Kullanıcı Adı" style="-fx-background-color: #37474f;">
+                  <TextField fx:id="username" focusTraversable="false" layoutX="122.0" layoutY="21.0" promptText="Kullanıcı Adı" style="-fx-text-inner-color: #FFFFFF; -fx-background-color: #37474f;">
                      <font>
                         <Font name="Century" size="18.0" />
                      </font>
                   </TextField>
-                  <PasswordField focusTraversable="false" layoutX="121.0" layoutY="63.0" promptText="Şifre" style="-fx-background-color: #37474f;">
+                  <PasswordField focusTraversable="false" layoutX="121.0" layoutY="63.0" promptText="Şifre" style="-fx-background-color: #37474f; -fx-text-inner-color: #FFFFFF;">
                      <font>
                         <Font name="Century" size="18.0" />
                      </font>

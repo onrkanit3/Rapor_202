@@ -25,7 +25,7 @@
             </Label>
          </children>
       </HBox>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="206.0" layoutY="148.0" prefHeight="71.0" prefWidth="483.0" text="PERSONEL" textAlignment="CENTER" textFill="#37474f">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="206.0" layoutY="148.0" prefHeight="71.0" prefWidth="483.0" text="MÜŞTERİ/FİRMA" textAlignment="CENTER" textFill="#37474f">
          <font>
             <Font name="Century" size="18.0" />
          </font>
@@ -46,11 +46,11 @@
             </TableView>
             <HBox prefHeight="80.0" prefWidth="764.0">
                <children>
-                  <TextField fx:id="MusteriIsmiTextField" promptText="Müşteri İsmi" />
-                  <TextField fx:id="IlTextField" promptText="İl" />
-                  <TextField fx:id="IlceTextField" promptText="İlçe" />
-                  <TextField fx:id="IsEmriNumarasiTextField" promptText="İş Emri Numarası" />
-                  <TextField fx:id="TeklifNoTextField" promptText="Teklif No" />
+                  <TextField fx:id="MusteriIsmiTextField" alignment="CENTER" promptText="Müşteri İsmi" />
+                  <TextField fx:id="IlTextField" alignment="CENTER" promptText="İl" />
+                  <TextField fx:id="IlceTextField" alignment="CENTER" promptText="İlçe" />
+                  <TextField fx:id="IsEmriNumarasiTextField" alignment="CENTER" promptText="İş Emri Numarası" />
+                  <TextField fx:id="TeklifNoTextField" alignment="CENTER" promptText="Teklif No" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="400.0">
