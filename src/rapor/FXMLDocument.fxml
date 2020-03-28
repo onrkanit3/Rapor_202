@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="232.0" prefWidth="623.0" style="-fx-background-color: #607D8B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="297.0" prefWidth="542.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.FXMLDocumentController">
     <children>
-      <HBox layoutX="41.0" layoutY="14.0" style="-fx-background-color: #607D8B;">
+      <HBox layoutX="41.0" layoutY="14.0" style="-fx-background-color: #90a4ae;">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="135.0" prefWidth="609.0" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="168.0" prefWidth="609.0" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textAlignment="CENTER" textFill="#37474f" wrapText="true" HBox.hgrow="ALWAYS">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font name="Century" size="24.0" />
                </font>
                <padding>
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
@@ -25,7 +25,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox layoutX="117.0" layoutY="120.0">
+      <HBox layoutX="117.0" layoutY="165.0" prefWidth="568.0">
          <children>
             <AnchorPane prefHeight="268.0" prefWidth="574.0" HBox.hgrow="ALWAYS">
                <children>
@@ -34,19 +34,19 @@
                         <Image url="@Icons/user.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="username" focusTraversable="false" layoutX="122.0" layoutY="21.0" promptText="Kullanıcı Adı" style="-fx-background-color: #757575;">
+                  <TextField fx:id="username" focusTraversable="false" layoutX="122.0" layoutY="21.0" promptText="Kullanıcı Adı" style="-fx-background-color: #37474f;">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Century" size="18.0" />
                      </font>
                   </TextField>
-                  <PasswordField focusTraversable="false" layoutX="121.0" layoutY="63.0" promptText="Şifre" style="-fx-background-color: #757575;">
+                  <PasswordField focusTraversable="false" layoutX="121.0" layoutY="63.0" promptText="Şifre" style="-fx-background-color: #37474f;">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Century" size="18.0" />
                      </font>
                   </PasswordField>
-                  <Button fx:id="login" layoutX="287.0" layoutY="115.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" style="-fx-background-color: #BDBDBD#BDBDBD;" text="Giriş">
+                  <Button fx:id="login" layoutX="290.0" layoutY="117.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" text="Giriş" textFill="#37474f">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Century" size="18.0" />
                      </font>
                   </Button>
                   <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="93.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">

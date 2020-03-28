@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +26,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.util.converter.LocalDateStringConverter;
 
 /**
  * FXML Controller class
@@ -39,6 +41,72 @@ public class CalisanEkleController implements Initializable {
     @FXML private TableColumn<Mitarbeiter, String> IDColumn;
     @FXML private TableColumn<Mitarbeiter, String> passwordColumn;  
     @FXML private TableColumn<Mitarbeiter, String> levelColumn;
+    @FXML private TableColumn<Mitarbeiter, LocalDate> sertifikatarihiColumn;
+    
+    @FXML private TextField firstNameTextField;
+    @FXML private TextField lastNameTextField;
+    @FXML private TextField IDTextField;
+    @FXML private TextField ŞifreTextField;
+    @FXML private TextField LevelTextField;
+    @FXML private DatePicker sertifikatarihiDatePicker;
+
+     
+    private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy.MM.dd");
+     
+        public  String merhaba(LocalDate date) {
+        return date == null ? null : date.format(DATE_FORMAT);
+    }
+    public void newMitarbeiterButtonPushed()
+    {
+        Mitarbeiter newMitarbeiter = new Mitarbeiter(firstNameTextField.getText(),lastNameTextField.getText(),IDTextField.getText(),ŞifreTextField.getText(),LevelTextField.getText(),sertifikatarihiDatePicker.getValue());
+        tableView.getItems().add(newMitarbeiter);
+                
+    }        
+        
+    public void changeFirstNameCellEvent(CellEditEvent edittedCell)
+    {
+        Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
+        MitarbeiterSelected.setFirstName(edittedCell.getNewValue().toString());
+    }
+    
+     public void changeLastNameCellEvent(CellEditEvent edittedCell)
+    {
+        Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
+        MitarbeiterSelected.setLastName(edittedCell.getNewValue().toString());
+    }
+     
+      public void changeIDCellEvent(CellEditEvent edittedCell)
+    {
+        Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
+        MitarbeiterSelected.setID(edittedCell.getNewValue().toString());
+    }
+    
+      public void changePasswordCellEvent(CellEditEvent edittedCell)
+    {
+        Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
+        MitarbeiterSelected.setPassword(edittedCell.getNewValue().toString());
+    }
+    
+      public void changeLevelCellEvent(CellEditEvent edittedCell)
+    {
+        Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
+        MitarbeiterSelected.setLevel(edittedCell.getNewValue().toString());
+    }
+      
+      public void deleteButtonPushed()
+    {
+        ObservableList<Mitarbeiter> selectedRows, allPeople;
+        allPeople = tableView.getItems();
+        
+        selectedRows = tableView.getSelectionModel().getSelectedItems();
+        
+        for(Mitarbeiter mitarbeiter : selectedRows)
+        {
+            allPeople.removeAll(selectedRows);  
+        }    
+          
+    }          
+      
     
     
     
@@ -61,15 +129,23 @@ public class CalisanEkleController implements Initializable {
         IDColumn.setCellValueFactory(new PropertyValueFactory<Mitarbeiter, String>("ID"));
         passwordColumn.setCellValueFactory(new PropertyValueFactory<Mitarbeiter, String>("password"));
         levelColumn.setCellValueFactory(new PropertyValueFactory<Mitarbeiter, String>("level"));
-        
+        sertifikatarihiColumn.setCellValueFactory(new PropertyValueFactory<Mitarbeiter, LocalDate>("sertifikatarihi"));
+       
         
         tableView.setItems(getPeople());
-
+        tableView.setEditable(true);
+        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        firstNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        lastNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        IDColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        passwordColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        levelColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+       
     }
     public ObservableList<Mitarbeiter>  getPeople()
     {
         ObservableList<Mitarbeiter> people = FXCollections.observableArrayList();
-        people.add(new Mitarbeiter("Onur","Kanit","onrkanit3","123Onur123+","Level2"));
+        people.add(new Mitarbeiter("Admin","Admin","Admin","Muayene.Admin","Level5",LocalDate.of(9999, Month.DECEMBER, 12)));
         
         
         return people;

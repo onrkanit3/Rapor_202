@@ -43,6 +43,9 @@ public class MainPageController implements Initializable {
     @FXML
     private Button manyetikekle;
     
+    @FXML
+    private Button yuzeydurumuekle;
+    
     public void calisanEkle(ActionEvent event) throws IOException
     {
         Parent CalisanEkleParent = FXMLLoader.load(getClass().getResource("CalisanEkle.fxml"));
@@ -52,6 +55,30 @@ public class MainPageController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         
         window.setScene(CalisanEkleScene);
+        window.show();
+    }
+    
+    public void YuzeyDurumuEkle(ActionEvent event) throws IOException
+    {
+        Parent YuzeyDurumuEkleParent = FXMLLoader.load(getClass().getResource("YuzeyDurumuEkle.fxml"));
+        Scene YuzeyDurumuEkleScene = new Scene(YuzeyDurumuEkleParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(YuzeyDurumuEkleScene);
+        window.show();
+    }
+    
+    public void FirmaEkle(ActionEvent event) throws IOException
+    {
+        Parent FirmaEkleParent = FXMLLoader.load(getClass().getResource("Firma.fxml"));
+        Scene FirmaEkleScene = new Scene(FirmaEkleParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(FirmaEkleScene);
         window.show();
     }
     

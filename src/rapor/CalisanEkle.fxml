@@ -2,25 +2,28 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #607D8B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.CalisanEkleController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.CalisanEkleController">
    <children>
-      <Button layoutX="655.0" layoutY="658.0" mnemonicParsing="false" onAction="#anaSayfayaDon" prefHeight="111.0" prefWidth="197.0" style="-fx-background-color: #BDBDBD;" text="Ana Sayfaya Geri Dön">
+      <Button layoutX="644.0" layoutY="657.0" mnemonicParsing="false" onAction="#anaSayfayaDon" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Ana Sayfaya Geri Dön" textFill="#37474f" wrapText="true">
          <font>
-            <Font size="18.0" />
+            <Font name="Century" size="18.0" />
          </font>
       </Button>
       <HBox layoutX="36.0" layoutY="38.0" prefHeight="135.0" prefWidth="838.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="135.0" prefWidth="873.0" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="135.0" prefWidth="873.0" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textAlignment="CENTER" textFill="#37474f">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font name="Century" size="24.0" />
                </font>
                <padding>
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
@@ -28,22 +31,64 @@
             </Label>
          </children>
       </HBox>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="196.0" layoutY="127.0" prefHeight="71.0" prefWidth="483.0" text="PERSONEL" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="196.0" layoutY="127.0" prefHeight="71.0" prefWidth="483.0" text="PERSONEL" textAlignment="CENTER" textFill="#37474f">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Century" size="18.0" />
          </font>
          <padding>
             <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
          </padding>
       </Label>
-      <TableView fx:id="tableView" layoutX="122.0" layoutY="224.0" prefHeight="409.0" prefWidth="631.0">
-        <columns>
-          <TableColumn fx:id="firstNameColumn" prefWidth="130.0" text="İsim" />
-          <TableColumn fx:id="lastNameColumn" prefWidth="130.0" text="Soyisim" />
-            <TableColumn fx:id="IDColumn" prefWidth="130.0" text="ID" />
-            <TableColumn fx:id="passwordColumn" prefWidth="130.0" text="Şifre" />
-            <TableColumn fx:id="levelColumn" prefWidth="130.0" text="Level" />
-        </columns>
-      </TableView>
+      <VBox layoutX="50.0" layoutY="244.0" prefHeight="364.0" prefWidth="776.0">
+         <children>
+            <TableView fx:id="tableView" prefHeight="238.0" prefWidth="764.0">
+              <columns>
+                <TableColumn fx:id="firstNameColumn" onEditCommit="#changeFirstNameCellEvent" prefWidth="130.0" text="İsim" />
+                <TableColumn fx:id="lastNameColumn" onEditCommit="#changeLastNameCellEvent" prefWidth="130.0" text="Soyisim" />
+                  <TableColumn fx:id="IDColumn" onEditCommit="#changeIDCellEvent" prefWidth="130.0" text="ID" />
+                  <TableColumn fx:id="passwordColumn" onEditCommit="#changePasswordCellEvent" prefWidth="130.0" text="Şifre" />
+                  <TableColumn fx:id="levelColumn" onEditCommit="#changeLevelCellEvent" prefWidth="130.0" text="Level" />
+                  <TableColumn fx:id="sertifikatarihiColumn" prefWidth="130.0" text="Sertifika Tarihi" />
+              </columns>
+            </TableView>
+            <HBox prefHeight="49.0" prefWidth="776.0">
+               <children>
+                  <TextField fx:id="firstNameTextField" prefHeight="42.0" prefWidth="131.0" promptText="İsim">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="lastNameTextField" prefHeight="42.0" prefWidth="130.0" promptText="Soyisim">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="IDTextField" prefHeight="42.0" prefWidth="130.0" promptText="ID">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="ŞifreTextField" prefHeight="42.0" prefWidth="130.0" promptText="Şifre">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <TextField fx:id="LevelTextField" prefHeight="42.0" prefWidth="130.0" promptText="Level">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <DatePicker fx:id="sertifikatarihiDatePicker" prefHeight="42.0" prefWidth="130.0" promptText="Sertifika" />
+               </children>
+            </HBox>
+            <HBox prefHeight="78.0" prefWidth="776.0" spacing="517.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#newMitarbeiterButtonPushed" prefHeight="102.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF;" text="Personel Ekle" textFill="#37474f" wrapText="true">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="102.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF;" text="Personel Sil" textFill="#37474f" wrapText="true">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
