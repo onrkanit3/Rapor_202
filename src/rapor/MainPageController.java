@@ -31,8 +31,6 @@ public class MainPageController implements Initializable {
     @FXML
     private Button projeekle;
     
-    @FXML
-    private Button radyoaktifekle;
     
     @FXML
     private Button ekipmanekle;
@@ -67,6 +65,18 @@ public class MainPageController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         
         window.setScene(YuzeyDurumuEkleScene);
+        window.show();
+    }
+    
+    public void RaporEkle(ActionEvent event) throws IOException
+    {
+        Parent RaporEkleParent = FXMLLoader.load(getClass().getResource("RaporGiris.fxml"));
+        Scene RaporEkleScene = new Scene(RaporEkleParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(RaporEkleScene);
         window.show();
     }
     

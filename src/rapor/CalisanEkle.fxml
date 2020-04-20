@@ -19,7 +19,7 @@
             <Font name="Century" size="18.0" />
          </font>
       </Button>
-      <HBox layoutX="36.0" layoutY="38.0" prefHeight="135.0" prefWidth="838.0">
+      <HBox layoutX="19.0" layoutY="38.0" prefHeight="135.0" prefWidth="838.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="135.0" prefWidth="873.0" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textAlignment="CENTER" textFill="#37474f">
                <font>
@@ -31,7 +31,7 @@
             </Label>
          </children>
       </HBox>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="196.0" layoutY="127.0" prefHeight="71.0" prefWidth="483.0" text="PERSONEL" textAlignment="CENTER" textFill="#37474f">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="134.0" prefHeight="71.0" prefWidth="483.0" text="PERSONEL" textAlignment="CENTER" textFill="#37474f">
          <font>
             <Font name="Century" size="18.0" />
          </font>
