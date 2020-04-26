@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +19,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
@@ -27,13 +32,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.util.converter.LocalDateStringConverter;
+import static rapor.Mitarbeiter.CheckUsernameExists;
 
 /**
  * FXML Controller class
  *
  * @author izmir
  */
-public class CalisanEkleController implements Initializable {
+public class CalisanEkleController implements Initializable
+{
     
     @FXML private TableView<Mitarbeiter> tableView;
     @FXML private TableColumn<Mitarbeiter, String> firstNameColumn;
@@ -49,22 +56,40 @@ public class CalisanEkleController implements Initializable {
     @FXML private TextField ŞifreTextField;
     @FXML private TextField LevelTextField;
     @FXML private DatePicker sertifikatarihiDatePicker;
+    @FXML private Button personelEkle;
 
      
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy.MM.dd");
      
-        public  String merhaba(LocalDate date) {
+    public  String merhaba(LocalDate date)
+    {
         return date == null ? null : date.format(DATE_FORMAT);
     }
     public void newMitarbeiterButtonPushed() throws SQLException
     {
         Mitarbeiter newMitarbeiter = new Mitarbeiter(firstNameTextField.getText(),lastNameTextField.getText(),IDTextField.getText(),ŞifreTextField.getText(),LevelTextField.getText(),sertifikatarihiDatePicker.getValue());
-        tableView.getItems().add(newMitarbeiter);
-        newMitarbeiter.InsertintoDATABASE();
+        if(CheckUsernameExists(IDTextField.getText())==false)
+        {
+           tableView.getItems().add(newMitarbeiter);
+           newMitarbeiter.InsertintoDATABASE();
+        }
+        else
+        {
+            Alert alert = new Alert(AlertType.WARNING, 
+                        "Bu ID başkası tarafından kullanılıyor.\nLütfen farklı bir ID deneyiniz.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+                        
+            
+        }
+        
+        
                  
     }
     
-    public void changeSertifikaTarihi(TableColumn.CellEditEvent edittedCell) throws SQLException{
+    public void changeSertifikaTarihi(TableColumn.CellEditEvent edittedCell) throws SQLException
+    {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
         Mitarbeiter MitarbeiterSelected = tableView.getSelectionModel().getSelectedItem();
         String date = edittedCell.getNewValue().toString();
@@ -72,6 +97,8 @@ public class CalisanEkleController implements Initializable {
         MitarbeiterSelected.setSertifikatarihi(localDate);
         MitarbeiterSelected.UpdateSertifikaTarihi();
     }
+    
+    
         
     public void changeFirstNameCellEvent(CellEditEvent edittedCell) throws SQLException
     {
@@ -137,7 +164,8 @@ public class CalisanEkleController implements Initializable {
         window.show();
     }
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb)
+    {
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<Mitarbeiter, String>("firstName"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<Mitarbeiter, String>("lastName"));
         IDColumn.setCellValueFactory(new PropertyValueFactory<Mitarbeiter, String>("ID"));
@@ -169,36 +197,41 @@ public class CalisanEkleController implements Initializable {
        
     }
     
-    public void LoadMitarbeiter() throws SQLException{
+    public void LoadMitarbeiter() throws SQLException
+    {
         
         ObservableList<Mitarbeiter> mitarbeiter = FXCollections.observableArrayList();
         Connection con= null;
         Statement statement = null;
         ResultSet ResultSet = null;
         
-        try {
+        try
+        {
            con = DataBase.getConnection();
            statement = con.createStatement();
            ResultSet = statement.executeQuery("SELECT *FROM Mitarbeiter");
-           while (ResultSet.next()){
-               Mitarbeiter newMitarbeiter = new Mitarbeiter (ResultSet.getString("firstName"),
+           while (ResultSet.next())
+           {
+                Mitarbeiter newMitarbeiter = new Mitarbeiter (ResultSet.getString("firstName"),
                                                              ResultSet.getString("lastName"),
                                                              ResultSet.getString("MitarbeiterID"),
                                                              ResultSet.getString("passw"),
                                                              ResultSet.getString("lvl"),
                                                              ResultSet.getDate("sertifikatarihi").toLocalDate());
                
-              mitarbeiter.add(newMitarbeiter);
+                mitarbeiter.add(newMitarbeiter);
               
            }
            tableView.getItems().addAll(mitarbeiter);
         }
         
-        catch (Exception e){
+        catch (Exception e)
+        {
             System.err.println(e.getMessage());
         }
         
-        finally {
+        finally 
+        {
             if(con != null)
                con.close();
             if(statement != null)
