@@ -2,6 +2,10 @@ package rapor;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
@@ -56,11 +60,12 @@ public class CalisanEkleController implements Initializable {
         public  String merhaba(LocalDate date) {
         return date == null ? null : date.format(DATE_FORMAT);
     }
-    public void newMitarbeiterButtonPushed()
+    public void newMitarbeiterButtonPushed() throws SQLException
     {
         Mitarbeiter newMitarbeiter = new Mitarbeiter(firstNameTextField.getText(),lastNameTextField.getText(),IDTextField.getText(),ŞifreTextField.getText(),LevelTextField.getText(),sertifikatarihiDatePicker.getValue());
         tableView.getItems().add(newMitarbeiter);
-                
+        newMitarbeiter.InsertintoDATABASE();
+                 
     }        
         
     public void changeFirstNameCellEvent(CellEditEvent edittedCell)
@@ -140,7 +145,54 @@ public class CalisanEkleController implements Initializable {
         IDColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         passwordColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         levelColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        
+        try{
+            LoadMitarbeiter();
+        }
+        
+        catch(SQLException e){
+            
+            System.err.println(e.getMessage());
+        }
        
+    }
+    
+    public void LoadMitarbeiter() throws SQLException{
+        
+        ObservableList<Mitarbeiter> mitarbeiter = FXCollections.observableArrayList();
+        Connection con= null;
+        Statement statement = null;
+        ResultSet ResultSet = null;
+        
+        try {
+           con = DataBase.getConnection();
+           statement = con.createStatement();
+           ResultSet = statement.executeQuery("SELECT *FROM Mitarbeiter");
+           while (ResultSet.next()){
+               Mitarbeiter newMitarbeiter = new Mitarbeiter (ResultSet.getString("firstName"),
+                                                             ResultSet.getString("lastName"),
+                                                             ResultSet.getString("MitarbeiterID"),
+                                                             ResultSet.getString("passw"),
+                                                             ResultSet.getString("lvl"),
+                                                             ResultSet.getDate("sertifikatarihi").toLocalDate());
+               
+              mitarbeiter.add(newMitarbeiter);
+              tableView.getItems().addAll(mitarbeiter);
+           }
+        }
+        
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        
+        finally {
+            if(con != null)
+               con.close();
+            if(statement != null)
+               statement.close();
+            if(ResultSet != null)
+                ResultSet.close(); 
+        }
     }
     public ObservableList<Mitarbeiter>  getPeople()
     {
