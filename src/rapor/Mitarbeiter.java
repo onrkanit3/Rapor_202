@@ -1,10 +1,15 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package rapor;
 
+import java.sql.Connection;
+import java.sql.Date;
+import static java.sql.JDBCType.NULL;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -76,6 +81,47 @@ public class Mitarbeiter {
     
     public String toString(){
         return String.format("%s %s %s %s %s", firstName,lastName,ID,password,level);
+    }
+    
+    public void InsertintoDATABASE() throws SQLException{
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try{
+           con= DataBase.getConnection();
+           String sql = "INSERT INTO Mitarbeiter (firstName, lastName,MitarbeiterID, passw, lvl, sertifikatarihi)"
+                    +"VALUES(?,?,?,?,?,?)"; 
+           
+           preparedStatement = con.prepareStatement(sql);
+           
+           Date db = Date.valueOf(sertifikatarihi);
+           preparedStatement.setString(1, firstName.toString());
+           preparedStatement.setString(2, lastName.toString());
+           preparedStatement.setString(3, ID.toString());
+           preparedStatement.setString(4, password.toString());
+           preparedStatement.setString(5, level.toString());
+           preparedStatement.setDate(6, db);
+           
+           preparedStatement.executeUpdate();
+
+
+           
+        }
+        
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        
+        finally{
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+           
+        
+        
     }
     
 }
