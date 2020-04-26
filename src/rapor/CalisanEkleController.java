@@ -66,36 +66,47 @@ public class CalisanEkleController implements Initializable {
         tableView.getItems().add(newMitarbeiter);
         newMitarbeiter.InsertintoDATABASE();
                  
-    }        
+    }
+    
+    public void changeSertifikaTarihi(TableColumn.CellEditEvent edittedCell) throws SQLException{
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
+        Mitarbeiter MitarbeiterSelected = tableView.getSelectionModel().getSelectedItem();
+        String date = edittedCell.getNewValue().toString();
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        MitarbeiterSelected.setSertifikatarihi(localDate);
+        MitarbeiterSelected.UpdateSertifikaTarihi();
+    }
         
-    public void changeFirstNameCellEvent(CellEditEvent edittedCell)
+    public void changeFirstNameCellEvent(CellEditEvent edittedCell) throws SQLException
     {
         Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
         MitarbeiterSelected.setFirstName(edittedCell.getNewValue().toString());
+        MitarbeiterSelected.UpdateFirstName();
     }
     
-     public void changeLastNameCellEvent(CellEditEvent edittedCell)
+     public void changeLastNameCellEvent(CellEditEvent edittedCell) throws SQLException
     {
         Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
         MitarbeiterSelected.setLastName(edittedCell.getNewValue().toString());
+        MitarbeiterSelected.UpdateLastName();
     }
      
-      public void changeIDCellEvent(CellEditEvent edittedCell)
-    {
-        Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
-        MitarbeiterSelected.setID(edittedCell.getNewValue().toString());
-    }
     
-      public void changePasswordCellEvent(CellEditEvent edittedCell)
+    
+      public void changePasswordCellEvent(CellEditEvent edittedCell) throws SQLException
     {
         Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
         MitarbeiterSelected.setPassword(edittedCell.getNewValue().toString());
+        MitarbeiterSelected.UpdatePassword();
     }
+      
+      
     
-      public void changeLevelCellEvent(CellEditEvent edittedCell)
+      public void changeLevelCellEvent(CellEditEvent edittedCell) throws SQLException
     {
         Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
         MitarbeiterSelected.setLevel(edittedCell.getNewValue().toString());
+        MitarbeiterSelected.UpdateLevel();
     }
       
       public void deleteButtonPushed()
@@ -145,6 +156,9 @@ public class CalisanEkleController implements Initializable {
         IDColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         passwordColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         levelColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        IDColumn.setEditable(false);
+        LocalDateStringConverter converter = new LocalDateStringConverter();
+        sertifikatarihiColumn.setCellFactory(TextFieldTableCell.<Mitarbeiter, LocalDate>forTableColumn(converter));
         
         try{
             LoadMitarbeiter();
@@ -177,8 +191,9 @@ public class CalisanEkleController implements Initializable {
                                                              ResultSet.getDate("sertifikatarihi").toLocalDate());
                
               mitarbeiter.add(newMitarbeiter);
-              tableView.getItems().addAll(mitarbeiter);
+              
            }
+           tableView.getItems().addAll(mitarbeiter);
         }
         
         catch (Exception e){
@@ -197,7 +212,6 @@ public class CalisanEkleController implements Initializable {
     public ObservableList<Mitarbeiter>  getPeople()
     {
         ObservableList<Mitarbeiter> people = FXCollections.observableArrayList();
-        people.add(new Mitarbeiter("Admin","Admin","Admin","Muayene.Admin","Level5",LocalDate.of(9999, Month.DECEMBER, 12)));
         
         
         return people;
