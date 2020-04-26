@@ -107,7 +107,7 @@ public class CalisanEkleController implements Initializable {
         MitarbeiterSelected.UpdateLevel();
     }
       
-      public void deleteButtonPushed()
+      public void deleteButtonPushed() throws SQLException
     {
         ObservableList<Mitarbeiter> selectedRows, allPeople;
         allPeople = tableView.getItems();
@@ -116,7 +116,8 @@ public class CalisanEkleController implements Initializable {
         
         for(Mitarbeiter mitarbeiter : selectedRows)
         {
-            allPeople.removeAll(selectedRows);  
+            allPeople.removeAll(selectedRows);
+            mitarbeiter.DeleteFromDATABASE();
         }    
           
     }          

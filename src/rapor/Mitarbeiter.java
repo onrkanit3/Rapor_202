@@ -91,6 +91,33 @@ public class Mitarbeiter {
         return String.format("%s %s %s %s %s", firstName,lastName,ID,password,level);
     }
     
+    public void DeleteFromDATABASE () throws SQLException{
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try{
+            con= DataBase.getConnection();
+            String sql = "DELETE FROM Mitarbeiter WHERE MitarbeiterID = ?"; 
+
+            preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, ID);
+            preparedStatement.executeUpdate();
+           
+        }
+        
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        
+        finally{
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+    }
+    
     public void InsertintoDATABASE() throws SQLException{
         Connection con = null;
         PreparedStatement preparedStatement = null;
