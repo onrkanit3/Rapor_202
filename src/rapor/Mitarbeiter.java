@@ -9,23 +9,24 @@ import java.sql.Connection;
 import java.sql.Date;
 import static java.sql.JDBCType.NULL;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import javafx.beans.property.SimpleStringProperty;
+import java.time.format.DateTimeFormatter;
 
 
 public class Mitarbeiter {
-    private SimpleStringProperty ID,password,level;
-    private SimpleStringProperty firstName, lastName;
+    private String ID,password,level;
+    private String firstName, lastName;
     private LocalDate sertifikatarihi;
 
     public Mitarbeiter(String firstName, String lastName, String ID, String password,String level, LocalDate sertifikatarihi) {
-        this.firstName = new SimpleStringProperty(firstName);
-        this.lastName = new SimpleStringProperty(lastName);
-        this.ID = new SimpleStringProperty(ID);
-        this.password = new SimpleStringProperty(password);
-        this.level=new SimpleStringProperty(level);
-        this.sertifikatarihi= sertifikatarihi;
+        setFirstName(firstName);
+        setLastName (lastName);
+        setID (ID);
+        setPassword (password);
+        setLevel(level);
+        setSertifikatarihi(sertifikatarihi);
         
         
     }
@@ -35,48 +36,55 @@ public class Mitarbeiter {
     }
 
     public void setSertifikatarihi(LocalDate sertifikatarihi) {
+        
         this.sertifikatarihi = sertifikatarihi;
     }
     
+    public void setSertifikatarihi2(String sertifikatarihi) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+ 
+        LocalDate localDateObj = LocalDate.parse(sertifikatarihi, dateTimeFormatter); 
+        this.sertifikatarihi = localDateObj;
+    }
    
      public String getFirstName() {
-        return firstName.get();
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = new SimpleStringProperty(firstName);
+        this.firstName =firstName;
     }
 
     public String getLastName() {
-        return lastName.get();
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = new SimpleStringProperty(lastName);
+        this.lastName = lastName;
     }
 
     public String getID() {
-        return ID.get();
+        return ID;
     }
 
     public void setID(String ID) {
-        this.ID = new SimpleStringProperty(ID);
+        this.ID = ID;
     }
 
     public String getPassword() {
-        return password.get();
+        return password;
     }
 
     public void setPassword(String password) {
-        this.password = new SimpleStringProperty(password);
+        this.password = password;
     }
     
     public String getLevel(){
-        return level.get();
+        return level;
     }
     
     public void setLevel(String level){
-        this.level= new SimpleStringProperty(level );
+        this.level= level ;
     }
     
     public String toString(){
@@ -86,23 +94,59 @@ public class Mitarbeiter {
     public void InsertintoDATABASE() throws SQLException{
         Connection con = null;
         PreparedStatement preparedStatement = null;
+
+        try{
+            con= DataBase.getConnection();
+            String sql = "INSERT INTO Mitarbeiter (firstName, lastName,MitarbeiterID, passw, lvl, sertifikatarihi)"
+                 +"VALUES(?,?,?,?,?,?)"; 
+
+            preparedStatement = con.prepareStatement(sql);
+
+            Date db = Date.valueOf(sertifikatarihi);
+            preparedStatement.setString(1, firstName);
+            preparedStatement.setString(2, lastName);
+            preparedStatement.setString(3, ID);
+            preparedStatement.setString(4, password);
+            preparedStatement.setString(5, level);
+            preparedStatement.setDate(6, db);
+
+            preparedStatement.executeUpdate();
+           
+        }
+        
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        
+        finally{
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+            
+    }
+    
+    
+    
+    public void UpdateFirstName () throws SQLException
+    {
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
         
         try{
            con= DataBase.getConnection();
-           String sql = "INSERT INTO Mitarbeiter (firstName, lastName,MitarbeiterID, passw, lvl, sertifikatarihi)"
-                    +"VALUES(?,?,?,?,?,?)"; 
+           String sql = "UPDATE Mitarbeiter SET firstName =?" + "WHERE MitarbeiterID = ?"; 
            
            preparedStatement = con.prepareStatement(sql);
            
-           Date db = Date.valueOf(sertifikatarihi);
-           preparedStatement.setString(1, firstName.toString());
-           preparedStatement.setString(2, lastName.toString());
-           preparedStatement.setString(3, ID.toString());
-           preparedStatement.setString(4, password.toString());
-           preparedStatement.setString(5, level.toString());
-           preparedStatement.setDate(6, db);
+           preparedStatement.setString(1, firstName);
+           preparedStatement.setString(2, ID);
+           
            
            preparedStatement.executeUpdate();
+           preparedStatement.close();
 
 
            
@@ -119,9 +163,150 @@ public class Mitarbeiter {
             if(con != null)
                con.close();
         }
+    }
+    
+    public void UpdateSertifikaTarihi () throws SQLException
+    {
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try{
+           con= DataBase.getConnection();
+           String sql = "UPDATE Mitarbeiter SET sertifikatarihi =?" + "WHERE MitarbeiterID = ?"; 
            
+           preparedStatement = con.prepareStatement(sql);
+           Date bd = Date.valueOf(sertifikatarihi);
+
+           
+           preparedStatement.setDate(1, bd);
+           preparedStatement.setString(2, ID);
+           
+           
+           preparedStatement.executeUpdate();
+           preparedStatement.close();
+
+
+           
+        }
         
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
         
+        finally{
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+    }
+    
+    public void UpdateLastName () throws SQLException
+    {
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try{
+           con= DataBase.getConnection();
+           String sql = "UPDATE Mitarbeiter SET lastName =?" + "WHERE MitarbeiterID = ?"; 
+           
+           preparedStatement = con.prepareStatement(sql);
+           
+           preparedStatement.setString(1, lastName);
+           preparedStatement.setString(2, ID);
+           
+           
+           preparedStatement.executeUpdate();
+           preparedStatement.close();
+
+
+           
+        }
+        
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        
+        finally{
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+    }
+    
+    
+    
+    public void UpdatePassword () throws SQLException
+    {
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try{
+           con= DataBase.getConnection();
+           String sql = "UPDATE Mitarbeiter SET passw = ?" + "WHERE MitarbeiterID = ?"; 
+           
+           preparedStatement = con.prepareStatement(sql);
+           
+           preparedStatement.setString(1, password);
+           preparedStatement.setString(2, ID);
+           
+           
+           preparedStatement.executeUpdate();
+           preparedStatement.close();
+
+
+           
+        }
+        
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        
+        finally{
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+    }
+    
+    public void UpdateLevel () throws SQLException
+    {
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try{
+           con= DataBase.getConnection();
+           String sql = "UPDATE Mitarbeiter SET lvl = ?" + "WHERE MitarbeiterID = ?"; 
+           
+           preparedStatement = con.prepareStatement(sql);
+           
+           preparedStatement.setString(1, level);
+           preparedStatement.setString(2, ID);
+           
+           
+           preparedStatement.executeUpdate();
+           preparedStatement.close();
+
+
+           
+        }
+        
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        
+        finally{
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
     }
     
 }

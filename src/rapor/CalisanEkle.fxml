@@ -45,10 +45,10 @@
               <columns>
                 <TableColumn fx:id="firstNameColumn" onEditCommit="#changeFirstNameCellEvent" prefWidth="130.0" text="İsim" />
                 <TableColumn fx:id="lastNameColumn" onEditCommit="#changeLastNameCellEvent" prefWidth="130.0" text="Soyisim" />
-                  <TableColumn fx:id="IDColumn" onEditCommit="#changeIDCellEvent" prefWidth="130.0" text="ID" />
+                  <TableColumn fx:id="IDColumn" prefWidth="130.0" text="ID" />
                   <TableColumn fx:id="passwordColumn" onEditCommit="#changePasswordCellEvent" prefWidth="130.0" text="Şifre" />
                   <TableColumn fx:id="levelColumn" onEditCommit="#changeLevelCellEvent" prefWidth="130.0" text="Level" />
-                  <TableColumn fx:id="sertifikatarihiColumn" prefWidth="130.0" text="Sertifika Tarihi" />
+                  <TableColumn fx:id="sertifikatarihiColumn" onEditCommit="#changeSertifikaTarihi" prefWidth="130.0" text="Sertifika Tarihi" />
               </columns>
             </TableView>
             <HBox prefHeight="49.0" prefWidth="776.0">

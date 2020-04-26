@@ -10,31 +10,31 @@ import javafx.beans.property.SimpleStringProperty;
 
 
 public class YuzeyDurumu {
-    private SimpleStringProperty YuzeyDurumNumarasi,YuzeyDurumu;
+    private String YuzeyDurumNumarasi,YuzeyDurumu;
     
 
     public YuzeyDurumu(String YuzeyDurumNumarasi, String YuzeyDurumu) {
-        this.YuzeyDurumNumarasi = new SimpleStringProperty(YuzeyDurumNumarasi);
-        this.YuzeyDurumu = new SimpleStringProperty(YuzeyDurumu);
+        this.YuzeyDurumNumarasi = YuzeyDurumNumarasi;
+        this.YuzeyDurumu = YuzeyDurumu;
         
         
         
     }
     
      public String getYuzeyDurumNumarasi() {
-        return YuzeyDurumNumarasi.get();
+        return YuzeyDurumNumarasi;
     }
 
     public void setYuzeyDurumNumarasi(String YuzeyDurumNumarasi) {
-        this.YuzeyDurumNumarasi = new SimpleStringProperty(YuzeyDurumNumarasi);
+        this.YuzeyDurumNumarasi = YuzeyDurumNumarasi;
     }
     
      public String getYuzeyDurumu() {
-        return YuzeyDurumu.get();
+        return YuzeyDurumu;
     }
      
     public void setYuzeyDurumu(String YuzeyDurumu) {
-        this.YuzeyDurumu = new SimpleStringProperty(YuzeyDurumu);
+        this.YuzeyDurumu = YuzeyDurumu;
     }
     
     public String toString(){

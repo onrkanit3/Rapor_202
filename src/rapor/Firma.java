@@ -5,62 +5,61 @@
  */
 package rapor;
 
-import javafx.beans.property.SimpleStringProperty;
 
 
 public class Firma {
-    private SimpleStringProperty MusteriIsmi, Il, Ilce, IsEmriNumarasi, TeklifNo;
+    private String MusteriIsmi, Il, Ilce, IsEmriNumarasi, TeklifNo;
     
 
     public Firma(String MusteriIsmi, String Il, String Ilce, String IsEmriNumarasi, String TeklifNo) {
-        this.MusteriIsmi = new SimpleStringProperty(MusteriIsmi);
-        this.Il = new SimpleStringProperty(Il);
-        this.Ilce= new SimpleStringProperty(Ilce);
-        this.IsEmriNumarasi= new SimpleStringProperty(IsEmriNumarasi);
-        this.TeklifNo= new SimpleStringProperty(TeklifNo);
+        setMusteriIsmi (MusteriIsmi);
+        setIl(Il);
+        setIlce(Ilce);
+        IsEmriNumarasi=(IsEmriNumarasi);
+        setTeklifNo(TeklifNo);
         
         
         
     }
     
     public String getMusteriIsmi() {
-        return MusteriIsmi.get();
+        return MusteriIsmi;
     }
 
     public void setMusteriIsmi(String MusteriIsmi) {
-        this.MusteriIsmi = new SimpleStringProperty(MusteriIsmi);
+        this.MusteriIsmi =MusteriIsmi;
     }
     
     public String getIl() {
-        return Il.get();
+        return Il;
     }
 
     public void setIl(String Il) {
-        this.Il = new SimpleStringProperty(Il);
+        this.Il =Il;
     }
     
     public String getIlce() {
-        return Ilce.get();
+        return Ilce;
     }
 
     public void setIlce(String Ilce) {
-        this.Ilce = new SimpleStringProperty(Ilce);
+        this.Ilce = Ilce;
     }
     
     public String getIsEmriNumarasi() {
-        return IsEmriNumarasi.get();
+        return IsEmriNumarasi;
     }
 
     public void setIsEmriNumarasi(String IsEmriNumarasi) {
-        this.IsEmriNumarasi = new SimpleStringProperty(IsEmriNumarasi);
+        this.IsEmriNumarasi = IsEmriNumarasi;
     }
     
     public String getTeklifNo() {
-        return TeklifNo.get();
+        return TeklifNo;
     }
 
     public void setTeklifNo(String TeklifNo) {
-        this.TeklifNo = new SimpleStringProperty(TeklifNo);
+        this.TeklifNo = TeklifNo;
     }
     
     public String toString(){

@@ -10,74 +10,74 @@ import javafx.beans.property.SimpleStringProperty;
 
 
 public class Ekipman {
-    private SimpleStringProperty EkipmanNo,Cihaz,KutupMesafesi,MpTasiyiciOrtam,MiknatislamaTeknigi,UVIsikSiddeti,IsikMesafesi;
+    private String EkipmanNo,Cihaz,KutupMesafesi,MpTasiyiciOrtam,MiknatislamaTeknigi,UVIsikSiddeti,IsikMesafesi;
 
     public Ekipman(String EkipmanNo, String Cihaz, String KutupMesafesi, String MpTasiyiciOrtam,String MiknatislamaTeknigi, String UVIsikSiddeti,String IsikMesafesi) {
-        this.EkipmanNo = new SimpleStringProperty(EkipmanNo);
-        this.Cihaz = new SimpleStringProperty(Cihaz);
-        this.KutupMesafesi = new SimpleStringProperty(KutupMesafesi);
-        this.MpTasiyiciOrtam = new SimpleStringProperty(MpTasiyiciOrtam);
-        this.MiknatislamaTeknigi= new SimpleStringProperty(MiknatislamaTeknigi);
-        this.UVIsikSiddeti=new SimpleStringProperty(UVIsikSiddeti);
-        this.IsikMesafesi = new SimpleStringProperty(IsikMesafesi);
+        setEkipmanNo (EkipmanNo);
+        setCihaz(Cihaz);
+        setKutupMesafesi (KutupMesafesi);
+        setMpTasiyiciOrtam (MpTasiyiciOrtam);
+        setMiknatislamaTeknigi(MiknatislamaTeknigi);
+        setUVIsikSiddeti(UVIsikSiddeti);
+        setIsikMesafesi (IsikMesafesi);
         
         
     }
     
     public String getEkipmanNo() {
-        return EkipmanNo.get();
+        return EkipmanNo;
     }
 
     public void setEkipmanNo(String EkipmanNo) {
-        this.EkipmanNo = new SimpleStringProperty(EkipmanNo);
+        this.EkipmanNo = EkipmanNo;
     }
     
     public String getCihaz() {
-        return Cihaz.get();
+        return Cihaz;
     }
 
     public void setCihaz(String Cihaz) {
-        this.Cihaz = new SimpleStringProperty(Cihaz);
+        this.Cihaz = Cihaz;
     }
     
     public String getKutupMesafesi() {
-        return KutupMesafesi.get();
+        return KutupMesafesi;
     }
 
     public void setKutupMesafesi(String KutupMesafesi) {
-        this.KutupMesafesi = new SimpleStringProperty(KutupMesafesi);
+        this.KutupMesafesi = KutupMesafesi;
     }
     
     public String getMpTasiyiciOrtam() {
-        return MpTasiyiciOrtam.get();
+        return MpTasiyiciOrtam;
     }
 
     public void setMpTasiyiciOrtam(String MpTasiyiciOrtam) {
-        this.MpTasiyiciOrtam = new SimpleStringProperty(MpTasiyiciOrtam);
+        this.MpTasiyiciOrtam = MpTasiyiciOrtam;
     }
     
     public String getMiknatislamaTeknigi() {
-        return MiknatislamaTeknigi.get();
+        return MiknatislamaTeknigi;
     }
 
     public void setMiknatislamaTeknigi(String MiknatislamaTeknigi) {
-        this.MiknatislamaTeknigi = new SimpleStringProperty(MiknatislamaTeknigi);
+        this.MiknatislamaTeknigi = MiknatislamaTeknigi;
     }
     
     public String getUVIsikSiddeti() {
-        return UVIsikSiddeti.get();
+        return UVIsikSiddeti;
     }
 
     public void setUVIsikSiddeti(String UVIsikSiddeti) {
-        this.UVIsikSiddeti = new SimpleStringProperty(UVIsikSiddeti);
+        this.UVIsikSiddeti = UVIsikSiddeti;
     }
     
     public String getIsikMesafesi() {
-        return IsikMesafesi.get();
+        return IsikMesafesi;
     }
 
     public void setIsikMesafesi(String IsikMesafesi) {
-        this.IsikMesafesi = new SimpleStringProperty(IsikMesafesi);
+        this.IsikMesafesi = IsikMesafesi;
     }
     
     public String toString(){

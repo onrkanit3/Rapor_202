@@ -9,12 +9,12 @@ import javafx.beans.property.SimpleStringProperty;
 
 
 public class Proje {
-    private SimpleStringProperty ProjeNumarasi,ProjeAdi;
+    private String ProjeNumarasi,ProjeAdi;
     
 
     public Proje(String ProjeNumarasi, String ProjeAdi) {
-        this.ProjeNumarasi = new SimpleStringProperty(ProjeNumarasi);
-        this.ProjeAdi = new SimpleStringProperty(ProjeAdi);
+        setProjeNumarasi(ProjeNumarasi);
+        setProjeAdi(ProjeAdi);
         
         
         
@@ -22,19 +22,19 @@ public class Proje {
     }
     
     public String getProjeNumarasi() {
-        return ProjeNumarasi.get();
+        return ProjeNumarasi;
     }
 
     public void setProjeNumarasi(String ProjeNumarasi) {
-        this.ProjeNumarasi = new SimpleStringProperty(ProjeNumarasi);
+        this.ProjeNumarasi = ProjeNumarasi;
     }
     
     public String getProjeAdi() {
-        return ProjeAdi.get();
+        return ProjeAdi;
     }
 
     public void setProjeAdi(String ProjeAdi) {
-        this.ProjeAdi = new SimpleStringProperty(ProjeAdi);
+        this.ProjeAdi = ProjeAdi;
     }
     
     public String toString(){
