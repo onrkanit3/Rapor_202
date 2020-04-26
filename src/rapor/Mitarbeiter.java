@@ -8,17 +8,20 @@ package rapor;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
-public class Mitarbeiter {
+public class Mitarbeiter
+{
     private String ID,password,level;
     private String firstName, lastName;
     private LocalDate sertifikatarihi;
 
-    public Mitarbeiter(String firstName, String lastName, String ID, String password,String level, LocalDate sertifikatarihi) {
+    public Mitarbeiter(String firstName, String lastName, String ID, String password,String level, LocalDate sertifikatarihi)
+    {
         setFirstName(firstName);
         setLastName (lastName);
         setID (ID);
@@ -89,11 +92,13 @@ public class Mitarbeiter {
         return String.format("%s %s %s %s %s", firstName,lastName,ID,password,level);
     }
     
-    public void DeleteFromDATABASE () throws SQLException{
+    public void DeleteFromDATABASE () throws SQLException
+    {
         Connection con = null;
         PreparedStatement preparedStatement = null;
         
-        try{
+        try
+        {
             con= DataBase.getConnection();
             String sql = "DELETE FROM Mitarbeiter WHERE MitarbeiterID = ?"; 
 
@@ -103,11 +108,13 @@ public class Mitarbeiter {
            
         }
         
-        catch (Exception e){
+        catch (Exception e)
+        {
             System.err.println(e.getMessage());
         }
         
-        finally{
+        finally
+        {
             if(preparedStatement !=null)
                preparedStatement.close();
             
@@ -119,8 +126,10 @@ public class Mitarbeiter {
     public void InsertintoDATABASE() throws SQLException{
         Connection con = null;
         PreparedStatement preparedStatement = null;
-
-        try{
+        
+       
+        try
+        {
             con= DataBase.getConnection();
             String sql = "INSERT INTO Mitarbeiter (firstName, lastName,MitarbeiterID, passw, lvl, sertifikatarihi)"
                  +"VALUES(?,?,?,?,?,?)"; 
@@ -139,19 +148,60 @@ public class Mitarbeiter {
            
         }
         
-        catch (Exception e){
+        catch (Exception e)
+        {
             System.err.println(e.getMessage());
         }
         
-        finally{
+        finally
+        {
             if(preparedStatement !=null)
                preparedStatement.close();
             
             if(con != null)
                con.close();
         }
-            
+        
     }
+    
+     public static boolean CheckUsernameExists(String username)
+        {
+            boolean usernameExists = false;
+            Connection con = null;
+            PreparedStatement preparedStatement = null;
+
+            try
+            {
+            con= DataBase.getConnection();
+            String sql = "select MitarbeiterID from Mitarbeiter "; 
+                
+
+                PreparedStatement st = con.prepareStatement(sql);
+                ResultSet r1=st.executeQuery();
+                String MitarbeiterIDCounter;
+                 while(r1.next()) 
+                 {
+                   MitarbeiterIDCounter =  r1.getString("MitarbeiterID");
+                   if(MitarbeiterIDCounter.equals(username)) 
+                   {
+                       System.out.println("It already exists");
+                      usernameExists = true;
+                   }
+                 }
+
+
+             }
+
+             catch (SQLException e) 
+             {
+               System.out.println("SQL Exception: "+ e.toString());
+             }
+
+             return usernameExists;
+        }
+        
+            
+    
     
     
     
@@ -177,11 +227,13 @@ public class Mitarbeiter {
            
         }
         
-        catch (Exception e){
+        catch (Exception e)
+        {
             System.err.println(e.getMessage());
         }
         
-        finally{
+        finally
+        {
             if(preparedStatement !=null)
                preparedStatement.close();
             
@@ -195,7 +247,8 @@ public class Mitarbeiter {
         Connection con = null;
         PreparedStatement preparedStatement = null;
         
-        try{
+        try
+        {
            con= DataBase.getConnection();
            String sql = "UPDATE Mitarbeiter SET sertifikatarihi =?" + "WHERE MitarbeiterID = ?"; 
            
@@ -214,11 +267,13 @@ public class Mitarbeiter {
            
         }
         
-        catch (Exception e){
+        catch (Exception e)
+        {
             System.err.println(e.getMessage());
         }
         
-        finally{
+        finally
+        {
             if(preparedStatement !=null)
                preparedStatement.close();
             
@@ -232,7 +287,8 @@ public class Mitarbeiter {
         Connection con = null;
         PreparedStatement preparedStatement = null;
         
-        try{
+        try
+        {
            con= DataBase.getConnection();
            String sql = "UPDATE Mitarbeiter SET lastName =?" + "WHERE MitarbeiterID = ?"; 
            
@@ -249,7 +305,8 @@ public class Mitarbeiter {
            
         }
         
-        catch (Exception e){
+        catch (Exception e)
+        {
             System.err.println(e.getMessage());
         }
         
@@ -269,7 +326,8 @@ public class Mitarbeiter {
         Connection con = null;
         PreparedStatement preparedStatement = null;
         
-        try{
+        try
+        {
            con= DataBase.getConnection();
            String sql = "UPDATE Mitarbeiter SET passw = ?" + "WHERE MitarbeiterID = ?"; 
            
@@ -286,11 +344,13 @@ public class Mitarbeiter {
            
         }
         
-        catch (Exception e){
+        catch (Exception e)
+        {
             System.err.println(e.getMessage());
         }
         
-        finally{
+        finally
+        {
             if(preparedStatement !=null)
                preparedStatement.close();
             
@@ -304,7 +364,8 @@ public class Mitarbeiter {
         Connection con = null;
         PreparedStatement preparedStatement = null;
         
-        try{
+        try
+        {
            con= DataBase.getConnection();
            String sql = "UPDATE Mitarbeiter SET lvl = ?" + "WHERE MitarbeiterID = ?"; 
            
@@ -321,11 +382,13 @@ public class Mitarbeiter {
            
         }
         
-        catch (Exception e){
+        catch (Exception e)
+        {
             System.err.println(e.getMessage());
         }
         
-        finally{
+        finally
+        {
             if(preparedStatement !=null)
                preparedStatement.close();
             

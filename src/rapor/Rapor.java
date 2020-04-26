@@ -16,10 +16,12 @@ import javafx.stage.Stage;
  *
  * @author izmir
  */
-public class Rapor extends Application {
+public class Rapor extends Application
+{
     
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) throws Exception 
+    {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
@@ -31,7 +33,8 @@ public class Rapor extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException 
+    {
         launch(args);
         
     }

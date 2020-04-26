@@ -8,7 +8,8 @@ package rapor;
 
 
 
-public class Proje {
+public class Proje
+{
     private String ProjeNumarasi,ProjeAdi;
     
 

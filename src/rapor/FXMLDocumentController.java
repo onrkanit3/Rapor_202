@@ -26,7 +26,8 @@ import javafx.stage.Stage;
  *
  * @author izmir
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController implements Initializable
+{
     
     @FXML
     private Label label;

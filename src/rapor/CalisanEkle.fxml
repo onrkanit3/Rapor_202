@@ -63,7 +63,7 @@
             </HBox>
             <HBox prefHeight="78.0" prefWidth="776.0" spacing="517.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#newMitarbeiterButtonPushed" prefHeight="102.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF;" text="Personel Ekle" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                  <Button fx:id="personelEkle" mnemonicParsing="false" onAction="#newMitarbeiterButtonPushed" prefHeight="102.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF;" text="Personel Ekle" textAlignment="CENTER" textFill="#37474f" wrapText="true">
                      <font>
                         <Font name="Century" size="18.0" />
                      </font></Button>

@@ -30,7 +30,8 @@ import javafx.stage.Stage;
  *
  * @author izmir
  */
-public class EkipmanEkleController implements Initializable {
+public class EkipmanEkleController implements Initializable 
+{
 
     @FXML private TableView<Ekipman> tableView;
     @FXML private TableColumn<Ekipman, String> EkipmanNoColumn;
@@ -130,7 +131,8 @@ public class EkipmanEkleController implements Initializable {
     
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) 
+    {
         EkipmanNoColumn.setCellValueFactory(new PropertyValueFactory<Ekipman, String>("EkipmanNo"));
         CihazColumn.setCellValueFactory(new PropertyValueFactory<Ekipman, String>("Cihaz"));
         MpTasiyiciOrtamColumn.setCellValueFactory(new PropertyValueFactory<Ekipman, String>("MpTasiyiciOrtam"));

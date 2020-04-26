@@ -13,19 +13,26 @@ import java.sql.SQLException;
  *
  * @author izmir
  */
-public class DataBase {  
+public class DataBase
+{  
     private static Connection con;
 
-    public static Connection getConnection() {
-        try {
+    public static Connection getConnection()
+    {
+        try 
+        {
             Class.forName("org.hsqldb.jdbcDriver");
             String url = "jdbc:hsqldb:file:C:\\Users\\izmir\\OneDrive\\Masaüstü\\DataBase\\;shutdown=true";
             con = DriverManager.getConnection(url, "onrkanit3", "123Onur123+");
             
-            } catch (SQLException e) {
+        } 
+        
+        catch (SQLException e) 
+        {
              System.err.println(e); 
-            } catch (ClassNotFoundException e){  
-            System.err.println(e); 
+        } 
+        catch (ClassNotFoundException e){  
+             System.err.println(e); 
         }
         return con;
     }

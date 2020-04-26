@@ -23,7 +23,8 @@ import javafx.stage.Stage;
  *
  * @author izmir
  */
-public class MainPageController implements Initializable {
+public class MainPageController implements Initializable 
+{
 
     @FXML
     private Button calisanekle;

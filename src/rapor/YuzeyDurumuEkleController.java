@@ -88,7 +88,8 @@ public class YuzeyDurumuEkleController implements Initializable {
     
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb)
+    {
         YuzeyDurumNumarasiColumn.setCellValueFactory(new PropertyValueFactory<YuzeyDurumu, String>("YuzeyDurumNumarasi"));
         YuzeyDurumuColumn.setCellValueFactory(new PropertyValueFactory<YuzeyDurumu, String>("YuzeyDurumu"));
         

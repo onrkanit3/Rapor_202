@@ -30,7 +30,8 @@ import javafx.stage.Stage;
  *
  * @author izmir
  */
-public class ProjeEkleController implements Initializable {
+public class ProjeEkleController implements Initializable 
+{
 
     @FXML private TableView<Proje> tableView;
     @FXML private TableColumn<Proje, String> ProjeNumarasiColumn;
@@ -87,7 +88,8 @@ public class ProjeEkleController implements Initializable {
    
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb)
+    {
         ProjeNumarasiColumn.setCellValueFactory(new PropertyValueFactory<Proje, String>("ProjeNumarasi"));
         ProjeAdiColumn.setCellValueFactory(new PropertyValueFactory<Proje, String>("ProjeAdi"));
         
@@ -109,6 +111,6 @@ public class ProjeEkleController implements Initializable {
         
         return proje;
     }
-    }    
+}    
     
 

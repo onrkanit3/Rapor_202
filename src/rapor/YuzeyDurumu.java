@@ -7,11 +7,13 @@ package rapor;
 
 
 
-public class YuzeyDurumu {
+public class YuzeyDurumu 
+{
     private String YuzeyDurumNumarasi,YuzeyDurumu;
     
 
-    public YuzeyDurumu(String YuzeyDurumNumarasi, String YuzeyDurumu) {
+    public YuzeyDurumu(String YuzeyDurumNumarasi, String YuzeyDurumu) 
+    {
         this.YuzeyDurumNumarasi = YuzeyDurumNumarasi;
         this.YuzeyDurumu = YuzeyDurumu;
         
@@ -19,19 +21,23 @@ public class YuzeyDurumu {
         
     }
     
-     public String getYuzeyDurumNumarasi() {
+     public String getYuzeyDurumNumarasi() 
+     {
         return YuzeyDurumNumarasi;
     }
 
-    public void setYuzeyDurumNumarasi(String YuzeyDurumNumarasi) {
+    public void setYuzeyDurumNumarasi(String YuzeyDurumNumarasi)
+    {
         this.YuzeyDurumNumarasi = YuzeyDurumNumarasi;
     }
     
-     public String getYuzeyDurumu() {
+     public String getYuzeyDurumu()
+    {
         return YuzeyDurumu;
     }
      
-    public void setYuzeyDurumu(String YuzeyDurumu) {
+    public void setYuzeyDurumu(String YuzeyDurumu)
+    {
         this.YuzeyDurumu = YuzeyDurumu;
     }
     

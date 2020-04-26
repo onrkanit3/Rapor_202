@@ -30,7 +30,8 @@ import javafx.stage.Stage;
  *
  * @author izmir
  */
-public class FirmaController implements Initializable {
+public class FirmaController implements Initializable 
+{
 
     @FXML private TableView<Firma> tableView;
     @FXML private TableColumn<Firma, String> MusteriIsmiColumn;
@@ -140,5 +141,5 @@ public class FirmaController implements Initializable {
         
         return firma;
     }
-    }    
+}    
     

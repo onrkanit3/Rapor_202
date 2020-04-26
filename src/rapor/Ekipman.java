@@ -9,7 +9,9 @@ package rapor;
 public class Ekipman {
     private String EkipmanNo,Cihaz,KutupMesafesi,MpTasiyiciOrtam,MiknatislamaTeknigi,UVIsikSiddeti,IsikMesafesi;
 
-    public Ekipman(String EkipmanNo, String Cihaz, String KutupMesafesi, String MpTasiyiciOrtam,String MiknatislamaTeknigi, String UVIsikSiddeti,String IsikMesafesi) {
+    public Ekipman(String EkipmanNo, String Cihaz, String KutupMesafesi, String MpTasiyiciOrtam,
+                   String MiknatislamaTeknigi, String UVIsikSiddeti,String IsikMesafesi)
+    {
         setEkipmanNo (EkipmanNo);
         setCihaz(Cihaz);
         setKutupMesafesi (KutupMesafesi);
@@ -21,63 +23,78 @@ public class Ekipman {
         
     }
     
-    public String getEkipmanNo() {
+    public String getEkipmanNo()
+    {
         return EkipmanNo;
     }
 
-    public void setEkipmanNo(String EkipmanNo) {
+    public void setEkipmanNo(String EkipmanNo) 
+    {
         this.EkipmanNo = EkipmanNo;
     }
     
-    public String getCihaz() {
+    public String getCihaz() 
+    {
         return Cihaz;
     }
 
-    public void setCihaz(String Cihaz) {
+    public void setCihaz(String Cihaz) 
+    {
         this.Cihaz = Cihaz;
     }
     
-    public String getKutupMesafesi() {
+    public String getKutupMesafesi() 
+    {
         return KutupMesafesi;
     }
 
-    public void setKutupMesafesi(String KutupMesafesi) {
+    public void setKutupMesafesi(String KutupMesafesi) 
+    {
         this.KutupMesafesi = KutupMesafesi;
     }
     
-    public String getMpTasiyiciOrtam() {
+    public String getMpTasiyiciOrtam() 
+    {
         return MpTasiyiciOrtam;
     }
 
-    public void setMpTasiyiciOrtam(String MpTasiyiciOrtam) {
+    public void setMpTasiyiciOrtam(String MpTasiyiciOrtam) 
+    {
         this.MpTasiyiciOrtam = MpTasiyiciOrtam;
     }
     
-    public String getMiknatislamaTeknigi() {
+    public String getMiknatislamaTeknigi() 
+    {
         return MiknatislamaTeknigi;
     }
 
-    public void setMiknatislamaTeknigi(String MiknatislamaTeknigi) {
+    public void setMiknatislamaTeknigi(String MiknatislamaTeknigi) 
+    {
         this.MiknatislamaTeknigi = MiknatislamaTeknigi;
     }
     
-    public String getUVIsikSiddeti() {
+    public String getUVIsikSiddeti() 
+    {
         return UVIsikSiddeti;
     }
 
-    public void setUVIsikSiddeti(String UVIsikSiddeti) {
+    public void setUVIsikSiddeti(String UVIsikSiddeti) 
+    {
         this.UVIsikSiddeti = UVIsikSiddeti;
     }
     
-    public String getIsikMesafesi() {
+    public String getIsikMesafesi() 
+    {
         return IsikMesafesi;
     }
 
-    public void setIsikMesafesi(String IsikMesafesi) {
+    public void setIsikMesafesi(String IsikMesafesi) 
+    {
         this.IsikMesafesi = IsikMesafesi;
     }
     
-    public String toString(){
+    public String toString()
+    {
         return String.format("%s %s %s %s %s %s &s", EkipmanNo,Cihaz,KutupMesafesi,MpTasiyiciOrtam,MiknatislamaTeknigi,UVIsikSiddeti,IsikMesafesi);
     }
     

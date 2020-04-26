@@ -7,11 +7,13 @@ package rapor;
 
 
 
-public class Firma {
+public class Firma
+{
     private String MusteriIsmi, Il, Ilce, IsEmriNumarasi, TeklifNo;
     
 
-    public Firma(String MusteriIsmi, String Il, String Ilce, String IsEmriNumarasi, String TeklifNo) {
+    public Firma(String MusteriIsmi, String Il, String Ilce, String IsEmriNumarasi, String TeklifNo) 
+    {
         setMusteriIsmi (MusteriIsmi);
         setIl(Il);
         setIlce(Ilce);

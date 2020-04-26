@@ -24,7 +24,8 @@ import javafx.stage.Stage;
  *
  * @author izmir
  */
-public class RaporGirisController implements Initializable {
+public class RaporGirisController implements Initializable 
+{
     
     @FXML private TextField RaporNumarasiTextField;
     @FXML private DatePicker RaporTarihiDatePicker;
