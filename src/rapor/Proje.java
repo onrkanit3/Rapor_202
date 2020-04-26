@@ -5,7 +5,7 @@
  */
 package rapor;
 
-import javafx.beans.property.SimpleStringProperty;
+
 
 
 public class Proje {

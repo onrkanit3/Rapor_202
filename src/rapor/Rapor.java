@@ -6,8 +6,6 @@
 package rapor;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.Month;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

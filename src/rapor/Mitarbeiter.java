@@ -7,9 +7,7 @@ package rapor;
 
 import java.sql.Connection;
 import java.sql.Date;
-import static java.sql.JDBCType.NULL;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

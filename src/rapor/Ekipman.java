@@ -5,9 +5,6 @@
  */
 package rapor;
 
-import java.time.LocalDate;
-import javafx.beans.property.SimpleStringProperty;
-
 
 public class Ekipman {
     private String EkipmanNo,Cihaz,KutupMesafesi,MpTasiyiciOrtam,MiknatislamaTeknigi,UVIsikSiddeti,IsikMesafesi;

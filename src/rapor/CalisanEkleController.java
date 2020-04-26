@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -20,7 +19,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
@@ -109,6 +107,7 @@ public class CalisanEkleController implements Initializable {
       
       public void deleteButtonPushed() throws SQLException
     {
+       
         ObservableList<Mitarbeiter> selectedRows, allPeople;
         allPeople = tableView.getItems();
         
@@ -118,7 +117,7 @@ public class CalisanEkleController implements Initializable {
         {
             allPeople.removeAll(selectedRows);
             mitarbeiter.DeleteFromDATABASE();
-        }    
+        }   
           
     }          
       
@@ -149,7 +148,6 @@ public class CalisanEkleController implements Initializable {
         
         tableView.setItems(getPeople());
         tableView.setEditable(true);
-        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         firstNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         lastNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         IDColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -158,6 +156,7 @@ public class CalisanEkleController implements Initializable {
         IDColumn.setEditable(false);
         LocalDateStringConverter converter = new LocalDateStringConverter();
         sertifikatarihiColumn.setCellFactory(TextFieldTableCell.<Mitarbeiter, LocalDate>forTableColumn(converter));
+
         
         try{
             LoadMitarbeiter();
