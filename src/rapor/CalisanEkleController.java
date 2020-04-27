@@ -61,10 +61,7 @@ public class CalisanEkleController implements Initializable
      
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy.MM.dd");
      
-    public  String merhaba(LocalDate date)
-    {
-        return date == null ? null : date.format(DATE_FORMAT);
-    }
+   
     public void newMitarbeiterButtonPushed() throws SQLException
     {
         Mitarbeiter newMitarbeiter = new Mitarbeiter(firstNameTextField.getText(),lastNameTextField.getText(),IDTextField.getText(),ŞifreTextField.getText(),LevelTextField.getText(),sertifikatarihiDatePicker.getValue());

@@ -41,13 +41,6 @@ public class Mitarbeiter
         this.sertifikatarihi = sertifikatarihi;
     }
     
-    public void setSertifikatarihi2(String sertifikatarihi) {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
- 
-        LocalDate localDateObj = LocalDate.parse(sertifikatarihi, dateTimeFormatter); 
-        this.sertifikatarihi = localDateObj;
-    }
-   
      public String getFirstName() {
         return firstName;
     }
