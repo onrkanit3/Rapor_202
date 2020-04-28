@@ -44,7 +44,7 @@
                         <Font name="Century" size="18.0" />
                      </font>
                   </PasswordField>
-                  <Button fx:id="login" layoutX="290.0" layoutY="117.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" text="Giriş" textFill="#37474f">
+                  <Button fx:id="login" layoutX="290.0" layoutY="117.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" style="-fx-background-color: #FFFFFF;" text="Giriş" textFill="#37474f">
                      <font>
                         <Font name="Century" size="18.0" />
                      </font>

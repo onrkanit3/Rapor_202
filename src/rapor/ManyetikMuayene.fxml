@@ -17,9 +17,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="3500.0" prefWidth="1294.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.ManyetikMuayeneController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="3400.0" prefWidth="1294.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.ManyetikMuayeneController">
   <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="3483.0" prefWidth="2500.0" style="-fx-background-color: #90a4ae;">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="3382.0" prefWidth="2500.0" style="-fx-background-color: #90a4ae;">
          <children>
             <HBox layoutX="43.0" layoutY="273.0" prefHeight="473.0" prefWidth="1265.0">
                <children>
