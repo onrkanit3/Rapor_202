@@ -41,7 +41,7 @@
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="105.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" />
+                        <ChoiceBox fx:id="Musteri" prefHeight="105.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" />
                         <Label alignment="CENTER" prefHeight="63.0" prefWidth="219.0" text="Proje Adı (Project Name)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
                            <font>
                               <Font name="Arial Black" size="18.0" />
@@ -52,20 +52,20 @@
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="117.0" prefWidth="179.0" text="TS EN ISO 17638" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ChoiceBox fx:id="ProjeAdi" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="MuayeneStandardi" alignment="CENTER" prefHeight="117.0" prefWidth="179.0" text="TS EN ISO 17638" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label alignment="CENTER" prefHeight="63.0" prefWidth="228.0" text="Muayene Standardı (Inspection Standart)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="139.0" prefWidth="179.0" text="TS EN ISO 23278 Class B" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="EvaluationStandard" alignment="CENTER" prefHeight="139.0" prefWidth="179.0" text="TS EN ISO 23278 Class B" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Label alignment="CENTER" prefHeight="63.0" prefWidth="228.0" text="Değerlen. Standardı (Evaluation Standart)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="124.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="TestYeri" alignment="CENTER" prefHeight="124.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane gridLinesVisible="true" prefHeight="497.0" prefWidth="431.0">
@@ -106,11 +106,11 @@
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="185.0" prefWidth="179.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="132.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" text="P-101-004" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="132.0" prefWidth="179.0" text="\%100" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ChoiceBox prefHeight="198.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <ChoiceBox prefHeight="256.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="ResimNo" alignment="CENTER" prefHeight="185.0" prefWidth="179.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="MuayeneProseduru" alignment="CENTER" prefHeight="132.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" text="P-101-004" GridPane.columnIndex="1" />
+                        <TextField fx:id="MuayeneKapsami" alignment="CENTER" prefHeight="132.0" prefWidth="179.0" text="\%100" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ChoiceBox fx:id="YuzeyDurumu" prefHeight="198.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ChoiceBox fx:id="MuayeneAsamasi" prefHeight="256.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                   <GridPane gridLinesVisible="true" prefHeight="497.0" prefWidth="431.0">
@@ -151,11 +151,11 @@
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="169.0" prefWidth="179.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="182.0" prefWidth="179.0" text="1" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="182.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ChoiceBox prefHeight="284.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <ChoiceBox prefHeight="266.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="RaporTarihi" alignment="CENTER" prefHeight="169.0" prefWidth="179.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="SayfaNo" alignment="CENTER" prefHeight="182.0" prefWidth="179.0" text="1" GridPane.columnIndex="1" />
+                        <TextField fx:id="RaporNo" alignment="CENTER" prefHeight="182.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ChoiceBox fx:id="IsEmriNo" prefHeight="284.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ChoiceBox fx:id="TeklifNo" prefHeight="266.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                   <VBox prefHeight="200.0" prefWidth="100.0" />
@@ -220,27 +220,27 @@
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="UVIsıkSiddeti" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Label alignment="CENTER" prefHeight="144.0" prefWidth="211.0" text="UV Işık Şiddeti (UV Light Intensity)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="94.0" prefWidth="204.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="IsikMesafesi" alignment="CENTER" prefHeight="94.0" prefWidth="204.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Label alignment="CENTER" prefHeight="173.0" prefWidth="211.0" text="Işık Mesafesi (Distance of Light)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="5">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="MiknatislamaTeknigi" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label alignment="CENTER" prefHeight="91.0" prefWidth="219.0" text="Kutup Mesafesi,mm(Pole Distance)" textAlignment="CENTER" textFill="#37474f" wrapText="true">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="91.0" prefWidth="195.0" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="KutupMesafesi" alignment="CENTER" prefHeight="91.0" prefWidth="195.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="Cihaz" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="MpTasiyiciOrtam" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane gridLinesVisible="true" prefHeight="553.0" prefWidth="399.0">
@@ -273,27 +273,27 @@
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <TextField fx:id="MiknatisGiderimi" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                         <Label alignment="CENTER" prefHeight="191.0" prefWidth="211.0" text="Mıknatıs Giderimi (Demagnetization)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="94.0" prefWidth="204.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <TextField fx:id="IsilIslem" alignment="CENTER" prefHeight="94.0" prefWidth="204.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                         <Label alignment="CENTER" prefHeight="166.0" prefWidth="211.0" text="Isıl İşlem (Heat Treatment)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <TextField fx:id="MuayeneOrtami" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                         <Label alignment="CENTER" prefHeight="91.0" prefWidth="219.0" text="Muayene Bölgesi (Examination Area)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="91.0" prefWidth="195.0" text="KAYNAK+HAZ" GridPane.columnIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="AC" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="226.0" prefWidth="179.0" text="1200 Lux" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField fx:id="MuayeneBolgesi" alignment="CENTER" prefHeight="91.0" prefWidth="195.0" text="KAYNAK+HAZ" GridPane.columnIndex="2" />
+                        <TextField fx:id="AkimTipi" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="AC" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField fx:id="Luxmetre" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" text="1200 Lux" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane gridLinesVisible="true" prefHeight="553.0" prefWidth="399.0">
@@ -307,7 +307,6 @@
                         <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Label alignment="CENTER" prefHeight="105.0" prefWidth="211.0" text="Muayene Bölgesindeki Alan Şiddeti, kA/m(Gaus Field Strength)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
@@ -315,37 +314,31 @@
                               <Font name="Arial Black" size="14.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="123.0" prefWidth="211.0" text="MP Taşıyıcı Ortam (MP Carrier Medium)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="2">
+                        <Label alignment="CENTER" prefHeight="63.0" prefWidth="221.0" text="Yüzey (Surface Condition)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="2">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="63.0" prefWidth="221.0" text="Yüzey (Surface Condition)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
+                        <TextField fx:id="IsikCihaziTanimi" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" text="***" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label alignment="CENTER" prefHeight="93.0" prefWidth="211.0" text="Işık Cihazı Tanımı (Identification of Light Equip.)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="174.0" prefWidth="179.0" text="***" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label alignment="CENTER" prefHeight="93.0" prefWidth="211.0" text="Işık Cihazı Tanımı (Identification of Light Equip.)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
+                        <TextField fx:id="KaldirmaTestiTarih" alignment="CENTER" prefHeight="127.0" prefWidth="188.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label alignment="CENTER" prefHeight="91.0" prefWidth="211.0" text="Kaldırma Testi Tarih / No (Lifting Test Date / Number)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="94.0" prefWidth="204.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label alignment="CENTER" prefHeight="91.0" prefWidth="211.0" text="Kaldırma Testi Tarih / No (Lifting Test Date / Number)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="5">
-                           <font>
-                              <Font name="Arial Black" size="18.0" />
-                           </font>
-                        </Label>
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="TAŞLANMIŞ / GRINDING" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="Yuzey" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="TAŞLANMIŞ / GRINDING" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label alignment="CENTER" prefHeight="91.0" prefWidth="219.0" text="Yüzey Sıcaklığı (°C) (Surface Temperature)" textAlignment="CENTER" textFill="#37474f" wrapText="true">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="91.0" prefWidth="195.0" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="3.2 kA/m" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="YuzeySicakligi" alignment="CENTER" prefHeight="111.0" prefWidth="188.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="MuayeneBolgesiAlanSiddeti" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="3.2 kA/m" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>
@@ -356,12 +349,12 @@
                      <children>
                         <AnchorPane prefHeight="179.0" prefWidth="270.0">
                            <children>
-                              <ImageView fitHeight="175.0" fitWidth="277.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-style: solid;">
+                              <ImageView fx:id="AlinKaynagi" fitHeight="175.0" fitWidth="277.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-style: solid;">
                                  <image>
                                     <Image url="@Icons/ForumFoto.png" />
                                  </image>
                               </ImageView>
-                              <RadioButton layoutX="244.0" layoutY="152.0" mnemonicParsing="false" />
+                              <RadioButton fx:id="AlinKaynagiRadio" layoutX="244.0" layoutY="152.0" mnemonicParsing="false" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -374,12 +367,12 @@
                      <children>
                         <AnchorPane prefHeight="177.0" prefWidth="277.0">
                            <children>
-                              <ImageView fitHeight="218.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-style: solid;">
+                              <ImageView fx:id="KoseKaynagi" fitHeight="218.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-style: solid;">
                                  <image>
                                     <Image url="@Icons/ForumFoto2.png" />
                                  </image>
                               </ImageView>
-                              <RadioButton layoutX="273.0" layoutY="153.0" mnemonicParsing="false" />
+                              <RadioButton fx:id="KoseKaynagiRadio" layoutX="273.0" layoutY="153.0" mnemonicParsing="false" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -468,14 +461,14 @@
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="93.0" prefWidth="963.0" style="-fx-background-color: #FFFFFF;" text="Standarttan sapma yoktur" GridPane.columnIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="132.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="StandartSapmalar" alignment="CENTER" prefHeight="93.0" prefWidth="963.0" style="-fx-background-color: #FFFFFF;" text="Standarttan sapma yoktur" GridPane.columnIndex="1" />
+                        <TextField fx:id="MuayeneTarihleri" alignment="CENTER" prefHeight="132.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label alignment="CENTER" prefHeight="85.0" prefWidth="236.0" text="Açıklamalar ve Ekler (Description and Attachments)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="2">
                            <font>
                               <Font name="Arial Black" size="16.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="132.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="AciklamalarVeEkler" alignment="CENTER" prefHeight="132.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
@@ -509,16 +502,16 @@
                         <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-                        <TextField alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                        <TextField fx:id="HataTipi5" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                        <TextField fx:id="HataTipi6" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+                        <TextField fx:id="HataTipi4" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
                         <Label alignment="CENTER" prefHeight="58.0" prefWidth="110.0" text="Sıra No (Serial No)" textAlignment="CENTER" textFill="#37474f" wrapText="true">
                            <font>
                               <Font name="Arial Black" size="14.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                        <TextField fx:id="HataTipi1" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                        <TextField fx:id="HataTipi2" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
                         <Label alignment="CENTER" prefHeight="58.0" prefWidth="217.0" text="Kaynak/ Parça No" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1">
                            <font>
                               <Font name="Arial Black" size="14.0" />
@@ -559,56 +552,56 @@
                               <Font name="Arial Black" size="14.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="6" GridPane.rowIndex="6" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="2" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="5" GridPane.rowIndex="5" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="1" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="3" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="4" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <TextField alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-                        <TextField alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="6" />
-                        <TextField alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+                        <TextField fx:id="SiraNo6" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="6" GridPane.rowIndex="6" />
+                        <TextField fx:id="SiraNo2" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="2" GridPane.rowIndex="2" />
+                        <TextField fx:id="SiraNo5" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="5" GridPane.rowIndex="5" />
+                        <TextField fx:id="SiraNo1" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="SiraNo3" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="3" GridPane.rowIndex="3" />
+                        <TextField fx:id="SiraNo4" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="4" GridPane.rowIndex="4" />
+                        <TextField fx:id="KaynakParcaNo2" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="KaynakParcaNo3" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="KaynakParcaNo1" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="KaynakParcaNo4" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="KaynakParcaNo5" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="KaynakParcaNo6" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="Kalinlik6" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                        <TextField fx:id="Kalinlik5" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                        <TextField fx:id="Kalinlik4" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <TextField fx:id="Kalinlik3" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                        <TextField fx:id="Kalinlik2" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <TextField fx:id="Kalinlik1" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <TextField fx:id="KaynakYon6" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                        <TextField fx:id="KaynakYon5" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                        <TextField fx:id="KaynakYon4" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <TextField fx:id="KaynakYon3" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <TextField fx:id="KaynakYon2" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <TextField fx:id="KaynakYon1" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <TextField fx:id="KontrolUzun6" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                        <TextField fx:id="KontrolUzun5" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <TextField fx:id="KontrolUzun4" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <TextField fx:id="KontrolUzun2" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField fx:id="KontrolUzun3" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <TextField fx:id="HataninYeri1" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                        <TextField fx:id="HataninYeri2" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                        <TextField fx:id="HataninYeri3" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                        <TextField fx:id="HataninYeri4" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                        <TextField fx:id="Cap6" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                        <TextField fx:id="Cap5" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                        <TextField fx:id="Cap4" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                        <TextField fx:id="HataTipi3" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                        <TextField fx:id="Cap3" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                        <TextField fx:id="Cap2" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        <TextField fx:id="Cap1" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                        <TextField fx:id="KontrolUzun1" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField fx:id="Sonuc6" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+                        <TextField fx:id="Sonuc5" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="8" GridPane.rowIndex="5" />
                         <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="6" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+                        <TextField fx:id="Sonuc4" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+                        <TextField fx:id="Sonuc3" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+                        <TextField fx:id="Sonuc2" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                        <TextField fx:id="Sonuc1" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                        <TextField fx:id="HataninYeri6" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+                        <TextField fx:id="HataninYeri5" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
                </children>
@@ -656,22 +649,22 @@
                               <Font name="Arial Black" size="14.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField fx:id="OperatorLevel" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="OperatorTarih" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="OperatorAdSoyad" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="OperatorImza" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="MusteriImza" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <TextField fx:id="MusteriTarih" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                        <TextField fx:id="MusteriLevel" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <TextField fx:id="MusteriAdSoyad" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <TextField fx:id="OnayImza" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <TextField fx:id="OnayTarih" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <TextField fx:id="OnayLevel" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <TextField fx:id="OnayAdSoyad" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <TextField fx:id="DegerlendirenImza" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <TextField fx:id="DegerlendirenLevel" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <TextField fx:id="DegerlendierenTarih" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <TextField fx:id="DegerlendirenAdSoyad" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <Label alignment="CENTER" prefHeight="58.0" prefWidth="225.0" text="Adı Soyadı / Name Surname" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
                            <font>
                               <Font name="Arial Black" size="14.0" />
@@ -696,17 +689,22 @@
                   </GridPane>
                </children>
             </HBox>
-            <ImageView fitHeight="164.0" fitWidth="224.0" layoutX="98.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Logo" fitHeight="164.0" fitWidth="224.0" layoutX="98.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/eye-insurance.png" />
                </image>
             </ImageView>
-            <Button layoutX="1062.0" layoutY="2982.0" mnemonicParsing="false" onAction="#giriseDon" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Geri Dön" textFill="#37474f">
+            <Button layoutX="1062.0" layoutY="3101.0" mnemonicParsing="false" onAction="#giriseDon" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Geri Dön" textFill="#37474f">
                <font>
                   <Font name="Century" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="1062.0" layoutY="2866.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Excell'e Aktar" textFill="#37474f">
+            <Button layoutX="1062.0" layoutY="2866.0" mnemonicParsing="false" onAction="#Workbook" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Excel'e Aktar" textFill="#37474f">
+               <font>
+                  <Font name="Century" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="1062.0" layoutY="2979.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="PDF Formatına Dönüştür" textAlignment="CENTER" textFill="#37474f" wrapText="true">
                <font>
                   <Font name="Century" size="18.0" />
                </font>

@@ -16,7 +16,8 @@ import java.time.format.DateTimeFormatter;
 
 public class Mitarbeiter
 {
-    private String ID,password,level;
+    private String ID,password;
+    private String level;
     private String firstName, lastName;
     private LocalDate sertifikatarihi;
 
