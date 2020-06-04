@@ -312,6 +312,101 @@ public class ManyetikMuayeneController implements Initializable
              font7.setBold(true);
              style7.setFont(font7);
              
+             //STYLE 8 //9 İnce  Siyah yazar pembe boyar. Solu borderlamaz.
+             CellStyle style8 = wb.createCellStyle(); // Creating Style  
+             style8.setBorderRight(BorderStyle.THICK);  
+             style8.setRightBorderColor(IndexedColors.BLACK.getIndex());
+             style8.setBorderBottom(BorderStyle.THICK);  
+             style8.setBottomBorderColor(IndexedColors.BLACK.getIndex());  
+             style8.setBorderTop(BorderStyle.THICK);  
+             style8.setTopBorderColor(IndexedColors.BLACK.getIndex()); 
+             Font font8 = wb.createFont();  
+             font8.setFontHeightInPoints((short)9);  
+             style8.setAlignment(HorizontalAlignment.LEFT);
+             style8.setVerticalAlignment(VerticalAlignment.CENTER);
+             font8.setFontName("Arial");
+             style8.setFont(font8);
+             style8.setFillForegroundColor(IndexedColors.ROSE.getIndex());  
+             style8.setFillPattern(FillPatternType.SOLID_FOREGROUND);  
+             
+             //STYLE 9 //9 Kalın Siyah yazar beyaza boyar. Sağı borderlamaz
+             CellStyle style9 = wb.createCellStyle(); // Creating Style  
+             style9.setBorderLeft(BorderStyle.THICK);  
+             style9.setLeftBorderColor(IndexedColors.BLACK.getIndex());  
+             style9.setBorderBottom(BorderStyle.THICK);  
+             style9.setBottomBorderColor(IndexedColors.BLACK.getIndex());  
+             style9.setBorderTop(BorderStyle.THICK);  
+             style9.setTopBorderColor(IndexedColors.BLACK.getIndex());
+             Font font9 = wb.createFont();  
+             style9.setAlignment(HorizontalAlignment.RIGHT);
+             style9.setVerticalAlignment(VerticalAlignment.CENTER);
+             font9.setFontHeightInPoints((short)9);  
+             font9.setFontName("Arial");
+             font9.setBold(true);
+             style9.setFillForegroundColor(IndexedColors.ROSE.getIndex());  
+             style9.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+             style9.setFont(font9);
+             
+             //STYLE 10 //7.5 Kalın Siyah yazar altı boyamaz alta inmeli wrap
+             CellStyle style10 = wb.createCellStyle(); // Creating Style  
+             style10.setBorderLeft(BorderStyle.THICK);  
+             style10.setLeftBorderColor(IndexedColors.BLACK.getIndex());  
+             style10.setBorderRight(BorderStyle.THICK);  
+             style10.setRightBorderColor(IndexedColors.BLACK.getIndex());
+             style10.setBorderTop(BorderStyle.THICK);  
+             style10.setTopBorderColor(IndexedColors.BLACK.getIndex());
+             Font font10 = wb.createFont();  
+             font10.setFontHeightInPoints((short)7.5);  
+             font10.setFontName("Arial");
+             font10.setBold(true);
+             style10.setWrapText(true);
+             style10.setFont(font10);
+             style10.setFillForegroundColor(IndexedColors.ROSE.getIndex());  
+             style10.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+             
+             //STYLE 11 //7.5 İnce italic Siyah yazar üstü boyamaz altı boyamaz
+             CellStyle style11 = wb.createCellStyle(); // Creating Style  
+             style11.setBorderLeft(BorderStyle.THICK);  
+             style11.setLeftBorderColor(IndexedColors.BLACK.getIndex());  
+             style11.setBorderRight(BorderStyle.THICK);  
+             style11.setRightBorderColor(IndexedColors.BLACK.getIndex());
+             Font font11 = wb.createFont();  
+             font11.setFontHeightInPoints((short)7.5);  
+             font11.setFontName("Arial");
+             font11.setItalic(true);
+             style11.setFont(font11);
+             style11.setFillForegroundColor(IndexedColors.ROSE.getIndex());  
+             style11.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+             
+             //STYLE 12 //8 Kalın Siyah yazar beyaza boyar altı borderlamaz.
+             CellStyle style12 = wb.createCellStyle(); // Creating Style  
+             style12.setBorderLeft(BorderStyle.THICK);  
+             style12.setLeftBorderColor(IndexedColors.BLACK.getIndex());  
+             style12.setBorderRight(BorderStyle.THICK);  
+             style12.setRightBorderColor(IndexedColors.BLACK.getIndex()); 
+             style12.setBorderTop(BorderStyle.THICK);  
+             style12.setTopBorderColor(IndexedColors.BLACK.getIndex());
+             Font font12 = wb.createFont();  
+             style12.setAlignment(HorizontalAlignment.CENTER);
+             style12.setVerticalAlignment(VerticalAlignment.CENTER);
+             font12.setFontHeightInPoints((short)8);  
+             font12.setFontName("Arial");
+             font12.setBold(true);
+             style12.setFont(font12);
+             
+             //STYLE 13 //8 Kalın Siyah yazar beyaza boyar.
+             CellStyle style13 = wb.createCellStyle(); // Creating Style  
+             style13.setBorderRight(BorderStyle.THICK);  
+             style13.setRightBorderColor(IndexedColors.BLACK.getIndex());
+             Font font13 = wb.createFont();  
+             style13.setAlignment(HorizontalAlignment.CENTER);
+             style13.setVerticalAlignment(VerticalAlignment.CENTER);
+             font13.setFontHeightInPoints((short)8);  
+             font13.setFontName("Arial");
+             font13.setBold(true);
+             style13.setFont(font7);
+             
+             
 
              Row row= sheet.createRow(0);
              
@@ -564,10 +659,1542 @@ public class ManyetikMuayeneController implements Initializable
                cell.setCellStyle(style7);
              }
               
+              //--------------o------------------------
               
               
+             row= sheet.createRow(9);
+             //Proje Adı kısmı pembe
+             for (int i=0;i<=1;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Proje Adı");  
+             sheet.addMergedRegion(new CellRangeAddress(9,9,0,1));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=2;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(2); 
+             
+             cell.setCellValue((String)ProjeAdi.getSelectionModel().getSelectedItem());  
+             sheet.addMergedRegion(new CellRangeAddress(9,10,2,9));  
+             cell.setCellStyle(style7);
+             
+             //Muayene Kapsamı pembe 
+             for (int i=10;i<=12;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue("Muayene Kapsamı");  
+             sheet.addMergedRegion(new CellRangeAddress(9,9,10,12));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=13;i<=15;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(13); 
+             
+             cell.setCellValue(MuayeneKapsami.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(9,10,13,15));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             //Rapor No Pembe
+             for (int i=16;i<=18;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(16); 
+             
+             cell.setCellValue("Rapor No");  
+             sheet.addMergedRegion(new CellRangeAddress(9,9,16,18));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=19;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(19); 
+             
+             cell.setCellValue(RaporNo.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(9,10,19,20));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             
+             row= sheet.createRow(10);
+             //Projekt Name pembe
+             for (int i=0;i<=1;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Project Name");  
+             sheet.addMergedRegion(new CellRangeAddress(10,10,0,1));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=2;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
               
+              //Inspection Scope
+              for (int i=10;i<=12;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue("Inspection Scope");  
+             sheet.addMergedRegion(new CellRangeAddress(10,10,10,12));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=13;i<=15;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Report No Pembe
+             for (int i=16;i<=18;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(16); 
+             
+             cell.setCellValue("Report No");  
+             sheet.addMergedRegion(new CellRangeAddress(10,10,16,18));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=19;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             //--------------o--------------------------
+             
+             row= sheet.createRow(11);
+             //Test Yeri kısmı pembe
+             for (int i=0;i<=1;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Test Yeri");  
+             sheet.addMergedRegion(new CellRangeAddress(11,11,0,1));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=2;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(2); 
+             
+             cell.setCellValue(TestYeri.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(11,12,2,9));  
+             cell.setCellStyle(style7);
+             
+             //Muayene Kapsamı pembe 
+             for (int i=10;i<=12;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue("Resim No");  
+             sheet.addMergedRegion(new CellRangeAddress(11,11,10,12));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=13;i<=15;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(13); 
+             
+             cell.setCellValue(ResimNo.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(11,12,13,15));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             //Rapor Tarihi Pembe
+             for (int i=16;i<=18;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(16); 
+             
+             cell.setCellValue("Rapor Tarihi");  
+             sheet.addMergedRegion(new CellRangeAddress(11,11,16,18));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=19;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(19); 
+             
+             cell.setCellValue(RaporTarihi.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(11,12,19,20));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             
+             row= sheet.createRow(12);
+             //Inspection Place pembe
+             for (int i=0;i<=1;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Inspection Place");  
+             sheet.addMergedRegion(new CellRangeAddress(12,12,0,1));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=2;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Drawing No
+              for (int i=10;i<=12;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue("Drawing No");  
+             sheet.addMergedRegion(new CellRangeAddress(12,12,10,12));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=13;i<=15;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Report Date Pembe
+             for (int i=16;i<=18;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(16); 
+             
+             cell.setCellValue("Report Date");  
+             sheet.addMergedRegion(new CellRangeAddress(12,12,16,18));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=19;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //--------------------o-------------------------------
+              
+               row= sheet.createRow(13);
+             //Muayene Standardı kısmı pembe
+             for (int i=0;i<=1;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Muayene Standardı");  
+             sheet.addMergedRegion(new CellRangeAddress(13,13,0,1));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=2;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(2); 
+             
+             cell.setCellValue(MuayeneStandardi.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(13,14,2,9));  
+             cell.setCellStyle(style7);
+             
+             //Yuzey Durumu pembe 
+             for (int i=10;i<=12;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue("Yuzey Durumu");  
+             sheet.addMergedRegion(new CellRangeAddress(13,13,10,12));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=13;i<=15;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(13); 
+             
+             cell.setCellValue((String)YuzeyDurumu.getSelectionModel().getSelectedItem());  
+             sheet.addMergedRegion(new CellRangeAddress(13,14,13,15));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             //İş Emri No Pembe
+             for (int i=16;i<=18;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(16); 
+             
+             cell.setCellValue("İş Emri No");  
+             sheet.addMergedRegion(new CellRangeAddress(13,13,16,18));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=19;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(19); 
+             
+             cell.setCellValue((String)IsEmriNo.getSelectionModel().getSelectedItem());  
+             sheet.addMergedRegion(new CellRangeAddress(13,14,19,20));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             
+             row= sheet.createRow(14);
+             //Inspection Standart pembe
+             for (int i=0;i<=1;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Inspection Standart");  
+             sheet.addMergedRegion(new CellRangeAddress(14,14,0,1));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=2;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Surface Condition
+              for (int i=10;i<=12;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue("Surface Condition");  
+             sheet.addMergedRegion(new CellRangeAddress(14,14,10,12));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=13;i<=15;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Job Order No Pembe
+             for (int i=16;i<=18;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(16); 
+             
+             cell.setCellValue("Job Order No");  
+             sheet.addMergedRegion(new CellRangeAddress(14,14,16,18));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=19;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+             //--------------o--------------------- 
+              
+              row= sheet.createRow(15);
+             //Değerlen standardı kısmı pembe
+             for (int i=0;i<=1;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Değerlen. Standardı");  
+             sheet.addMergedRegion(new CellRangeAddress(15,15,0,1));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=2;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(2); 
+             
+             cell.setCellValue(EvaluationStandard.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(15,16,2,9));  
+             cell.setCellStyle(style7);
+             
+             //Muayene Aşaması pembe 
+             for (int i=10;i<=12;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue("Muayene Aşaması");  
+             sheet.addMergedRegion(new CellRangeAddress(15,15,10,12));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=13;i<=15;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(13); 
+             
+             cell.setCellValue((String)MuayeneAsamasi.getSelectionModel().getSelectedItem());  
+             sheet.addMergedRegion(new CellRangeAddress(15,16,13,15));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             //Teklif No Pembe
+             for (int i=16;i<=18;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(16); 
+             
+             cell.setCellValue("Teklif No");  
+             sheet.addMergedRegion(new CellRangeAddress(15,15,16,18));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=19;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(19); 
+             
+                cell.setCellValue((String)TeklifNo.getSelectionModel().getSelectedItem());  
+             sheet.addMergedRegion(new CellRangeAddress(15,16,19,20));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             
+             row= sheet.createRow(16);
+             //Evaluation Standart pembe
+             for (int i=0;i<=1;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Evaluation Standart");  
+             sheet.addMergedRegion(new CellRangeAddress(16,16,0,1));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=2;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Stage of Examination
+              for (int i=10;i<=12;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue("Stage of Examination");  
+             sheet.addMergedRegion(new CellRangeAddress(16,16,10,12));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=13;i<=15;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Offer No Pembe
+             for (int i=16;i<=18;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(16); 
+             
+             cell.setCellValue("Offer No");  
+             sheet.addMergedRegion(new CellRangeAddress(16,16,16,18));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=19;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+            //----------------------o------------------------
             
+            //Başlık: Ekipman Bilgileri
+            row= sheet.createRow(17);
+            for (int i=0;i<=10;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style9);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Ekipman Bilgileri");  
+             sheet.addMergedRegion(new CellRangeAddress(17,17,0,10));  
+             cell.setCellStyle(style9);
+             
+             //Başlık: Equipment Informations
+             for (int i=11;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style8);
+             }
+             cell =  row.createCell(11); 
+             
+             cell.setCellValue("/Equipment Informations");  
+             sheet.addMergedRegion(new CellRangeAddress(17,17,11,20));  
+             cell.setCellStyle(style8);
+             
+            //------------------o------------------
+            
+            row= sheet.createRow(18);
+             //Kutup Mesafesi pembe
+             for (int i=0;i<=2;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Kutup Mesafesi,mm");  
+             sheet.addMergedRegion(new CellRangeAddress(18,18,0,2));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=3;i<=6;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(3); 
+             
+             cell.setCellValue(KutupMesafesi.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(18,19,3,6));  
+             cell.setCellStyle(style7);
+             
+             //Muayene Bölgesi pembe 
+             for (int i=7;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(7); 
+             
+             cell.setCellValue("Muayene Bölgesi");  
+             sheet.addMergedRegion(new CellRangeAddress(18,18,7,9));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=10;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue(MuayeneBolgesi.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(18,19,10,14));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             //Yüzey Sıcaklığı Pembe
+             for (int i=15;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(15); 
+             
+             cell.setCellValue("Yüzey Sıcaklığı");  
+             sheet.addMergedRegion(new CellRangeAddress(18,18,15,17));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(18); 
+             
+             cell.setCellValue(YuzeySicakligi.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(18,19,18,20));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             
+             row= sheet.createRow(19);
+             //Pole Distance pembe
+             for (int i=0;i<=2;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Pole Distance");  
+             sheet.addMergedRegion(new CellRangeAddress(19,19,0,2));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=3;i<=6;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Examination Area
+              for (int i=7;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(7); 
+             
+             cell.setCellValue("Examination Area");  
+             sheet.addMergedRegion(new CellRangeAddress(19,19,7,9));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=10;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Surface Temperature Pembe
+             for (int i=15;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(15); 
+             
+             cell.setCellValue("Surface Temperature");  
+             sheet.addMergedRegion(new CellRangeAddress(19,19,15,17));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              //----------------------o----------------
+             row= sheet.createRow(20);
+             //Cihaz pembe
+             for (int i=0;i<=2;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Cihaz");  
+             sheet.addMergedRegion(new CellRangeAddress(20,20,0,2));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=3;i<=6;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(3); 
+             
+             cell.setCellValue(Cihaz.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(20,21,3,6));  
+             cell.setCellStyle(style7);
+             
+             //Akım Tipi pembe 
+             for (int i=7;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(7); 
+             
+             cell.setCellValue("Akım Tipi");  
+             sheet.addMergedRegion(new CellRangeAddress(20,20,7,9));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=10;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue(AkimTipi.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(20,21,10,14));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             //Muayene Bölgesindeki Alan Şiddeti Pembe
+             for (int i=15;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style10);
+             }
+             cell =  row.createCell(15); 
+             
+             cell.setCellValue("Muayene Bölgesindeki Alan Şiddeti. kA/m");  
+             sheet.addMergedRegion(new CellRangeAddress(20,21,15,17));  
+             cell.setCellStyle(style10);
+             
+             //Text kısmı beyaz
+             for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style12);
+             }
+             cell =  row.createCell(20); 
+             
+             cell.setCellValue(MuayeneBolgesiAlanSiddeti.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(20,23,18,20));  
+             cell.setCellStyle(style10);
+             
+             
+             
+             
+             row= sheet.createRow(21);
+             //Equipment pembe
+             for (int i=0;i<=2;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Equipment");  
+             sheet.addMergedRegion(new CellRangeAddress(21,21,0,2));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=3;i<=6;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Current Type 
+              for (int i=7;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(7); 
+             
+             cell.setCellValue("Current Type");  
+             sheet.addMergedRegion(new CellRangeAddress(21,21,7,9));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=10;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              //Gauss Field Beyaz kısmı text
+              for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style12);
+             }
+              
+              //----------------------o---------------------
+              
+              
+             row= sheet.createRow(22);
+             //Mp Taşıyıcı Ortam pembe
+             for (int i=0;i<=2;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Mp Taşıyıcı Ortam");  
+             sheet.addMergedRegion(new CellRangeAddress(22,22,0,2));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=3;i<=6;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(3); 
+             
+             cell.setCellValue(MpTasiyiciOrtam.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(22,23,3,6));  
+             cell.setCellStyle(style7);
+             
+             //Luxmetre/Işık Şiddeti pembe 
+             for (int i=7;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(7); 
+             
+             cell.setCellValue("Luxmetre/Işık Şiddeti");  
+             sheet.addMergedRegion(new CellRangeAddress(22,22,7,9));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=10;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue(Luxmetre.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(22,23,10,14));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             //Gaus Field Strength Pembe
+             for (int i=15;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(15); 
+             
+             cell.setCellValue("Gaus Field Strength");  
+             sheet.addMergedRegion(new CellRangeAddress(22,23,15,17));  
+             cell.setCellStyle(style6);
+             
+             
+             for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style13);
+             }
+             
+             
+             
+             row= sheet.createRow(23);
+             //Mp Carrier Medium
+             for (int i=0;i<=2;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Mp Carrier Medium");  
+             sheet.addMergedRegion(new CellRangeAddress(23,23,0,2));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=3;i<=6;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Luxmeter Type 
+              for (int i=7;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(7); 
+             
+             cell.setCellValue("Luxmeter");  
+             sheet.addMergedRegion(new CellRangeAddress(23,23,7,9));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=10;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Pembe kısmı text
+              for (int i=15;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+              
+              //Gauss Field Beyaz kısmı text
+              for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+              
+             //-------------------------------o----------------------
+             
+              row= sheet.createRow(24);
+             //Mıknatıslama Tekniği pembe
+             for (int i=0;i<=2;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Mıknatıslama Tekniği");  
+             sheet.addMergedRegion(new CellRangeAddress(24,24,0,2));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=3;i<=6;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(3); 
+             
+             cell.setCellValue(MiknatislamaTeknigi.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(24,25,3,6));  
+             cell.setCellStyle(style7);
+             
+             //Muayene Bölgesi pembe 
+             for (int i=7;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(7); 
+             
+             cell.setCellValue("Muayene Ortamı");  
+             sheet.addMergedRegion(new CellRangeAddress(24,24,7,9));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=10;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue(MuayeneOrtami.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(24,25,10,14));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             //Yüzey  Pembe
+             for (int i=15;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(15); 
+             
+             cell.setCellValue("Yüzey");  
+             sheet.addMergedRegion(new CellRangeAddress(24,24,15,17));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(18); 
+             
+             cell.setCellValue(Yuzey.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(24,25,18,20));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             
+             row= sheet.createRow(25);
+             //Mag.Tech. pembe
+             for (int i=0;i<=2;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Mag.Tech");  
+             sheet.addMergedRegion(new CellRangeAddress(25,25,0,2));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=3;i<=6;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Test Medium
+              for (int i=7;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(7); 
+             
+             cell.setCellValue("Test Medium");  
+             sheet.addMergedRegion(new CellRangeAddress(25,25,7,9));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=10;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Surface Condition Pembe
+             for (int i=15;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(15); 
+             
+             cell.setCellValue("Surface Condition");  
+             sheet.addMergedRegion(new CellRangeAddress(25,25,15,17));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             
+             //----------o----------------------
+             
+              row= sheet.createRow(26);
+             //Mıknatıslama Tekniği pembe
+             for (int i=0;i<=2;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("UV Işık Şiddeti");  
+             sheet.addMergedRegion(new CellRangeAddress(26,26,0,2));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=3;i<=6;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(3); 
+             
+             cell.setCellValue(UVIsıkSiddeti.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(26,27,3,6));  
+             cell.setCellStyle(style7);
+             
+             //Mıknatıs Giderimi pembe 
+             for (int i=7;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(7); 
+             
+             cell.setCellValue("Mıknatıs Giderimi");  
+             sheet.addMergedRegion(new CellRangeAddress(26,26,7,9));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=10;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue(MiknatisGiderimi.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(26,27,10,14));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             //Işık Cihaz Tanımı Pembe
+             for (int i=15;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(15); 
+             
+             cell.setCellValue("Işık Cihaz Tanımı");  
+             sheet.addMergedRegion(new CellRangeAddress(26,26,15,17));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(18); 
+             
+             cell.setCellValue(IsikCihaziTanimi.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(26,27,18,20));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             
+             row= sheet.createRow(27);
+             //Mag.Tech. pembe
+             for (int i=0;i<=2;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("UV Light Intensity");  
+             sheet.addMergedRegion(new CellRangeAddress(27,27,0,2));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=3;i<=6;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Demegnelization
+              for (int i=7;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(7); 
+             
+             cell.setCellValue("Demegnelization");  
+             sheet.addMergedRegion(new CellRangeAddress(27,27,7,9));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=10;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Identification of Light Equip Pembe
+             for (int i=15;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(15); 
+             
+             cell.setCellValue("Identification of Light Equip");  
+             sheet.addMergedRegion(new CellRangeAddress(27,27,15,17));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //----------o----------------------
+             
+              row= sheet.createRow(28);
+             //Işık Mesafesi pembe
+             for (int i=0;i<=2;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Işık Mesafesi");  
+             sheet.addMergedRegion(new CellRangeAddress(28,28,0,2));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=3;i<=6;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(3); 
+             
+             cell.setCellValue(IsikMesafesi.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(28,29,3,6));  
+             cell.setCellStyle(style7);
+             
+             //Isıl İşlem pembe 
+             for (int i=7;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(7); 
+             
+             cell.setCellValue("Isıl İşlem");  
+             sheet.addMergedRegion(new CellRangeAddress(28,28,7,9));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=10;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(10); 
+             
+             cell.setCellValue(IsilIslem.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(28,29,10,14));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             //Kaldırma Testi Tarih
+             for (int i=15;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style5);
+             }
+             cell =  row.createCell(15); 
+             
+             cell.setCellValue("Kaldırma Testi Tarih / No");  
+             sheet.addMergedRegion(new CellRangeAddress(28,28,15,17));  
+             cell.setCellStyle(style5);
+             
+             //Text kısmı beyaz
+             for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             cell =  row.createCell(18); 
+             
+             cell.setCellValue(KaldirmaTestiTarih.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(28,29,18,20));  
+             cell.setCellStyle(style7);
+             
+             
+             
+             
+             row= sheet.createRow(29);
+             //Distance of Light
+             for (int i=0;i<=2;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Distance of Light");  
+             sheet.addMergedRegion(new CellRangeAddress(29,29,0,2));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=3;i<=6;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Heat Treatment
+              for (int i=7;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(7); 
+             
+             cell.setCellValue("Heat Treatment");  
+             sheet.addMergedRegion(new CellRangeAddress(29,29,7,9));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=10;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+              
+              //Lifting Case Date
+             for (int i=15;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style6);
+             }
+             cell =  row.createCell(15); 
+             
+             cell.setCellValue("Lifting Case / Date");  
+             sheet.addMergedRegion(new CellRangeAddress(29,29,15,17));  
+             cell.setCellStyle(style6);
+             
+             //Beyaz kısmı text
+              for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             
+             //------------------------------o--------------------------------------
+             //ROW 30 *******************************
+             
+             row= sheet.createRow(30);
+             for (int i=0;i<=4;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             
+             
+             //RESİM 1 Alın Kaynağı
+             //Buraya resim konacak.
+             //FileInputStream obtains input bytes from the image file
+            InputStream inputStream1 = new FileInputStream("C:\\Users\\izmir\\OneDrive\\Documents\\NetBeansProjects\\Rapor\\src\\rapor\\Icons\\ForumFoto1.png");
+            //Get the contents of an InputStream as a byte[].
+            byte[] bytes1 = IOUtils.toByteArray(inputStream1);
+            //Adds a picture to the workbook
+            int pictureIdx1 = wb.addPicture(bytes1, Workbook.PICTURE_TYPE_PNG);
+            //close the input stream
+            inputStream.close();
+
+            //Returns an object that handles instantiating concrete classes
+            CreationHelper helper1 = wb.getCreationHelper();
+
+            //Creates the top-level drawing patriarch.
+            Drawing drawing1 = sheet.createDrawingPatriarch();
+
+            //Create an anchor that is attached to the worksheet
+            ClientAnchor anchor1 = helper1.createClientAnchor();
+            //set top-left corner for the image
+            anchor1.setCol1(0);
+            anchor1.setRow1(31);
+
+            //Creates a picture
+            Picture pict1 = drawing1.createPicture(anchor1, pictureIdx1);
+            //Reset the image to the original size
+            pict1.resize(3.5,5.5);
+            
+            sheet.addMergedRegion(new CellRangeAddress(30,36,0,4));
+            
+            //RESİM 2 Köşe Kaynağı****************
+            for (int i=5;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+            
+            //Buraya resim konacak.
+             //FileInputStream obtains input bytes from the image file
+            InputStream inputStream4 = new FileInputStream("C:\\Users\\izmir\\OneDrive\\Documents\\NetBeansProjects\\Rapor\\src\\rapor\\Icons\\ForumFoto22.png");
+            //Get the contents of an InputStream as a byte[].
+            byte[] bytes4 = IOUtils.toByteArray(inputStream4);
+            //Adds a picture to the workbook
+            int pictureIdx4 = wb.addPicture(bytes4, Workbook.PICTURE_TYPE_PNG);
+            //close the input stream
+            inputStream.close();
+
+            //Returns an object that handles instantiating concrete classes
+            CreationHelper helper4 = wb.getCreationHelper();
+
+            //Creates the top-level drawing patriarch.
+            Drawing drawing4 = sheet.createDrawingPatriarch();
+
+            //Create an anchor that is attached to the worksheet
+            ClientAnchor anchor4 = helper4.createClientAnchor();
+            //set top-left corner for the image
+            anchor4.setCol1(6);
+            anchor4.setRow1(31);
+
+            //Creates a picture
+            Picture pict4 = drawing4.createPicture(anchor4, pictureIdx4);
+            //Reset the image to the original size
+            pict4.resize(3.5,5.5);
+            
+            sheet.addMergedRegion(new CellRangeAddress(30,36,5,9));
+            
+            //ROW 31 *******************************
+             
+             row= sheet.createRow(31);
+             for (int i=0;i<=4;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             for (int i=5;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+            
+             
+             
+             
+             //ROW 32 *******************************
+             
+             row= sheet.createRow(32);
+             for (int i=0;i<=4;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             
+             for (int i=5;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             
+             
+             //ROW 33 *******************************
+             
+             row= sheet.createRow(33);
+             for (int i=0;i<=4;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             
+             for (int i=5;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             
+             
+             
+             //ROW 34 *******************************
+             
+             row= sheet.createRow(34);
+             for (int i=0;i<=4;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             
+             for (int i=5;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             
+             if(AlinKaynagiRadio.isSelected()){
+             //Buraya resim konacak.
+             //FileInputStream obtains input bytes from the image file
+            InputStream inputStream2 = new FileInputStream("C:\\Users\\izmir\\OneDrive\\Documents\\NetBeansProjects\\Rapor\\src\\rapor\\Icons\\Checkli0.png");
+            //Get the contents of an InputStream as a byte[].
+            byte[] bytes2 = IOUtils.toByteArray(inputStream2);
+            //Adds a picture to the workbook
+            int pictureIdx2 = wb.addPicture(bytes2, Workbook.PICTURE_TYPE_PNG);
+            //close the input stream
+            inputStream.close();
+
+            //Returns an object that handles instantiating concrete classes
+            CreationHelper helper2 = wb.getCreationHelper();
+
+            //Creates the top-level drawing patriarch.
+            Drawing drawing2 = sheet.createDrawingPatriarch();
+
+            //Create an anchor that is attached to the worksheet
+            ClientAnchor anchor2 = helper2.createClientAnchor();
+            //set top-left corner for the image
+            anchor2.setCol1(3);
+            anchor2.setRow1(35);
+
+            //Creates a picture
+            Picture pict2 = drawing2.createPicture(anchor2, pictureIdx2);
+            //Reset the image to the original size
+            pict2.resize(0.45,0.8);
+             }
+             else{
+            //Buraya resim konacak.
+             //FileInputStream obtains input bytes from the image file
+            InputStream inputStream3 = new FileInputStream("C:\\Users\\izmir\\OneDrive\\Documents\\NetBeansProjects\\Rapor\\src\\rapor\\Icons\\Checksiz.png");
+            //Get the contents of an InputStream as a byte[].
+            byte[] bytes3 = IOUtils.toByteArray(inputStream3);
+            //Adds a picture to the workbook
+            int pictureIdx3 = wb.addPicture(bytes3, Workbook.PICTURE_TYPE_PNG);
+            //close the input stream
+            inputStream.close();
+
+            //Returns an object that handles instantiating concrete classes
+            CreationHelper helper3 = wb.getCreationHelper();
+
+            //Creates the top-level drawing patriarch.
+            Drawing drawing3 = sheet.createDrawingPatriarch();
+
+            //Create an anchor that is attached to the worksheet
+            ClientAnchor anchor3 = helper3.createClientAnchor();
+            //set top-left corner for the image
+            anchor3.setCol1(3);
+            anchor3.setRow1(35);
+
+            //Creates a picture
+            Picture pict3 = drawing3.createPicture(anchor3, pictureIdx3);
+            //Reset the image to the original size
+            pict3.resize(0.45,0.8);     
+             }
+             
+             
+             if(KoseKaynagiRadio.isSelected()){
+             //Buraya resim konacak.
+             //FileInputStream obtains input bytes from the image file
+            InputStream inputStream5 = new FileInputStream("C:\\Users\\izmir\\OneDrive\\Documents\\NetBeansProjects\\Rapor\\src\\rapor\\Icons\\Checkli0.png");
+            //Get the contents of an InputStream as a byte[].
+            byte[] bytes5 = IOUtils.toByteArray(inputStream5);
+            //Adds a picture to the workbook
+            int pictureIdx5 = wb.addPicture(bytes5, Workbook.PICTURE_TYPE_PNG);
+            //close the input stream
+            inputStream.close();
+
+            //Returns an object that handles instantiating concrete classes
+            CreationHelper helper5 = wb.getCreationHelper();
+
+            //Creates the top-level drawing patriarch.
+            Drawing drawing5 = sheet.createDrawingPatriarch();
+
+            //Create an anchor that is attached to the worksheet
+            ClientAnchor anchor5 = helper5.createClientAnchor();
+            //set top-left corner for the image
+            anchor5.setCol1(9);
+            anchor5.setRow1(35);
+
+            //Creates a picture
+            Picture pict5 = drawing5.createPicture(anchor5, pictureIdx5);
+            //Reset the image to the original size
+            pict5.resize(0.27,0.8);
+             }
+             else{
+            //Buraya resim konacak.
+             //FileInputStream obtains input bytes from the image file
+            InputStream inputStream6 = new FileInputStream("C:\\Users\\izmir\\OneDrive\\Documents\\NetBeansProjects\\Rapor\\src\\rapor\\Icons\\Checksiz.png");
+            //Get the contents of an InputStream as a byte[].
+            byte[] bytes6 = IOUtils.toByteArray(inputStream6);
+            //Adds a picture to the workbook
+            int pictureIdx6 = wb.addPicture(bytes6, Workbook.PICTURE_TYPE_PNG);
+            //close the input stream
+            inputStream.close();
+
+            //Returns an object that handles instantiating concrete classes
+            CreationHelper helper6 = wb.getCreationHelper();
+
+            //Creates the top-level drawing patriarch.
+            Drawing drawing6 = sheet.createDrawingPatriarch();
+
+            //Create an anchor that is attached to the worksheet
+            ClientAnchor anchor6 = helper6.createClientAnchor();
+            //set top-left corner for the image
+            anchor6.setCol1(9);
+            anchor6.setRow1(35);
+
+            //Creates a picture
+            Picture pict6 = drawing6.createPicture(anchor6, pictureIdx6);
+            //Reset the image to the original size
+            pict6.resize(0.27,0.8);     
+             }
+             
+             //ROW 35 *******************************
+             
+             row= sheet.createRow(35);
+             for (int i=0;i<=4;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             
+             for (int i=5;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             
+             
+             
+             
+             //ROW 36 *******************************
+             
+             row= sheet.createRow(36);
+             for (int i=0;i<=4;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
+             
+             for (int i=5;i<=9;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style7);
+             }
              
             // ------GENİŞLİK AYARLAMA-----
             sheet.setColumnWidth(0,2280);   //A
