@@ -160,7 +160,7 @@
                   </GridPane>
                   <VBox prefHeight="200.0" prefWidth="100.0" />
                </children></HBox>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="207.0" layoutY="23.0" prefHeight="135.0" prefWidth="873.0" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textAlignment="CENTER" textFill="#37474f">
+            <Label fx:id="deneme" alignment="CENTER" contentDisplay="CENTER" layoutX="207.0" layoutY="23.0" prefHeight="135.0" prefWidth="873.0" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textAlignment="CENTER" textFill="#37474f">
                <font>
                   <Font name="Century" size="24.0" />
                </font>
@@ -221,7 +221,7 @@
                            </font>
                         </Label>
                         <TextField fx:id="UVIsıkSiddeti" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label alignment="CENTER" prefHeight="144.0" prefWidth="211.0" text="UV Işık Şiddeti (UV Light Intensity)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
+                        <Label fx:id="UVIsikSiddeti" alignment="CENTER" prefHeight="144.0" prefWidth="211.0" text="UV Işık Şiddeti (UV Light Intensity)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
@@ -302,11 +302,11 @@
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="195.0" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="186.0" minHeight="10.0" prefHeight="182.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="93.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Label alignment="CENTER" prefHeight="105.0" prefWidth="211.0" text="Muayene Bölgesindeki Alan Şiddeti, kA/m(Gaus Field Strength)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
@@ -320,19 +320,19 @@
                            </font>
                         </Label>
                         <TextField fx:id="IsikCihaziTanimi" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" text="***" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label alignment="CENTER" prefHeight="93.0" prefWidth="211.0" text="Işık Cihazı Tanımı (Identification of Light Equip.)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
+                        <Label alignment="CENTER" prefHeight="96.0" prefWidth="211.0" text="Işık Cihazı Tanımı (Identification of Light Equip.)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
                         <TextField fx:id="KaldirmaTestiTarih" alignment="CENTER" prefHeight="127.0" prefWidth="188.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label alignment="CENTER" prefHeight="91.0" prefWidth="211.0" text="Kaldırma Testi Tarih / No (Lifting Test Date / Number)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
+                        <Label alignment="CENTER" prefHeight="106.0" prefWidth="211.0" text="Kaldırma Testi Tarih / No (Lifting Test Date / Number)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
                         <TextField fx:id="Yuzey" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="TAŞLANMIŞ / GRINDING" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label alignment="CENTER" prefHeight="91.0" prefWidth="219.0" text="Yüzey Sıcaklığı (°C) (Surface Temperature)" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                        <Label alignment="CENTER" prefHeight="99.0" prefWidth="211.0" text="Yüzey Sıcaklığı (°C) (Surface Temperature)" textAlignment="CENTER" textFill="#37474f" wrapText="true">
                            <font>
                               <Font name="Arial Black" size="18.0" />
                            </font>
