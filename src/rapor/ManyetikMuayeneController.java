@@ -21,9 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Cell;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -31,7 +29,6 @@ import javafx.stage.Stage;
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.BorderExtent;
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.ClientAnchor;
@@ -47,8 +44,6 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
-import org.apache.poi.ss.util.CellUtil;
-import org.apache.poi.ss.util.PropertyTemplate;
 
 
 
@@ -99,54 +94,90 @@ public class ManyetikMuayeneController implements Initializable
     @FXML private TextField SiraNo4;
     @FXML private TextField SiraNo5;
     @FXML private TextField SiraNo6;
+    @FXML private TextField SiraNo7;
+    @FXML private TextField SiraNo8;
+    @FXML private TextField SiraNo9;
+    @FXML private TextField SiraNo10;
     @FXML private TextField KaynakParcaNo1;
     @FXML private TextField KaynakParcaNo2;
     @FXML private TextField KaynakParcaNo3;
     @FXML private TextField KaynakParcaNo4;
     @FXML private TextField KaynakParcaNo5;
     @FXML private TextField KaynakParcaNo6;
+    @FXML private TextField KaynakParcaNo7;
+    @FXML private TextField KaynakParcaNo8;
+    @FXML private TextField KaynakParcaNo9;
+    @FXML private TextField KaynakParcaNo10;
     @FXML private TextField KontrolUzun1;
     @FXML private TextField KontrolUzun2;
     @FXML private TextField KontrolUzun3;
     @FXML private TextField KontrolUzun4;
     @FXML private TextField KontrolUzun5;
     @FXML private TextField KontrolUzun6;
+    @FXML private TextField KontrolUzun7;
+    @FXML private TextField KontrolUzun8;
+    @FXML private TextField KontrolUzun9;
+    @FXML private TextField KontrolUzun10;
     @FXML private TextField KaynakYon1;
     @FXML private TextField KaynakYon2;
     @FXML private TextField KaynakYon3;
     @FXML private TextField KaynakYon4;
     @FXML private TextField KaynakYon5;
     @FXML private TextField KaynakYon6;
+    @FXML private TextField KaynakYon7;
+    @FXML private TextField KaynakYon8;
+    @FXML private TextField KaynakYon9;
+    @FXML private TextField KaynakYon10;
     @FXML private TextField Kalinlik1;
     @FXML private TextField Kalinlik2;
     @FXML private TextField Kalinlik3;
     @FXML private TextField Kalinlik4;
     @FXML private TextField Kalinlik5;
     @FXML private TextField Kalinlik6;
+    @FXML private TextField Kalinlik7;
+    @FXML private TextField Kalinlik8;
+    @FXML private TextField Kalinlik9;
+    @FXML private TextField Kalinlik10;
     @FXML private TextField Cap1;
     @FXML private TextField Cap2;
     @FXML private TextField Cap3;
     @FXML private TextField Cap4;
     @FXML private TextField Cap5;
     @FXML private TextField Cap6;
+    @FXML private TextField Cap7;
+    @FXML private TextField Cap8;
+    @FXML private TextField Cap9;
+    @FXML private TextField Cap10;
     @FXML private TextField HataTipi1;
     @FXML private TextField HataTipi2;
     @FXML private TextField HataTipi3;
     @FXML private TextField HataTipi4;
     @FXML private TextField HataTipi5;
     @FXML private TextField HataTipi6;
+    @FXML private TextField HataTipi7;
+    @FXML private TextField HataTipi8;
+    @FXML private TextField HataTipi9;
+    @FXML private TextField HataTipi10;
     @FXML private TextField HataninYeri1;
     @FXML private TextField HataninYeri2;
     @FXML private TextField HataninYeri3;
     @FXML private TextField HataninYeri4;
     @FXML private TextField HataninYeri5;
     @FXML private TextField HataninYeri6;
+    @FXML private TextField HataninYeri7;
+    @FXML private TextField HataninYeri8;
+    @FXML private TextField HataninYeri9;
+    @FXML private TextField HataninYeri10;
     @FXML private TextField Sonuc1;
     @FXML private TextField Sonuc2;
     @FXML private TextField Sonuc3;
     @FXML private TextField Sonuc4;
     @FXML private TextField Sonuc5;
     @FXML private TextField Sonuc6;
+    @FXML private TextField Sonuc7;
+    @FXML private TextField Sonuc8;
+    @FXML private TextField Sonuc9;
+    @FXML private TextField Sonuc10;
     @FXML private TextField OperatorAdSoyad;
     @FXML private TextField DegerlendirenAdSoyad;
     @FXML private TextField OnayAdSoyad;
@@ -156,7 +187,7 @@ public class ManyetikMuayeneController implements Initializable
     @FXML private TextField OnayLevel;
     @FXML private TextField MusteriLevel;
     @FXML private TextField OperatorTarih;
-    @FXML private TextField DegerlendierenTarih;
+    @FXML private TextField DegerlendirenTarih;
     @FXML private TextField OnayTarih;
     @FXML private TextField MusteriTarih;
     @FXML private TextField OperatorImza;
@@ -501,7 +532,8 @@ public class ManyetikMuayeneController implements Initializable
              style19.setRightBorderColor(IndexedColors.BLACK.getIndex());
              style19.setBorderTop(BorderStyle.THICK);  
              style19.setTopBorderColor(IndexedColors.BLACK.getIndex());
-             Font font19 = wb.createFont();  
+             Font font19 = wb.createFont(); 
+             style19.setVerticalAlignment(VerticalAlignment.CENTER);
              font19.setFontHeightInPoints((short)8);  
              font19.setFontName("Arial");
              font19.setBold(true);
@@ -545,6 +577,99 @@ public class ManyetikMuayeneController implements Initializable
              font21.setFontName("Arial");
              font21.setBold(true);
              style21.setFont(font21);
+             
+             
+             //STYLE 22 //10 Kalın Siyah yazar beyaza boyar.
+             CellStyle style22 = wb.createCellStyle(); // Creating Style  
+             style22.setBorderLeft(BorderStyle.THICK);  
+             style22.setLeftBorderColor(IndexedColors.BLACK.getIndex());  
+             style22.setBorderRight(BorderStyle.THICK);  
+             style22.setRightBorderColor(IndexedColors.BLACK.getIndex());
+             style22.setBorderBottom(BorderStyle.THICK);  
+             style22.setBottomBorderColor(IndexedColors.BLACK.getIndex());  
+             style22.setBorderTop(BorderStyle.THICK);  
+             style22.setTopBorderColor(IndexedColors.BLACK.getIndex());
+             Font font22 = wb.createFont();  
+             style22.setAlignment(HorizontalAlignment.CENTER);
+             style22.setVerticalAlignment(VerticalAlignment.CENTER);
+             font22.setFontHeightInPoints((short)10);  
+             font22.setFontName("Arial");
+             font22.setBold(true);
+             style22.setFont(font22);
+             
+             
+             //STYLE 23 //10 İnce Siyah yazar beyaza boyar.
+             CellStyle style23 = wb.createCellStyle(); // Creating Style  
+             style23.setBorderLeft(BorderStyle.THICK);  
+             style23.setLeftBorderColor(IndexedColors.BLACK.getIndex());  
+             style23.setBorderRight(BorderStyle.THICK);  
+             style23.setRightBorderColor(IndexedColors.BLACK.getIndex());
+             style23.setBorderBottom(BorderStyle.THICK);  
+             style23.setBottomBorderColor(IndexedColors.BLACK.getIndex());  
+             style23.setBorderTop(BorderStyle.THICK);  
+             style23.setTopBorderColor(IndexedColors.BLACK.getIndex());
+             Font font23 = wb.createFont();  
+             style23.setAlignment(HorizontalAlignment.CENTER);
+             style23.setVerticalAlignment(VerticalAlignment.CENTER);
+             font23.setFontHeightInPoints((short)10);  
+             font23.setFontName("Arial");
+             style23.setFont(font23);
+             
+             
+             //STYLE 24 //8 İnce Siyah yazar beyaza boyar.
+             CellStyle style24 = wb.createCellStyle(); // Creating Style  
+             style24.setBorderLeft(BorderStyle.THICK);  
+             style24.setLeftBorderColor(IndexedColors.BLACK.getIndex());  
+             style24.setBorderRight(BorderStyle.THICK);  
+             style24.setRightBorderColor(IndexedColors.BLACK.getIndex());
+             style24.setBorderBottom(BorderStyle.THICK);  
+             style24.setBottomBorderColor(IndexedColors.BLACK.getIndex());  
+             style24.setBorderTop(BorderStyle.THICK);  
+             style24.setTopBorderColor(IndexedColors.BLACK.getIndex());
+             Font font24 = wb.createFont();  
+             style24.setAlignment(HorizontalAlignment.CENTER);
+             style24.setVerticalAlignment(VerticalAlignment.CENTER);
+             font24.setFontHeightInPoints((short)8);  
+             font24.setFontName("Arial");
+             style24.setFont(font24);
+             
+             
+             //STYLE 25 //8 Kalın Siyah yazar altı boyamaz ortalar
+             CellStyle style25 = wb.createCellStyle(); // Creating Style  
+             style25.setBorderLeft(BorderStyle.THICK);  
+             style25.setLeftBorderColor(IndexedColors.BLACK.getIndex());  
+             style25.setBorderRight(BorderStyle.THICK);  
+             style25.setRightBorderColor(IndexedColors.BLACK.getIndex());
+             style25.setBorderTop(BorderStyle.THICK);  
+             style25.setTopBorderColor(IndexedColors.BLACK.getIndex());
+             Font font25 = wb.createFont();  
+             style25.setAlignment(HorizontalAlignment.CENTER);
+             style25.setVerticalAlignment(VerticalAlignment.CENTER);
+             font25.setFontHeightInPoints((short)8);  
+             font25.setFontName("Arial");
+             font25.setBold(true);
+             style25.setFont(font25);
+             style25.setFillForegroundColor(IndexedColors.ROSE.getIndex());  
+             style25.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+             
+             
+             //STYLE 26 //8 Kalın Siyah yazar beyaza boyar.
+             CellStyle style26 = wb.createCellStyle(); // Creating Style  
+             style26.setBorderLeft(BorderStyle.THICK);  
+             style26.setLeftBorderColor(IndexedColors.BLACK.getIndex());  
+             style26.setBorderRight(BorderStyle.THICK);  
+             style26.setRightBorderColor(IndexedColors.BLACK.getIndex());
+             style26.setBorderBottom(BorderStyle.THICK);  
+             style26.setBottomBorderColor(IndexedColors.BLACK.getIndex());  
+             style26.setBorderTop(BorderStyle.THICK);  
+             style26.setTopBorderColor(IndexedColors.BLACK.getIndex());
+             Font font26 = wb.createFont();  
+             style26.setAlignment(HorizontalAlignment.CENTER);
+             style26.setVerticalAlignment(VerticalAlignment.CENTER);
+             font26.setFontHeightInPoints((short)8);  
+             font26.setFontName("Arial");
+             font26.setBold(true);
+             style26.setFont(font26);
 
              Row row= sheet.createRow(0);
              
@@ -2725,8 +2850,7 @@ public class ManyetikMuayeneController implements Initializable
              }
              cell =  row.createCell(11); 
              
-             cell.setCellValue("Kalınlık (mm)");  
-             //sheet.addMergedRegion(new CellRangeAddress(44,44,11,11));  
+             cell.setCellValue("Kalınlık (mm)");   
              cell.setCellStyle(style19);
              
              
@@ -2773,8 +2897,7 @@ public class ManyetikMuayeneController implements Initializable
              }
              cell =  row.createCell(20); 
              
-             cell.setCellValue("Sonuç");  
-             //sheet.addMergedRegion(new CellRangeAddress(44,44,20,20));  
+             cell.setCellValue("Sonuç");    
              cell.setCellStyle(style19);
              
              
@@ -2885,31 +3008,1541 @@ public class ManyetikMuayeneController implements Initializable
              cell.setCellValue("Result");  
              cell.setCellStyle(style6);
              
+             //ROW 46 ***********************
+             //Sıra No1
+             row= sheet.createRow(46);
+             for (int i=0;i<=0;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
               
-            // ------GENİŞLİK AYARLAMA-----
-            sheet.setColumnWidth(0,2280);   //A
-            sheet.setColumnWidth(1,3120);   //B
-            sheet.setColumnWidth(2,270);    //C
-            sheet.setColumnWidth(3,1300);   //D
-            sheet.setColumnWidth(4,1440);   //E
-            sheet.setColumnWidth(5,1050);   //F
-            sheet.setColumnWidth(6,2460);   //G
-            sheet.setColumnWidth(7,1720);   //H
-            sheet.setColumnWidth(8,2180);   //I
-            sheet.setColumnWidth(9,2530);   //J
-            sheet.setColumnWidth(10,960);   //K
-            sheet.setColumnWidth(11,3200);  //L
-            sheet.setColumnWidth(12,1465);  //M
-            sheet.setColumnWidth(13,1270);  //N
-            sheet.setColumnWidth(14,1460);  //O
-            sheet.setColumnWidth(15,3200);  //P
-            sheet.setColumnWidth(16,910);   //Q
-            sheet.setColumnWidth(17,1820);  //R
-            sheet.setColumnWidth(18,1550);  //S
-            sheet.setColumnWidth(19,2100);  //T
-            sheet.setColumnWidth(20,3290);  //U
+             cell =  row.createCell(0); 
+             cell.setCellValue(SiraNo1.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(46,47,0,0));  
+             cell.setCellStyle(style24);
+             
+             //Kaynak/Parça No1
+             
+             for (int i=1;i<=5;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(1); 
+             cell.setCellValue(KaynakParcaNo1.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(46,47,1,5));  
+             cell.setCellStyle(style22);
+             
+             //Kontrol Uzun1
+             
+             for (int i=6;i<=7;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(6); 
+             cell.setCellValue(KontrolUzun1.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(46,47,6,7));  
+             cell.setCellStyle(style23);
+             
+             //Kaynak Yön1
+             
+             for (int i=8;i<=10;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(8); 
+             cell.setCellValue(KaynakYon1.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(46,47,8,10));  
+             cell.setCellStyle(style23);
+             
+             //Kalınlık1
+             
+             for (int i=11;i<=11;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(11); 
+             cell.setCellValue(Kalinlik1.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(46,47,11,11));  
+             cell.setCellStyle(style23);
+             
+             //Çap1
+             
+             for (int i=12;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(12); 
+             cell.setCellValue(Cap1.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(46,47,12,14));  
+             cell.setCellStyle(style23);
+             
+              //Hata Tipi1
+             
+             for (int i=15;i<=16;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(15); 
+             cell.setCellValue(HataTipi1.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(46,47,15,16));  
+             cell.setCellStyle(style23);
+             
+             
+             //Hatanin Yeri1
+             
+             for (int i=17;i<=19;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(17); 
+             cell.setCellValue(HataninYeri1.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(46,47,17,19));  
+             cell.setCellStyle(style23);
+             
+             
+             //Sonuc1
+             
+             for (int i=20;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(20); 
+             cell.setCellValue(Sonuc1.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(46,47,20,20));  
+             cell.setCellStyle(style22);
+             
+             
+             
+             
+             //ROW 47*************
+             row= sheet.createRow(47);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+             
+             //ROW 48 ***********************
+             //Sıra No2
+             row= sheet.createRow(48);
+             for (int i=0;i<=0;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+              
+             cell =  row.createCell(0); 
+             cell.setCellValue(SiraNo2.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(48,49,0,0));  
+             cell.setCellStyle(style24);
+             
+             //Kaynak/Parça No2
+             
+             for (int i=1;i<=5;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(1); 
+             cell.setCellValue(KaynakParcaNo2.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(48,49,1,5));  
+             cell.setCellStyle(style22);
+             
+             //Kontrol Uzun2
+             
+             for (int i=6;i<=7;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(6); 
+             cell.setCellValue(KontrolUzun2.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(48,49,6,7));  
+             cell.setCellStyle(style23);
+             
+             //Kaynak Yön2
+             
+             for (int i=8;i<=10;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(8); 
+             cell.setCellValue(KaynakYon2.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(48,49,8,10));  
+             cell.setCellStyle(style23);
+             
+             //Kalınlık2
+             
+             for (int i=11;i<=11;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(11); 
+             cell.setCellValue(Kalinlik2.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(48,49,11,11));  
+             cell.setCellStyle(style23);
+             
+             //Çap2
+             
+             for (int i=12;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(12); 
+             cell.setCellValue(Cap2.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(48,49,12,14));  
+             cell.setCellStyle(style23);
+             
+              //Hata Tipi2
+             
+             for (int i=15;i<=16;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(15); 
+             cell.setCellValue(HataTipi2.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(48,49,15,16));  
+             cell.setCellStyle(style23);
+             
+             
+             //Hatanin Yeri2
+             
+             for (int i=17;i<=19;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(17); 
+             cell.setCellValue(HataninYeri2.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(48,49,17,19));  
+             cell.setCellStyle(style23);
+             
+             
+             //Sonuc2
+             
+             for (int i=20;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(20); 
+             cell.setCellValue(Sonuc2.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(48,49,20,20));  
+             cell.setCellStyle(style22);
+             
+             
+            //ROW 49*************
+             row= sheet.createRow(49);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+             
+             //ROW 50 ***********************
+             //Sıra No3
+             row= sheet.createRow(50);
+             for (int i=0;i<=0;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+              
+             cell =  row.createCell(0); 
+             cell.setCellValue(SiraNo3.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(50,51,0,0));  
+             cell.setCellStyle(style24);
+             
+             //Kaynak/Parça No3
+             
+             for (int i=1;i<=5;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(1); 
+             cell.setCellValue(KaynakParcaNo3.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(50,51,1,5));  
+             cell.setCellStyle(style22);
+             
+             //Kontrol Uzun3
+             
+             for (int i=6;i<=7;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(6); 
+             cell.setCellValue(KontrolUzun3.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(50,51,6,7));  
+             cell.setCellStyle(style23);
+             
+             //Kaynak Yön3
+             
+             for (int i=8;i<=10;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(8); 
+             cell.setCellValue(KaynakYon3.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(50,51,8,10));  
+             cell.setCellStyle(style23);
+             
+             //Kalınlık3
+             
+             for (int i=11;i<=11;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(11); 
+             cell.setCellValue(Kalinlik3.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(50,51,11,11));  
+             cell.setCellStyle(style23);
+             
+             //Çap3
+             
+             for (int i=12;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(12); 
+             cell.setCellValue(Cap3.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(50,51,12,14));  
+             cell.setCellStyle(style23);
+             
+              //Hata Tipi3
+             
+             for (int i=15;i<=16;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(15); 
+             cell.setCellValue(HataTipi3.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(50,51,15,16));  
+             cell.setCellStyle(style23);
+             
+             
+             //Hatanin Yeri3
+             
+             for (int i=17;i<=19;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(17); 
+             cell.setCellValue(HataninYeri3.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(50,51,17,19));  
+             cell.setCellStyle(style23);
+             
+             
+             //Sonuc3
+             
+             for (int i=20;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(20); 
+             cell.setCellValue(Sonuc3.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(50,51,20,20));  
+             cell.setCellStyle(style22);
+             
+             //ROW 51*************
+             row= sheet.createRow(51);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+             
+             //ROW 52 ***********************
+             //Sıra No4
+             row= sheet.createRow(52);
+             for (int i=0;i<=0;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+              
+             cell =  row.createCell(0); 
+             cell.setCellValue(SiraNo4.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(52,53,0,0));  
+             cell.setCellStyle(style24);
+             
+             //Kaynak/Parça No4
+             
+             for (int i=1;i<=5;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(1); 
+             cell.setCellValue(KaynakParcaNo4.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(52,53,1,5));  
+             cell.setCellStyle(style22);
+             
+             //Kontrol Uzun4
+             
+             for (int i=6;i<=7;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(6); 
+             cell.setCellValue(KontrolUzun4.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(52,53,6,7));  
+             cell.setCellStyle(style23);
+             
+             //Kaynak Yön4
+             
+             for (int i=8;i<=10;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(8); 
+             cell.setCellValue(KaynakYon4.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(52,53,8,10));  
+             cell.setCellStyle(style23);
+             
+             //Kalınlık4
+             
+             for (int i=11;i<=11;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(11); 
+             cell.setCellValue(Kalinlik4.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(52,53,11,11));  
+             cell.setCellStyle(style23);
+             
+             //Çap4
+             
+             for (int i=12;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(12); 
+             cell.setCellValue(Cap4.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(52,53,12,14));  
+             cell.setCellStyle(style23);
+             
+              //Hata Tipi4
+             
+             for (int i=15;i<=16;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(15); 
+             cell.setCellValue(HataTipi4.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(52,53,15,16));  
+             cell.setCellStyle(style23);
+             
+             
+             //Hatanin Yeri4
+             
+             for (int i=17;i<=19;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(17); 
+             cell.setCellValue(HataninYeri4.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(52,53,17,19));  
+             cell.setCellStyle(style23);
+             
+             
+             //Sonuc4
+             
+             for (int i=20;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(20); 
+             cell.setCellValue(Sonuc4.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(52,53,20,20));  
+             cell.setCellStyle(style22);
+             
+             
+             //ROW 53*************
+             row= sheet.createRow(53);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+             
+             //ROW 54 ***********************
+             //Sıra No5
+             row= sheet.createRow(54);
+             for (int i=0;i<=0;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+              
+             cell =  row.createCell(0); 
+             cell.setCellValue(SiraNo5.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(54,55,0,0));  
+             cell.setCellStyle(style24);
+             
+             //Kaynak/Parça No5
+             
+             for (int i=1;i<=5;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(1); 
+             cell.setCellValue(KaynakParcaNo5.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(54,55,1,5));  
+             cell.setCellStyle(style22);
+             
+             //Kontrol Uzun5
+             
+             for (int i=6;i<=7;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(6); 
+             cell.setCellValue(KontrolUzun5.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(54,55,6,7));  
+             cell.setCellStyle(style23);
+             
+             //Kaynak Yön5
+             
+             for (int i=8;i<=10;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(8); 
+             cell.setCellValue(KaynakYon5.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(54,55,8,10));  
+             cell.setCellStyle(style23);
+             
+             //Kalınlık5
+             
+             for (int i=11;i<=11;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(11); 
+             cell.setCellValue(Kalinlik5.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(54,55,11,11));  
+             cell.setCellStyle(style23);
+             
+             //Çap5
+             
+             for (int i=12;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(12); 
+             cell.setCellValue(Cap5.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(54,55,12,14));  
+             cell.setCellStyle(style23);
+             
+              //Hata Tipi5
+             
+             for (int i=15;i<=16;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(15); 
+             cell.setCellValue(HataTipi5.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(54,55,15,16));  
+             cell.setCellStyle(style23);
+             
+             
+             //Hatanin Yeri5
+             
+             for (int i=17;i<=19;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(17); 
+             cell.setCellValue(HataninYeri5.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(54,55,17,19));  
+             cell.setCellStyle(style23);
+             
+             
+             //Sonuc5
+             
+             for (int i=20;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(20); 
+             cell.setCellValue(Sonuc5.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(54,55,20,20));  
+             cell.setCellStyle(style22);
+             
+             //ROW 55*************
+             row= sheet.createRow(55);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+             
+             
+             //ROW 56 ***********************
+             //Sıra No6
+             row= sheet.createRow(56);
+             for (int i=0;i<=0;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+              
+             cell =  row.createCell(0); 
+             cell.setCellValue(SiraNo6.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(56,57,0,0));  
+             cell.setCellStyle(style24);
+             
+             //Kaynak/Parça No6
+             
+             for (int i=1;i<=5;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(1); 
+             cell.setCellValue(KaynakParcaNo6.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(56,57,1,5));  
+             cell.setCellStyle(style22);
+             
+             //Kontrol Uzun6
+             
+             for (int i=6;i<=7;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(6); 
+             cell.setCellValue(KontrolUzun6.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(56,57,6,7));  
+             cell.setCellStyle(style23);
+             
+             //Kaynak Yön6
+             
+             for (int i=8;i<=10;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(8); 
+             cell.setCellValue(KaynakYon6.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(56,57,8,10));  
+             cell.setCellStyle(style23);
+             
+             //Kalınlık6
+             
+             for (int i=11;i<=11;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(11); 
+             cell.setCellValue(Kalinlik6.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(56,57,11,11));  
+             cell.setCellStyle(style23);
+             
+             //Çap6
+             
+             for (int i=12;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(12); 
+             cell.setCellValue(Cap6.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(56,57,12,14));  
+             cell.setCellStyle(style23);
+             
+              //Hata Tipi6
+             
+             for (int i=15;i<=16;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(15); 
+             cell.setCellValue(HataTipi6.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(56,57,15,16));  
+             cell.setCellStyle(style23);
+             
+             
+             //Hatanin Yeri6
+             
+             for (int i=17;i<=19;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(17); 
+             cell.setCellValue(HataninYeri6.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(56,57,17,19));  
+             cell.setCellStyle(style23);
+             
+             
+             //Sonuc6
+             
+             for (int i=20;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(20); 
+             cell.setCellValue(Sonuc6.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(56,57,20,20));  
+             cell.setCellStyle(style22);
+             
+             //ROW 57*************
+             row= sheet.createRow(57);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+             
+             //ROW 58 ***********************
+             //Sıra No7
+             row= sheet.createRow(58);
+             for (int i=0;i<=0;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+              
+             cell =  row.createCell(0); 
+             cell.setCellValue(SiraNo7.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(58,59,0,0));  
+             cell.setCellStyle(style24);
+             
+             //Kaynak/Parça No7
+             
+             for (int i=1;i<=5;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(1); 
+             cell.setCellValue(KaynakParcaNo7.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(58,59,1,5));  
+             cell.setCellStyle(style22);
+             
+             //Kontrol Uzun7
+             
+             for (int i=6;i<=7;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(6); 
+             cell.setCellValue(KontrolUzun7.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(58,59,6,7));  
+             cell.setCellStyle(style23);
+             
+             //Kaynak Yön7
+             
+             for (int i=8;i<=10;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(8); 
+             cell.setCellValue(KaynakYon7.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(58,59,8,10));  
+             cell.setCellStyle(style23);
+             
+             //Kalınlık7
+             
+             for (int i=11;i<=11;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(11); 
+             cell.setCellValue(Kalinlik7.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(58,59,11,11));  
+             cell.setCellStyle(style23);
+             
+             //Çap7
+             
+             for (int i=12;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(12); 
+             cell.setCellValue(Cap7.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(58,59,12,14));  
+             cell.setCellStyle(style23);
+             
+              //Hata Tipi7
+             
+             for (int i=15;i<=16;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(15); 
+             cell.setCellValue(HataTipi7.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(58,59,15,16));  
+             cell.setCellStyle(style23);
+             
             
-            //
+             //Hatanin Yeri7
+             
+             for (int i=17;i<=19;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(17); 
+             cell.setCellValue(HataninYeri7.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(58,59,17,19));  
+             cell.setCellStyle(style23);
+             
+             
+             //Sonuc7
+             
+             for (int i=20;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(20); 
+             cell.setCellValue(Sonuc7.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(58,59,20,20));  
+             cell.setCellStyle(style22);
+             
+             //ROW 59*************
+             row= sheet.createRow(59);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+             
+             //ROW 60 ***********************
+             //Sıra No8
+             row= sheet.createRow(60);
+             for (int i=0;i<=0;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+              
+             cell =  row.createCell(0); 
+             cell.setCellValue(SiraNo8.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(60,61,0,0));  
+             cell.setCellStyle(style24);
+             
+             //Kaynak/Parça No8
+             
+             for (int i=1;i<=5;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(1); 
+             cell.setCellValue(KaynakParcaNo8.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(60,61,1,5));  
+             cell.setCellStyle(style22);
+             
+             //Kontrol Uzun8
+             
+             for (int i=6;i<=7;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(6); 
+             cell.setCellValue(KontrolUzun8.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(60,61,6,7));  
+             cell.setCellStyle(style23);
+             
+             //Kaynak Yön8
+             
+             for (int i=8;i<=10;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(8); 
+             cell.setCellValue(KaynakYon8.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(60,61,8,10));  
+             cell.setCellStyle(style23);
+             
+             //Kalınlık8
+             
+             for (int i=11;i<=11;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(11); 
+             cell.setCellValue(Kalinlik8.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(60,61,11,11));  
+             cell.setCellStyle(style23);
+             
+             //Çap8
+             
+             for (int i=12;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(12); 
+             cell.setCellValue(Cap8.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(60,61,12,14));  
+             cell.setCellStyle(style23);
+             
+              //Hata Tipi8
+             
+             for (int i=15;i<=16;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(15); 
+             cell.setCellValue(HataTipi8.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(60,61,15,16));  
+             cell.setCellStyle(style23);
+             
+             
+             //Hatanin Yeri8
+             
+             for (int i=17;i<=19;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(17); 
+             cell.setCellValue(HataninYeri8.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(60,61,17,19));  
+             cell.setCellStyle(style23);
+             
+             
+             //Sonuc8
+             
+             for (int i=20;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(20); 
+             cell.setCellValue(Sonuc8.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(60,61,20,20));  
+             cell.setCellStyle(style22);
+             
+             //ROW 61*************
+             row= sheet.createRow(61);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+             
+             //ROW 62 ***********************
+             //Sıra No9
+             row= sheet.createRow(62);
+             for (int i=0;i<=0;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+              
+             cell =  row.createCell(0); 
+             cell.setCellValue(SiraNo9.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(62,63,0,0));  
+             cell.setCellStyle(style24);
+             
+             //Kaynak/Parça No9
+             
+             for (int i=1;i<=5;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(1); 
+             cell.setCellValue(KaynakParcaNo9.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(62,63,1,5));  
+             cell.setCellStyle(style22);
+             
+             //Kontrol Uzun9
+             
+             for (int i=6;i<=7;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(6); 
+             cell.setCellValue(KontrolUzun9.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(62,63,6,7));  
+             cell.setCellStyle(style23);
+             
+             //Kaynak Yön9
+             
+             for (int i=8;i<=10;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(8); 
+             cell.setCellValue(KaynakYon9.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(62,63,8,10));  
+             cell.setCellStyle(style23);
+             
+             //Kalınlık9
+             
+             for (int i=11;i<=11;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(11); 
+             cell.setCellValue(Kalinlik9.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(62,63,11,11));  
+             cell.setCellStyle(style23);
+             
+             //Çap9
+             
+             for (int i=12;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(12); 
+             cell.setCellValue(Cap9.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(62,63,12,14));  
+             cell.setCellStyle(style23);
+             
+              //Hata Tipi9
+             
+             for (int i=15;i<=16;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(15); 
+             cell.setCellValue(HataTipi9.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(62,63,15,16));  
+             cell.setCellStyle(style23);
+             
+             
+             //Hatanin Yeri9
+             
+             for (int i=17;i<=19;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(17); 
+             cell.setCellValue(HataninYeri9.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(62,63,17,19));  
+             cell.setCellStyle(style23);
+             
+             
+             //Sonuc9
+             
+             for (int i=20;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(20); 
+             cell.setCellValue(Sonuc9.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(62,63,20,20));  
+             cell.setCellStyle(style22);
+              
+             
+             //ROW 63*************
+             row= sheet.createRow(63);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+             
+             //ROW 64 ***********************
+             //Sıra No10
+             row= sheet.createRow(64);
+             for (int i=0;i<=0;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             }
+              
+             cell =  row.createCell(0); 
+             cell.setCellValue(SiraNo10.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(64,65,0,0));  
+             cell.setCellStyle(style24);
+             
+             //Kaynak/Parça No10
+             
+             for (int i=1;i<=5;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(1); 
+             cell.setCellValue(KaynakParcaNo10.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(64,65,1,5));  
+             cell.setCellStyle(style22);
+             
+             //Kontrol Uzun10
+             
+             for (int i=6;i<=7;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(6); 
+             cell.setCellValue(KontrolUzun10.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(64,65,6,7));  
+             cell.setCellStyle(style23);
+             
+             //Kaynak Yön10
+             
+             for (int i=8;i<=10;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(8); 
+             cell.setCellValue(KaynakYon10.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(64,65,8,10));  
+             cell.setCellStyle(style23);
+             
+             //Kalınlık10
+             
+             for (int i=11;i<=11;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(11); 
+             cell.setCellValue(Kalinlik10.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(64,65,11,11));  
+             cell.setCellStyle(style23);
+             
+             //Çap10
+             
+             for (int i=12;i<=14;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(12); 
+             cell.setCellValue(Cap10.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(64,65,12,14));  
+             cell.setCellStyle(style23);
+             
+              //Hata Tipi10
+             
+             for (int i=15;i<=16;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(15); 
+             cell.setCellValue(HataTipi10.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(64,65,15,16));  
+             cell.setCellStyle(style23);
+             
+             
+             //Hatanin Yeri10
+             
+             for (int i=17;i<=19;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style23);
+             }
+              
+             cell =  row.createCell(17); 
+             cell.setCellValue(HataninYeri10.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(64,65,17,19));  
+             cell.setCellStyle(style23);
+             
+             
+             //Sonuc10
+             
+             for (int i=20;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style22);
+             }
+              
+             cell =  row.createCell(20); 
+             cell.setCellValue(Sonuc10.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(64,65,20,20));  
+             cell.setCellStyle(style22);
+             
+             //ROW 65*************
+             row= sheet.createRow(65);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style24);
+             } 
+             
+             
+             //ROW 66******************
+               //Başlık: Personel Bilgileri
+            row= sheet.createRow(66);
+            for (int i=0;i<=3;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style19);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Personel Bilgileri/Person.Infor.");    
+             sheet.addMergedRegion(new CellRangeAddress(66,67,0,3)); 
+             cell.setCellStyle(style19);
+             
+             
+             
+             //Başlık: Operatör
+            for (int i=4;i<=8;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style25);
+             }
+             cell =  row.createCell(4); 
+             
+             cell.setCellValue("Operatör/Operator");    
+             sheet.addMergedRegion(new CellRangeAddress(66,67,4,8)); 
+             cell.setCellStyle(style25);
+             
+             
+              //Başlık: Değerlendiren
+            for (int i=9;i<=13;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style25);
+             }
+             cell =  row.createCell(9); 
+             
+             cell.setCellValue("Değerlendiren/Evaluated By");    
+             sheet.addMergedRegion(new CellRangeAddress(66,67,9,13)); 
+             cell.setCellStyle(style25);
+             
+             
+               //Başlık: Onay/Confirmation
+            for (int i=14;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style25);
+             }
+             cell =  row.createCell(14); 
+             
+             cell.setCellValue("Onay/Confirmation");    
+             sheet.addMergedRegion(new CellRangeAddress(66,67,14,17)); 
+             cell.setCellStyle(style25);
+             
+             
+                //Başlık: Müşteri/Customer
+            for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style25);
+             }
+             cell =  row.createCell(18); 
+             
+             cell.setCellValue("Müşteri/Customer");    
+             sheet.addMergedRegion(new CellRangeAddress(66,67,18,20)); 
+             cell.setCellStyle(style25);
+             
+             
+             //ROW 67*************
+             row= sheet.createRow(67);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style);
+             } 
+             
+             //ROW 68******************
+               //Başlık: Adı Soyadı / Name Surname
+            row= sheet.createRow(68);
+            for (int i=0;i<=3;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style19);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Adı Soyadı / Name Surname");    
+             sheet.addMergedRegion(new CellRangeAddress(68,69,0,3)); 
+             cell.setCellStyle(style19);
+             
+             for (int i=4;i<=8;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(4); 
+             cell.setCellValue(OperatorAdSoyad.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(68,69,4,8));  
+             cell.setCellStyle(style26);
+             
+             for (int i=9;i<=13;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(9); 
+             cell.setCellValue(DegerlendirenAdSoyad.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(68,69,9,13));  
+             cell.setCellStyle(style26);
+             
+              for (int i=14;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(14); 
+             cell.setCellValue(OnayAdSoyad.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(68,69,14,17));  
+             cell.setCellStyle(style26);
+             
+               for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(18); 
+             cell.setCellValue(MusteriAdSoyad.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(68,69,18,20));  
+             cell.setCellStyle(style26);
+             
+             
+             //ROW 69**********************
+             row= sheet.createRow(69);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style20);
+             } 
+             
+             
+             //ROW 70******************
+               //Başlık: Seviye / Level
+            row= sheet.createRow(70);
+            for (int i=0;i<=3;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style19);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Seviye / Level");    
+             sheet.addMergedRegion(new CellRangeAddress(70,71,0,3)); 
+             cell.setCellStyle(style19);
+             
+             
+             for (int i=4;i<=8;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(4); 
+             cell.setCellValue(OperatorLevel.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(70,71,4,8));  
+             cell.setCellStyle(style26);
+             
+             for (int i=9;i<=13;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(9); 
+             cell.setCellValue(DegerlendirenLevel.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(70,71,9,13));  
+             cell.setCellStyle(style26);
+             
+              for (int i=14;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(14); 
+             cell.setCellValue(OnayLevel.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(70,71,14,17));  
+             cell.setCellStyle(style26);
+             
+               for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(18); 
+             cell.setCellValue(MusteriLevel.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(70,71,18,20));  
+             cell.setCellStyle(style26);
+             
+             //ROW 71**********************
+             row= sheet.createRow(71);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style20);
+             } 
+             
+              //ROW 72******************
+               //Başlık: Tarih / Date
+            row= sheet.createRow(72);
+            for (int i=0;i<=3;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style19);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("Tarih / Date");    
+             sheet.addMergedRegion(new CellRangeAddress(72,73,0,3)); 
+             cell.setCellStyle(style19);
+             
+             for (int i=4;i<=8;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(4); 
+             cell.setCellValue(OperatorTarih.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(72,73,4,8));  
+             cell.setCellStyle(style26);
+             
+             for (int i=9;i<=13;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(9); 
+             cell.setCellValue(DegerlendirenTarih.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(72,73,9,13));  
+             cell.setCellStyle(style26);
+             
+              for (int i=14;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(14); 
+             cell.setCellValue(OnayTarih.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(72,73,14,17));  
+             cell.setCellStyle(style26);
+             
+               for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(18); 
+             cell.setCellValue(MusteriTarih.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(72,73,18,20));  
+             cell.setCellStyle(style26);
+             
+             //ROW 73**********************
+             row= sheet.createRow(73);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style20);
+             } 
+             
+               //ROW 74******************
+               //Başlık: İmza / Signature
+            row= sheet.createRow(74);
+            for (int i=0;i<=3;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style19);
+             }
+             cell =  row.createCell(0); 
+             
+             cell.setCellValue("İmza / Signature");    
+             sheet.addMergedRegion(new CellRangeAddress(74,76,0,3)); 
+             cell.setCellStyle(style19);
+             
+             for (int i=4;i<=8;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(4); 
+             cell.setCellValue(OperatorImza.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(74,76,4,8));  
+             cell.setCellStyle(style26);
+             
+             for (int i=9;i<=13;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(9); 
+             cell.setCellValue(DegerlendirenImza.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(74,76,9,13));  
+             cell.setCellStyle(style26);
+             
+              for (int i=14;i<=17;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(14); 
+             cell.setCellValue(OnayImza.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(74,76,14,17));  
+             cell.setCellStyle(style26);
+             
+               for (int i=18;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style26);
+             }
+              
+             cell =  row.createCell(18); 
+             cell.setCellValue(MusteriImza.getText());  
+             sheet.addMergedRegion(new CellRangeAddress(74,76,18,20));  
+             cell.setCellStyle(style26);
+             
+             //ROW 75**********************
+             row= sheet.createRow(75);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style20);
+             } 
+             
+             //ROW 76**********************
+             row= sheet.createRow(76);
+             for (int i=0;i<=20;i++){
+               cell=row.createCell(i);
+               cell.setCellStyle(style20);
+             } 
+             
+             
+             
+             
+            // ------GENİŞLİK -------------o---------------
+            sheet.setColumnWidth(0,2212);   
+            sheet.setColumnWidth(1,3026);   
+            sheet.setColumnWidth(2,262);    
+            sheet.setColumnWidth(3,1261);   
+            sheet.setColumnWidth(4,1397);   
+            sheet.setColumnWidth(5,1018);   
+            sheet.setColumnWidth(6,2386);   
+            sheet.setColumnWidth(7,1668);   
+            sheet.setColumnWidth(8,2114);   
+            sheet.setColumnWidth(9,2454);   
+            sheet.setColumnWidth(10,931);   
+            sheet.setColumnWidth(11,3104);  
+            sheet.setColumnWidth(12,1421);  
+            sheet.setColumnWidth(13,1232);  
+            sheet.setColumnWidth(14,1416);  
+            sheet.setColumnWidth(15,3104);  
+            sheet.setColumnWidth(16,882);   
+            sheet.setColumnWidth(17,1765);  
+            sheet.setColumnWidth(18,1503);  
+            sheet.setColumnWidth(19,2037);  
+            sheet.setColumnWidth(20,3191);  
+            
+            //----------------------o-----------------------
             
              
              wb.write(fileOut);

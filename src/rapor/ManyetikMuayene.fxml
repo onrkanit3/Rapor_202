@@ -500,6 +500,10 @@
                         <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <TextField fx:id="HataTipi5" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
@@ -602,6 +606,42 @@
                         <TextField fx:id="Sonuc1" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
                         <TextField fx:id="HataninYeri6" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="6" />
                         <TextField fx:id="HataninYeri5" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+                        <TextField fx:id="SiraNo7" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="7" GridPane.rowIndex="7" />
+                        <TextField fx:id="SiraNo8" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="8" GridPane.rowIndex="8" />
+                        <TextField fx:id="SiraNo9" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="9" GridPane.rowIndex="9" />
+                        <TextField fx:id="SiraNo10" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="10" GridPane.rowIndex="10" />
+                        <TextField fx:id="KaynakParcaNo7" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <TextField fx:id="KaynakParcaNo8" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <TextField fx:id="KaynakParcaNo9" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <TextField fx:id="KaynakParcaNo10" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <TextField fx:id="KontrolUzun7" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                        <TextField fx:id="KontrolUzun8" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                        <TextField fx:id="KontrolUzun9" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                        <TextField fx:id="KontrolUzun10" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                        <TextField fx:id="KaynakYon7" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                        <TextField fx:id="KaynakYon8" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                        <TextField fx:id="KaynakYon9" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                        <TextField fx:id="KaynakYon10" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                        <TextField fx:id="Kalinlik7" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                        <TextField fx:id="Kalinlik8" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                        <TextField fx:id="Kalinlik9" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                        <TextField fx:id="Kalinlik10" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+                        <TextField fx:id="Cap7" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                        <TextField fx:id="Cap8" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+                        <TextField fx:id="Cap9" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+                        <TextField fx:id="Cap10" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="10" />
+                        <TextField fx:id="HataTipi7" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+                        <TextField fx:id="HataTipi8" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+                        <TextField fx:id="HataTipi9" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="6" GridPane.rowIndex="9" />
+                        <TextField fx:id="HataTipi10" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="6" GridPane.rowIndex="10" />
+                        <TextField fx:id="HataninYeri7" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+                        <TextField fx:id="HataninYeri8" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="8" />
+                        <TextField fx:id="HataninYeri9" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="9" />
+                        <TextField fx:id="HataninYeri10" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="10" />
+                        <TextField fx:id="Sonuc7" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+                        <TextField fx:id="Sonuc8" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="8" />
+                        <TextField fx:id="Sonuc9" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="9" />
+                        <TextField fx:id="Sonuc10" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="10" />
                      </children>
                   </GridPane>
                </children>
@@ -663,7 +703,7 @@
                         <TextField fx:id="OnayAdSoyad" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                         <TextField fx:id="DegerlendirenImza" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                         <TextField fx:id="DegerlendirenLevel" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <TextField fx:id="DegerlendierenTarih" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <TextField fx:id="DegerlendirenTarih" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                         <TextField fx:id="DegerlendirenAdSoyad" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <Label alignment="CENTER" prefHeight="58.0" prefWidth="225.0" text="Adı Soyadı / Name Surname" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
                            <font>
