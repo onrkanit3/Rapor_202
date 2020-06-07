@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.CalisanEkleController">
    <children>
       <Button layoutX="644.0" layoutY="657.0" mnemonicParsing="false" onAction="#anaSayfayaDon" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Ana Sayfaya Geri Dön" textAlignment="CENTER" textFill="#37474f" wrapText="true">
@@ -66,11 +67,13 @@
                   <Button fx:id="personelEkle" mnemonicParsing="false" onAction="#newMitarbeiterButtonPushed" prefHeight="102.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF;" text="Personel Ekle" textAlignment="CENTER" textFill="#37474f" wrapText="true">
                      <font>
                         <Font name="Century" size="18.0" />
-                     </font></Button>
+                     </font>
+                  </Button>
                   <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="102.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF;" text="Personel Sil" textAlignment="CENTER" textFill="#37474f" wrapText="true">
                      <font>
                         <Font name="Century" size="18.0" />
-                     </font></Button>
+                     </font>
+                  </Button>
                </children>
             </HBox>
          </children>

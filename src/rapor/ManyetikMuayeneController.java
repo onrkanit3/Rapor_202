@@ -5,6 +5,8 @@
  */
 package rapor;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -13,6 +15,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,12 +23,25 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import org.apache.commons.compress.utils.IOUtils;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.BorderStyle;
@@ -47,7 +63,11 @@ import org.apache.poi.ss.util.CellRangeAddress;
 
 
 public class ManyetikMuayeneController implements Initializable 
-{
+{   
+    @FXML private AnchorPane ManyetikMuayene;
+    @FXML private ScrollPane ManMuayene;
+    @FXML private VBox MMuayene;
+    @FXML private Button PDF;
     @FXML private ChoiceBox Musteri;
     @FXML private ChoiceBox ProjeAdi;
     @FXML private TextField TestYeri;
@@ -196,6 +216,53 @@ public class ManyetikMuayeneController implements Initializable
     @FXML private ImageView Logo;
     
     
+   @FXML
+    public void toPDF(ActionEvent event) {
+        
+            VBox root = new VBox();
+            root=MMuayene;
+        
+            try {
+                WritableImage nodeshot = root.snapshot(new SnapshotParameters(), null);
+
+                // store image in-memory
+                ByteArrayOutputStream output = new ByteArrayOutputStream();
+                ImageIO.write(SwingFXUtils.fromFXImage(nodeshot, null), "png", output);
+                output.close();
+
+                PDDocument doc = new PDDocument();
+                PDPage page = new PDPage();
+                PDImageXObject pdimage;
+                PDPageContentStream content;
+
+                pdimage = PDImageXObject.createFromByteArray(doc, output.toByteArray(), "png");
+                content = new PDPageContentStream(doc, page);
+          
+                // fit image to media box of page
+               PDRectangle box = page.getMediaBox();
+                double factor = Math.max(box.getWidth() / nodeshot.getWidth(), box.getHeight() / nodeshot.getHeight());
+                
+                float height = (float) (nodeshot.getHeight() * factor);
+                
+
+                // beware of inverted y axis here
+                content.drawImage(pdimage, 0, (float)-200.6146,  612, 1031);
+                
+                
+                content.close();
+                doc.addPage(page);
+
+                File outputFile = new File("C:\\Users\\izmir\\OneDrive\\Masaüstü\\PDF\\PDFNode.pdf");
+
+                doc.save(outputFile);
+                doc.close();
+
+                
+            } catch (Exception e) {
+            }
+
+        
+    } 
     
     
 
@@ -213,6 +280,8 @@ public class ManyetikMuayeneController implements Initializable
         window.setScene(RaporGirisScene);
         window.show();
     }
+    
+    
     
     public void Workbook() throws FileNotFoundException, IOException
      {  
