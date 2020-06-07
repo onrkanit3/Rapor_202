@@ -30,6 +30,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.converter.LocalDateStringConverter;
 import static rapor.Mitarbeiter.CheckUsernameExists;
@@ -57,6 +58,7 @@ public class CalisanEkleController implements Initializable
     @FXML private TextField LevelTextField;
     @FXML private DatePicker sertifikatarihiDatePicker;
     @FXML private Button personelEkle;
+    
 
      
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy.MM.dd");
