@@ -37,7 +37,7 @@
          <children>
             <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="ProjeNumarasiColumn" onEditCommit="#changeProjeNumarasiCellEvent" prefWidth="382.0" text="Proje Numarası" />
+                <TableColumn fx:id="ProjeNumarasiColumn" editable="false" prefWidth="382.0" text="Proje Numarası" />
                 <TableColumn fx:id="ProjeAdiColumn" onEditCommit="#changeProjeAdiCellEvent" prefWidth="382.0" text="Proje Adı" />
               </columns>
             </TableView>

@@ -7,6 +7,11 @@ package rapor;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,13 +22,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
+import static rapor.YuzeyDurumu.CheckYuzeyDurumNumarasiExists;
 
 /**
  * FXML Controller class
@@ -32,7 +39,7 @@ import javafx.stage.Stage;
  */
 public class YuzeyDurumuEkleController implements Initializable {
     
-    @FXML private TableView<YuzeyDurumu> tableView01;
+    @FXML private TableView<YuzeyDurumu> tableView;
     @FXML private TableColumn<YuzeyDurumu, String> YuzeyDurumNumarasiColumn;
     @FXML private TableColumn<YuzeyDurumu, String> YuzeyDurumuColumn;
    
@@ -53,35 +60,48 @@ public class YuzeyDurumuEkleController implements Initializable {
         window.show();
     }
    
-    public void newYuzeyDurumuButtonPushed()
+    public void newYuzeyDurumuButtonPushed() throws SQLException
     {
         YuzeyDurumu newYuzeyDurumu = new YuzeyDurumu(YuzeyDurumNumarasiTextField.getText(),YuzeyDurumuTextField.getText());
-        tableView01.getItems().add(newYuzeyDurumu);
+        if(CheckYuzeyDurumNumarasiExists(YuzeyDurumNumarasiTextField.getText())==false)
+        {
+           tableView.getItems().add(newYuzeyDurumu);
+           newYuzeyDurumu.InsertintoDATABASE();
+        }
+        else
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Bu Yuzey Durum Numarası mevcut.\nLütfen farklı bir Yuzey Durum Numarası deneyiniz.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+                        
+            
+        }
                 
-    } 
-    
-    public void changeYuzeyDurumNumarasiCellEvent(TableColumn.CellEditEvent edittedCell)
-    {
-        YuzeyDurumu YuzeyDurumuSelected =  tableView01.getSelectionModel().getSelectedItem();
-        YuzeyDurumuSelected.setYuzeyDurumNumarasi(edittedCell.getNewValue().toString());
     }
+
+                
     
-    public void changeYuzeyDurumuCellEvent(TableColumn.CellEditEvent edittedCell)
+    
+    public void changeYuzeyDurumuCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
-        YuzeyDurumu YuzeyDurumuSelected =  tableView01.getSelectionModel().getSelectedItem();
+        YuzeyDurumu YuzeyDurumuSelected =  tableView.getSelectionModel().getSelectedItem();
         YuzeyDurumuSelected.setYuzeyDurumu(edittedCell.getNewValue().toString());
+        YuzeyDurumuSelected.UpdateYuzeyDurumu();
     }
     
-    public void deleteButtonPushed()
+    public void deleteButtonPushed() throws SQLException
     {
         ObservableList<YuzeyDurumu> selectedRows, allYuzeyDurumu;
-        allYuzeyDurumu = tableView01.getItems();
+        allYuzeyDurumu = tableView.getItems();
         
-        selectedRows = tableView01.getSelectionModel().getSelectedItems();
+        selectedRows = tableView.getSelectionModel().getSelectedItems();
         
         for(YuzeyDurumu yuzeydurumu : selectedRows)
         {
-            allYuzeyDurumu.removeAll(selectedRows);  
+            allYuzeyDurumu.removeAll(selectedRows); 
+            yuzeydurumu.DeleteFromDATABASE();
         }    
           
     }
@@ -95,18 +115,64 @@ public class YuzeyDurumuEkleController implements Initializable {
         
        
         
-        tableView01.setItems(getYuzeyDurumu());
-        tableView01.setEditable(true);
-        tableView01.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        tableView.setItems(getYuzeyDurumu());
+        tableView.setEditable(true);
         YuzeyDurumNumarasiColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         YuzeyDurumuColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        try{
+            LoadYuzeyDurumu();
+        }
         
+        catch(SQLException e){
+            
+            System.err.println(e.getMessage());
+        }
     }
+    public void LoadYuzeyDurumu() throws SQLException
+    {
+        
+        ObservableList<YuzeyDurumu> yuzeydurumu = FXCollections.observableArrayList();
+        Connection con= null;
+        Statement statement = null;
+        ResultSet ResultSet = null;
+        
+        try
+        {
+           con = DataBase.getConnection();
+           statement = con.createStatement();
+           ResultSet = statement.executeQuery("SELECT *FROM YuzeyDurumu");
+           while (ResultSet.next())
+           {
+                YuzeyDurumu newYuzeyDurumu = new YuzeyDurumu (ResultSet.getString("YuzeyDurumNumarasi"),
+                                                             ResultSet.getString("YuzeyDurumu"));
+                                                           
+               
+                yuzeydurumu.add(newYuzeyDurumu);
+              
+           }
+           tableView.getItems().addAll(yuzeydurumu);
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        finally 
+        {
+            if(con != null)
+               con.close();
+            if(statement != null)
+               statement.close();
+            if(ResultSet != null)
+                ResultSet.close(); 
+        }
+    }
+
 
     public ObservableList<YuzeyDurumu>  getYuzeyDurumu()
     {
         ObservableList<YuzeyDurumu> yuzey = FXCollections.observableArrayList();
-        yuzey.add(new YuzeyDurumu("1","After Welding"));
         
         
         return yuzey;

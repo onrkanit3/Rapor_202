@@ -5,6 +5,11 @@
  */
 package rapor;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 public class Ekipman {
     private String EkipmanNo,Cihaz,KutupMesafesi,MpTasiyiciOrtam,MiknatislamaTeknigi,UVIsikSiddeti,IsikMesafesi;
@@ -96,6 +101,337 @@ public class Ekipman {
     public String toString()
     {
         return String.format("%s %s %s %s %s %s &s", EkipmanNo,Cihaz,KutupMesafesi,MpTasiyiciOrtam,MiknatislamaTeknigi,UVIsikSiddeti,IsikMesafesi);
+    }
+    
+    
+    public void InsertintoDATABASE() throws SQLException{
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+       
+        try
+        {
+            con= DataBase.getConnection();
+            String sql = "INSERT INTO Ekipman (EkipmanNo,Cihaz,KutupMesafesi,MpTasiyiciOrtam,MiknatislamaTeknigi,UVIsikSiddeti,IsikMesafesi)"
+                 +"VALUES(?,?,?,?,?,?,?)"; 
+
+            preparedStatement = con.prepareStatement(sql);
+
+            preparedStatement.setString(1, EkipmanNo);
+            preparedStatement.setString(2, Cihaz);
+            preparedStatement.setString(3, KutupMesafesi);
+            preparedStatement.setString(4, MpTasiyiciOrtam);
+            preparedStatement.setString(5, MiknatislamaTeknigi);
+            preparedStatement.setString(6, UVIsikSiddeti);
+            preparedStatement.setString(7, IsikMesafesi);
+            
+
+            preparedStatement.executeUpdate();
+           
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        finally
+        {
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+        
+    }
+     
+    public static boolean CheckEkipmanNoExists(String ekipmanno)
+        {
+            boolean ekipmanNoExists = false;
+            Connection con = null;
+            PreparedStatement preparedStatement = null;
+
+            try
+            {
+            con= DataBase.getConnection();
+            String sql = "select EkipmanNo from Ekipman "; 
+                
+
+                PreparedStatement st = con.prepareStatement(sql);
+                ResultSet r1=st.executeQuery();
+                String EkipmanNoCounter;
+                 while(r1.next()) 
+                 {
+                   EkipmanNoCounter =  r1.getString("EkipmanNo");
+                   if(EkipmanNoCounter.equals(ekipmanno)) 
+                   {
+                       System.out.println("It already exists");
+                      ekipmanNoExists = true;
+                   }
+                 }
+
+
+             }
+
+             catch (SQLException e) 
+             {
+               System.out.println("SQL Exception: "+ e.toString());
+             }
+
+             return ekipmanNoExists;
+        }
+    public void DeleteFromDATABASE () throws SQLException
+    {
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try
+        {
+            con= DataBase.getConnection();
+            String sql = "DELETE FROM Ekipman WHERE EkipmanNo = ?"; 
+
+            preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, EkipmanNo);
+            preparedStatement.executeUpdate();
+           
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        finally
+        {
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+    }
+    public void UpdateCihaz () throws SQLException
+    {
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try{
+           con= DataBase.getConnection();
+           String sql = "UPDATE Ekipman SET Cihaz =?" + "WHERE EkipmanNo = ?"; 
+           
+           preparedStatement = con.prepareStatement(sql);
+           
+           preparedStatement.setString(1, Cihaz);
+           preparedStatement.setString(2, EkipmanNo);
+           
+           
+           preparedStatement.executeUpdate();
+           preparedStatement.close();
+
+
+           
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        finally
+        {
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+    }
+    
+    public void UpdateKutupMesafesi () throws SQLException
+    {
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try{
+           con= DataBase.getConnection();
+           String sql = "UPDATE Ekipman SET KutupMesafesi =?" + "WHERE EkipmanNo = ?"; 
+           
+           preparedStatement = con.prepareStatement(sql);
+           
+           preparedStatement.setString(1, KutupMesafesi);
+           preparedStatement.setString(2, EkipmanNo);
+           
+           
+           preparedStatement.executeUpdate();
+           preparedStatement.close();
+
+
+           
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        finally
+        {
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+    }
+      
+       public void UpdateMpTasiyiciOrtam () throws SQLException
+    {
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try{
+           con= DataBase.getConnection();
+           String sql = "UPDATE Ekipman SET MpTasiyiciOrtam =?" + "WHERE EkipmanNo = ?"; 
+           
+           preparedStatement = con.prepareStatement(sql);
+           
+           preparedStatement.setString(1, MpTasiyiciOrtam);
+           preparedStatement.setString(2, EkipmanNo);
+           
+           
+           preparedStatement.executeUpdate();
+           preparedStatement.close();
+
+
+           
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        finally
+        {
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+    }
+       
+        public void UpdateMiknatislamaTeknigi () throws SQLException
+    {
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try{
+           con= DataBase.getConnection();
+           String sql = "UPDATE Ekipman SET MiknatislamaTeknigi =?" + "WHERE EkipmanNo = ?"; 
+           
+           preparedStatement = con.prepareStatement(sql);
+           
+           preparedStatement.setString(1, MiknatislamaTeknigi);
+           preparedStatement.setString(2, EkipmanNo);
+           
+           
+           preparedStatement.executeUpdate();
+           preparedStatement.close();
+
+
+           
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        finally
+        {
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+    }
+       
+              public void UpdateUVIsikSiddeti () throws SQLException
+    {
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try{
+           con= DataBase.getConnection();
+           String sql = "UPDATE Ekipman SET UVIsikSiddeti =?" + "WHERE EkipmanNo = ?"; 
+           
+           preparedStatement = con.prepareStatement(sql);
+           
+           preparedStatement.setString(1, UVIsikSiddeti);
+           preparedStatement.setString(2, EkipmanNo);
+           
+           
+           preparedStatement.executeUpdate();
+           preparedStatement.close();
+
+
+           
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        finally
+        {
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
+    }
+              
+              
+        public void UpdateIsikMesafesi () throws SQLException
+    {
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        
+        try{
+           con= DataBase.getConnection();
+           String sql = "UPDATE Ekipman SET IsikMesafesi =?" + "WHERE EkipmanNo = ?"; 
+           
+           preparedStatement = con.prepareStatement(sql);
+           
+           preparedStatement.setString(1, IsikMesafesi);
+           preparedStatement.setString(2, EkipmanNo);
+           
+           
+           preparedStatement.executeUpdate();
+           preparedStatement.close();
+
+
+           
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        finally
+        {
+            if(preparedStatement !=null)
+               preparedStatement.close();
+            
+            if(con != null)
+               con.close();
+        }
     }
     
     

@@ -40,7 +40,7 @@
                 <TableColumn fx:id="MusteriIsmiColumn" onEditCommit="#changeFirmaIsmiCellEvent" prefWidth="153.0" text="Müşteri İsmi" />
                 <TableColumn fx:id="IlColumn" onEditCommit="#changeIlCellEvent" prefWidth="153.0" text="İl" />
                   <TableColumn fx:id="IlceColumn" onEditCommit="#changeIlceCellEvent" prefWidth="153.0" text="İlçe" />
-                  <TableColumn fx:id="IsEmriNumarasiColumn" onEditCommit="#changeIsEmriNumarasiiCellEvent" prefWidth="153.0" text="İş Emri Numarası" />
+                  <TableColumn fx:id="IsEmriNumarasiColumn" editable="false" prefWidth="153.0" text="İş Emri Numarası" />
                   <TableColumn fx:id="TeklifNoColumn" onEditCommit="#changeTeklifNoCellEvent" prefWidth="152.0" text="Teklif No" />
               </columns>
             </TableView>

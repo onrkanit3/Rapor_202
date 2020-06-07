@@ -7,6 +7,11 @@ package rapor;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,13 +22,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
+import static rapor.Proje.CheckProjeNumarasiExists;
 
 /**
  * FXML Controller class
@@ -53,26 +60,35 @@ public class ProjeEkleController implements Initializable
         window.show();
     }
     
-    public void newProjeButtonPushed()
+    public void newProjeButtonPushed() throws SQLException
     {
         Proje newProje = new Proje(ProjeNumarasiTextField.getText(),ProjeAdiTextField.getText());
-        tableView.getItems().add(newProje);
+        if(CheckProjeNumarasiExists(ProjeNumarasiTextField.getText())==false)
+        {
+           tableView.getItems().add(newProje);
+           newProje.InsertintoDATABASE();
+        }
+        else
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Bu Proje Numarası mevcut.\nLütfen farklı bir Proje Numarası deneyiniz.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+                        
+            
+        }
                 
     }
     
-    public void changeProjeNumarasiCellEvent(TableColumn.CellEditEvent edittedCell)
-    {
-        Proje ProjeSelected =  tableView.getSelectionModel().getSelectedItem();
-        ProjeSelected.setProjeNumarasi(edittedCell.getNewValue().toString());
-    }
-    
-    public void changeProjeAdiCellEvent(TableColumn.CellEditEvent edittedCell)
+    public void changeProjeAdiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Proje ProjeSelected =  tableView.getSelectionModel().getSelectedItem();
         ProjeSelected.setProjeAdi(edittedCell.getNewValue().toString());
+        ProjeSelected.UpdateProjeAdi();
     }
     
-    public void deleteButtonPushed()
+    public void deleteButtonPushed() throws SQLException
     {
         ObservableList<Proje> selectedRows, allProje;
         allProje = tableView.getItems();
@@ -82,6 +98,7 @@ public class ProjeEkleController implements Initializable
         for(Proje proje : selectedRows)
         {
             allProje.removeAll(selectedRows);  
+            proje.DeleteFromDATABASE();
         }    
           
     }
@@ -97,16 +114,64 @@ public class ProjeEkleController implements Initializable
         
         tableView.setItems(getProje());
         tableView.setEditable(true);
-        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         ProjeNumarasiColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         ProjeAdiColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        try{
+            LoadProje();
+        }
         
+        catch(SQLException e){
+            
+            System.err.println(e.getMessage());
+        }
+    }
+    
+    
+    public void LoadProje() throws SQLException
+    {
+        
+        ObservableList<Proje> proje = FXCollections.observableArrayList();
+        Connection con= null;
+        Statement statement = null;
+        ResultSet ResultSet = null;
+        
+        try
+        {
+           con = DataBase.getConnection();
+           statement = con.createStatement();
+           ResultSet = statement.executeQuery("SELECT *FROM Proje");
+           while (ResultSet.next())
+           {
+                Proje newProje = new Proje (ResultSet.getString("ProjeNumarasi"),
+                                                             ResultSet.getString("ProjeAdi"));
+                                                           
+               
+                proje.add(newProje);
+              
+           }
+           tableView.getItems().addAll(proje);
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        finally 
+        {
+            if(con != null)
+               con.close();
+            if(statement != null)
+               statement.close();
+            if(ResultSet != null)
+                ResultSet.close(); 
+        }
     }
 
     public ObservableList<Proje>  getProje()
     {
         ObservableList<Proje> proje = FXCollections.observableArrayList();
-        proje.add(new Proje("1","Kaynakçı Testi"));
+        
         
         
         return proje;

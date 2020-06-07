@@ -7,6 +7,11 @@ package rapor;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +22,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,6 +31,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
+import static rapor.Mitarbeiter.CheckUsernameExists;
+
 
 /**
  * FXML Controller class
@@ -59,44 +68,59 @@ public class FirmaController implements Initializable
         window.show();
     }
     
-    public void newFirmaButtonPushed()
+    public void newFirmaButtonPushed() throws SQLException
     {
          Firma newFirma = new Firma(MusteriIsmiTextField.getText(),IlTextField.getText(),IlceTextField.getText(),IsEmriNumarasiTextField.getText(),TeklifNoTextField.getText());
-         tableView.getItems().add(newFirma);
+         if(CheckUsernameExists(IsEmriNumarasiTextField.getText())==false)
+        {
+           tableView.getItems().add(newFirma);
+           newFirma.InsertintoDATABASE();
+        }
+        else
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Bu İş Emri Numarası mevcut.\nLütfen farklı bir İş Emri Numarası deneyiniz.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+                        
+            
+        }
                 
+      
     }        
         
-    public void changeFirmaIsmiCellEvent(TableColumn.CellEditEvent edittedCell)
+    public void changeFirmaIsmiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Firma FirmaSelected =  tableView.getSelectionModel().getSelectedItem();
         FirmaSelected.setMusteriIsmi(edittedCell.getNewValue().toString());
+        FirmaSelected.UpdateMusteriIsmi();
     }
     
-    public void changeIlCellEvent(TableColumn.CellEditEvent edittedCell)
+    public void changeIlCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Firma FirmaSelected =  tableView.getSelectionModel().getSelectedItem();
         FirmaSelected.setIl(edittedCell.getNewValue().toString());
+        FirmaSelected.UpdateIl();
     }
     
-    public void changeIlceCellEvent(TableColumn.CellEditEvent edittedCell)
+    public void changeIlceCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Firma FirmaSelected =  tableView.getSelectionModel().getSelectedItem();
         FirmaSelected.setIlce(edittedCell.getNewValue().toString());
+        FirmaSelected.UpdateIlce();
+        
     }
     
-    public void changeIsEmriNumarasiiCellEvent(TableColumn.CellEditEvent edittedCell)
-    {
-        Firma FirmaSelected =  tableView.getSelectionModel().getSelectedItem();
-        FirmaSelected.setIsEmriNumarasi(edittedCell.getNewValue().toString());
-    }
     
-    public void changeTeklifNoCellEvent(TableColumn.CellEditEvent edittedCell)
+    public void changeTeklifNoCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Firma FirmaSelected =  tableView.getSelectionModel().getSelectedItem();
         FirmaSelected.setTeklifNo(edittedCell.getNewValue().toString());
+        FirmaSelected.UpdateTeklifNo();
     }
     
-    public void deleteButtonPushed()
+    public void deleteButtonPushed() throws SQLException
     {
         ObservableList<Firma> selectedRows, allFirma;
         allFirma = tableView.getItems();
@@ -105,7 +129,8 @@ public class FirmaController implements Initializable
         
         for(Firma firma : selectedRows)
         {
-            allFirma.removeAll(selectedRows);  
+            allFirma.removeAll(selectedRows); 
+            firma.DeleteFromDATABASE();
         }    
           
     }     
@@ -119,24 +144,70 @@ public class FirmaController implements Initializable
         IsEmriNumarasiColumn.setCellValueFactory(new PropertyValueFactory<Firma, String>("IsEmriNumarasi"));
         TeklifNoColumn.setCellValueFactory(new PropertyValueFactory<Firma, String>("TeklifNo"));
         
-
-
-       
         
         tableView.setItems(getFirma());
         tableView.setEditable(true);
-        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         MusteriIsmiColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         IlColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         IlceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         IsEmriNumarasiColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         TeklifNoColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        try{
+            LoadFirma();
+        }
+        
+        catch(SQLException e){
+            
+            System.err.println(e.getMessage());
+        }
        
+    }
+    public void LoadFirma() throws SQLException
+    {
+        
+        ObservableList<Firma> firma = FXCollections.observableArrayList();
+        Connection con= null;
+        Statement statement = null;
+        ResultSet ResultSet = null;
+        
+        try
+        {
+           con = DataBase.getConnection();
+           statement = con.createStatement();
+           ResultSet = statement.executeQuery("SELECT *FROM Firma");
+           while (ResultSet.next())
+           {
+                Firma newFirma = new Firma (ResultSet.getString("MusteriIsmi"),
+                                                             ResultSet.getString("Il"),
+                                                             ResultSet.getString("Ilce"),
+                                                             ResultSet.getString("IsEmriNumarasi"),
+                                                             ResultSet.getString("TeklifNo"));
+                                                             
+               
+                firma.add(newFirma);
+              
+           }
+           tableView.getItems().addAll(firma);
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        finally 
+        {
+            if(con != null)
+               con.close();
+            if(statement != null)
+               statement.close();
+            if(ResultSet != null)
+                ResultSet.close(); 
+        }
     }
     public ObservableList<Firma>  getFirma()
     {
         ObservableList<Firma> firma = FXCollections.observableArrayList();
-        firma.add(new Firma("TAG GEMİ","İZMİT","İZMİT","2604","330-2018"));
         
         
         return firma;

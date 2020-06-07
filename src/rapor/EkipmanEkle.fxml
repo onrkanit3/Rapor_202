@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="874.0" style="-fx-background-color: #90a4ae;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="rapor.EkipmanEkleController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="874.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.EkipmanEkleController">
    <children>
       <HBox layoutX="29.0" layoutY="51.0" prefHeight="135.0" prefWidth="838.0">
          <children>
@@ -38,7 +37,7 @@
          <children>
             <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="EkipmanNoColumn" onEditCommit="#changeEkipmanNoCellEvent" prefWidth="102.0" text="Ekipman No" />
+                <TableColumn fx:id="EkipmanNoColumn" editable="false" prefWidth="102.0" text="Ekipman No" />
                 <TableColumn fx:id="CihazColumn" onEditCommit="#changeCihazCellEvent" prefWidth="112.0" text="Cihaz" />
                   <TableColumn fx:id="KutupMesafesiColumn" onEditCommit="#changeKutupMesafesiCellEvent" prefWidth="131.0" text="Kutup Mesafesi" />
                   <TableColumn fx:id="MpTasiyiciOrtamColumn" onEditCommit="#changeMpTasiyiciOrtamCellEvent" prefWidth="136.0" text="MP Taşıyıcı Ortam" />

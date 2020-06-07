@@ -35,9 +35,9 @@
       </Label>
       <VBox layoutX="56.0" layoutY="274.0" prefHeight="418.0" prefWidth="764.0">
          <children>
-            <TableView fx:id="tableView01" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="YuzeyDurumNumarasiColumn" onEditCommit="#changeYuzeyDurumNumarasiCellEvent" prefWidth="382.0" text="Yüzey Durum Numarası" />
+                <TableColumn fx:id="YuzeyDurumNumarasiColumn" editable="false" prefWidth="382.0" text="Yüzey Durum Numarası" />
                 <TableColumn fx:id="YuzeyDurumuColumn" onEditCommit="#changeYuzeyDurumuCellEvent" prefWidth="382.0" text="Yüzey Durumu" />
               </columns>
             </TableView>

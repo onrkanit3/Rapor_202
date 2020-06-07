@@ -1,3 +1,4 @@
+  
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,6 +8,11 @@ package rapor;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +23,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,6 +32,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
+import static rapor.Ekipman.CheckEkipmanNoExists;
 
 /**
  * FXML Controller class
@@ -52,56 +61,73 @@ public class EkipmanEkleController implements Initializable
     @FXML private TextField UVIsikSiddetiTextField;
     @FXML private TextField IsikMesafesiTextField;
     
-    public void newEkipmanButtonPushed()
+    public void newEkipmanButtonPushed() throws SQLException
     {
         Ekipman newEkipman = new Ekipman(EkipmanNoTextField.getText(),CihazTextField.getText(),KutupMesafesiTextField.getText(),MpTasiyiciOrtamTextField.getText(),MiknatislamaTeknigiTextField.getText(),UVIsikSiddetiTextField.getText(),IsikMesafesiTextField.getText());
-        tableView.getItems().add(newEkipman);
+        if(CheckEkipmanNoExists(EkipmanNoTextField.getText())==false)
+        {
+           tableView.getItems().add(newEkipman);
+           newEkipman.InsertintoDATABASE();
+        }
+        else
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Bu Ekipman No mevcut.\nLütfen farklı bir Ekipman No deneyiniz.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+                        
+            
+        }
+        
                 
     }
     
-    public void changeEkipmanNoCellEvent(TableColumn.CellEditEvent edittedCell)
-    {
-        Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
-        EkipmanSelected.setEkipmanNo(edittedCell.getNewValue().toString());
-    }
     
-    public void changeCihazCellEvent(TableColumn.CellEditEvent edittedCell)
+    
+    public void changeCihazCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
         EkipmanSelected.setCihaz(edittedCell.getNewValue().toString());
+        EkipmanSelected.UpdateCihaz();
     }
     
-    public void changeKutupMesafesiCellEvent(TableColumn.CellEditEvent edittedCell)
+    public void changeKutupMesafesiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
         EkipmanSelected.setKutupMesafesi(edittedCell.getNewValue().toString());
+        EkipmanSelected.UpdateKutupMesafesi();
     }
     
-    public void changeMpTasiyiciOrtamCellEvent(TableColumn.CellEditEvent edittedCell)
+    public void changeMpTasiyiciOrtamCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
         EkipmanSelected.setMpTasiyiciOrtam(edittedCell.getNewValue().toString());
+        EkipmanSelected.UpdateMpTasiyiciOrtam();
     }
     
-    public void changeMiknatislamaTeknigiCellEvent(TableColumn.CellEditEvent edittedCell)
+    public void changeMiknatislamaTeknigiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
         EkipmanSelected.setMiknatislamaTeknigi(edittedCell.getNewValue().toString());
+        EkipmanSelected.UpdateMiknatislamaTeknigi();
     }
     
-    public void changeUVIsikSiddetiCellEvent(TableColumn.CellEditEvent edittedCell)
+    public void changeUVIsikSiddetiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
         EkipmanSelected.setUVIsikSiddeti(edittedCell.getNewValue().toString());
+        EkipmanSelected.UpdateUVIsikSiddeti();
     }
     
-    public void changeIsikMesafesiCellEvent(TableColumn.CellEditEvent edittedCell)
+    public void changeIsikMesafesiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
         EkipmanSelected.setIsikMesafesi(edittedCell.getNewValue().toString());
+        EkipmanSelected.UpdateIsikMesafesi();
     }
     
-     public void deleteButtonPushed()
+     public void deleteButtonPushed() throws SQLException
     {
         ObservableList<Ekipman> selectedRows, allEkipman;
         allEkipman = tableView.getItems();
@@ -110,7 +136,8 @@ public class EkipmanEkleController implements Initializable
         
         for(Ekipman ekipman : selectedRows)
         {
-            allEkipman.removeAll(selectedRows);  
+            allEkipman.removeAll(selectedRows); 
+            ekipman.DeleteFromDATABASE();
         }    
           
     }    
@@ -143,7 +170,6 @@ public class EkipmanEkleController implements Initializable
         
         tableView.setItems(getEkipman());
         tableView.setEditable(true);
-        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         EkipmanNoColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         CihazColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         MpTasiyiciOrtamColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -151,15 +177,67 @@ public class EkipmanEkleController implements Initializable
         MiknatislamaTeknigiColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         UVIsikSiddetiColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         IsikMesafesiColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        try{
+            LoadEkipman();
+        }
         
+        catch(SQLException e){
+            
+            System.err.println(e.getMessage());
+        }
     
 
     }  
     
+    public void LoadEkipman() throws SQLException
+    {
+        
+        ObservableList<Ekipman> ekipman = FXCollections.observableArrayList();
+        Connection con= null;
+        Statement statement = null;
+        ResultSet ResultSet = null;
+        
+        try
+        {
+           con = DataBase.getConnection();
+           statement = con.createStatement();
+           ResultSet = statement.executeQuery("SELECT *FROM Ekipman");
+           while (ResultSet.next())
+           {
+                Ekipman newEkipman = new Ekipman (ResultSet.getString("EkipmanNo"),
+                                                             ResultSet.getString("Cihaz"),
+                                                             ResultSet.getString("KutupMesafesi"),
+                                                             ResultSet.getString("MpTasiyiciOrtam"),
+                                                             ResultSet.getString("MiknatislamaTeknigi"),
+                                                             ResultSet.getString("UVIsikSiddeti"),
+                                                             ResultSet.getString("IsikMesafesi"));
+               
+                ekipman.add(newEkipman);
+              
+           }
+           tableView.getItems().addAll(ekipman);
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        finally 
+        {
+            if(con != null)
+               con.close();
+            if(statement != null)
+               statement.close();
+            if(ResultSet != null)
+                ResultSet.close(); 
+        }
+    }
+    
         public ObservableList<Ekipman> getEkipman()
     {
         ObservableList<Ekipman> ekipman = FXCollections.observableArrayList();
-        ekipman.add(new Ekipman("1","NAWOO Sn:1701020","100 mm","BT-20 LOT:B036P01  BT-10 LOT:B083P01","","W/m2","mm"));
+        
         
         
         return ekipman;
