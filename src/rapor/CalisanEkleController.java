@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -32,10 +33,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.converter.LocalDateStringConverter;
-import static rapor.Mitarbeiter.CheckUsernameExists;
 
 /**
  * FXML Controller class
@@ -137,12 +136,51 @@ public class CalisanEkleController implements Initializable
     
     public void changeSertifikaTarihi(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
-        Mitarbeiter MitarbeiterSelected = tableView.getSelectionModel().getSelectedItem();
-        String date = edittedCell.getNewValue().toString();
-        LocalDate localDate = LocalDate.parse(date, formatter);
-        MitarbeiterSelected.setSertifikatarihi(localDate);
-        MitarbeiterSelected.UpdateSertifikaTarihi();
+        try{
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
+            Mitarbeiter MitarbeiterSelected = tableView.getSelectionModel().getSelectedItem();
+            String date = edittedCell.getNewValue().toString();
+            LocalDate localDate = LocalDate.parse(date, formatter);
+            if(edittedCell.getNewValue().toString().length()==0){
+                Alert alert = new Alert(Alert.AlertType.WARNING, 
+                            "Lütfen tüm boşlukları doldurunuz.",
+                            ButtonType.CLOSE);
+
+                Optional<ButtonType> result = alert.showAndWait();
+            }
+            else if(Mitarbeiter.DateControl(localDate)==false){
+                Alert alert = new Alert(AlertType.WARNING, 
+                            "Lütfen geçerli bir sertifika tarihi giriniz. ", 
+                            ButtonType.CLOSE);
+
+                Optional<ButtonType> result = alert.showAndWait();
+            }
+            else{
+
+                MitarbeiterSelected.setSertifikatarihi(localDate);
+                MitarbeiterSelected.UpdateSertifikaTarihi(); 
+            }
+        }
+        
+        
+        catch(DateTimeParseException e){
+            Alert alert = new Alert(AlertType.WARNING, 
+                            "Lütfen sertifika tarihini doğru formatta giriniz. GG.AA.YYYY ", 
+                            ButtonType.CLOSE);
+
+                Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        catch(Exception e){
+                Alert alert = new Alert(AlertType.WARNING, 
+                            "Lütfen geçerli bir sertifika tarihi giriniz. ", 
+                            ButtonType.CLOSE);
+
+                Optional<ButtonType> result = alert.showAndWait();
+            
+        }
+        
+       
     }
     
     
@@ -150,15 +188,51 @@ public class CalisanEkleController implements Initializable
     public void changeFirstNameCellEvent(CellEditEvent edittedCell) throws SQLException
     {
         Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
-        MitarbeiterSelected.setFirstName(edittedCell.getNewValue().toString());
-        MitarbeiterSelected.UpdateFirstName();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>30){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 30 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+          MitarbeiterSelected.setFirstName(edittedCell.getNewValue().toString());
+          MitarbeiterSelected.UpdateFirstName();  
+        }
+        
     }
     
      public void changeLastNameCellEvent(CellEditEvent edittedCell) throws SQLException
     {
         Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
-        MitarbeiterSelected.setLastName(edittedCell.getNewValue().toString());
-        MitarbeiterSelected.UpdateLastName();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>30){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 30 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+            MitarbeiterSelected.setLastName(edittedCell.getNewValue().toString());
+            MitarbeiterSelected.UpdateLastName();    
+        }
+        
     }
      
     
@@ -166,8 +240,26 @@ public class CalisanEkleController implements Initializable
       public void changePasswordCellEvent(CellEditEvent edittedCell) throws SQLException
     {
         Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
-        MitarbeiterSelected.setPassword(edittedCell.getNewValue().toString());
-        MitarbeiterSelected.UpdatePassword();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>30||edittedCell.getNewValue().toString().length()<5){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 25 haneden uzun ve 5 haneden kısa girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+         MitarbeiterSelected.setPassword(edittedCell.getNewValue().toString());
+         MitarbeiterSelected.UpdatePassword();   
+        }
+        
     }
       
       
@@ -175,6 +267,22 @@ public class CalisanEkleController implements Initializable
       public void changeLevelCellEvent(CellEditEvent edittedCell) throws SQLException
     {
         Mitarbeiter MitarbeiterSelected =  tableView.getSelectionModel().getSelectedItem();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(Mitarbeiter.LevelKontrol(edittedCell.getNewValue().toString())==false){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen Level için aşağıdakilerden birini giriniz ve sadece rakam girişi yapınız: \n"
+                                + "1, 2, 3", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
         MitarbeiterSelected.setLevel(edittedCell.getNewValue().toString());
         MitarbeiterSelected.UpdateLevel();
     }
