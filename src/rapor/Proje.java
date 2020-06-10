@@ -112,7 +112,7 @@ public class Proje
     
      public static boolean CheckProjeNumarasiExists(String projenumarasi)
         {
-            boolean projenumarasiExists = false;
+            boolean projenumarasiExists = true;
             Connection con = null;
             PreparedStatement preparedStatement = null;
 
@@ -130,8 +130,8 @@ public class Proje
                    ProjeNumarasiCounter =  r1.getString("ProjeNumarasi");
                    if(ProjeNumarasiCounter.equals(projenumarasi)) 
                    {
-                       System.out.println("It already exists");
-                      projenumarasiExists = true;
+                      
+                      projenumarasiExists = false;
                    }
                  }
 
@@ -149,7 +149,18 @@ public class Proje
             
     
     
-    
+     public static boolean  UzunlukKontrol(String ProjeNumarasi, String ProjeAdi){
+        
+        if(ProjeNumarasi.length()>=25 || ProjeAdi.length()>=25){
+            
+           return false; 
+            
+        }
+        else{
+            
+            return true;
+        }
+    }
     
     public void UpdateProjeAdi () throws SQLException
     {

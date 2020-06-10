@@ -58,21 +58,32 @@ public class ProjeEkleController implements Initializable
     
     public void newProjeButtonPushed() throws SQLException
     {
-        Proje newProje = new Proje(ProjeNumarasiTextField.getText(),ProjeAdiTextField.getText());
-        if(CheckProjeNumarasiExists(ProjeNumarasiTextField.getText())==false)
-        {
-           tableView.getItems().add(newProje);
-           newProje.InsertintoDATABASE();
+        if (ProjeNumarasiTextField.getText().length()==0 || ProjeAdiTextField.getText().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
         }
-        else
-        {
+        else if(CheckProjeNumarasiExists(ProjeNumarasiTextField.getText())==false){
             Alert alert = new Alert(Alert.AlertType.WARNING, 
                         "Bu Proje Numarası mevcut.\nLütfen farklı bir Proje Numarası deneyiniz.", 
                         ButtonType.CLOSE);
             
             Optional<ButtonType> result = alert.showAndWait();
-                        
+        }
+        else if(Proje.UzunlukKontrol(ProjeNumarasiTextField.getText(), ProjeAdiTextField.getText())==false){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 25 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
             
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else{
+            Proje newProje = new Proje(ProjeNumarasiTextField.getText(),ProjeAdiTextField.getText());
+            tableView.getItems().add(newProje);
+            newProje.InsertintoDATABASE();
         }
                 
     }
@@ -80,8 +91,26 @@ public class ProjeEkleController implements Initializable
     public void changeProjeAdiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Proje ProjeSelected =  tableView.getSelectionModel().getSelectedItem();
-        ProjeSelected.setProjeAdi(edittedCell.getNewValue().toString());
-        ProjeSelected.UpdateProjeAdi();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>25){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 25 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+         ProjeSelected.setProjeAdi(edittedCell.getNewValue().toString());
+         ProjeSelected.UpdateProjeAdi();   
+        }
+        
     }
     
     public void deleteButtonPushed() throws SQLException

@@ -20,7 +20,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -57,25 +56,35 @@ public class EkipmanEkleController implements Initializable
     @FXML private TextField IsikMesafesiTextField;
     
     public void newEkipmanButtonPushed() throws SQLException
-    {
-        Ekipman newEkipman = new Ekipman(EkipmanNoTextField.getText(),CihazTextField.getText(),KutupMesafesiTextField.getText(),MpTasiyiciOrtamTextField.getText(),MiknatislamaTeknigiTextField.getText(),UVIsikSiddetiTextField.getText(),IsikMesafesiTextField.getText());
-        if(CheckEkipmanNoExists(EkipmanNoTextField.getText())==false)
-        {
-           tableView.getItems().add(newEkipman);
-           newEkipman.InsertintoDATABASE();
+    {   
+        if(EkipmanNoTextField.getText().length()==0 || CihazTextField.getText().length()==0 || KutupMesafesiTextField.getText().length()==0 || MpTasiyiciOrtamTextField.getText().length()==0 || MiknatislamaTeknigiTextField.getText().length()==0 || UVIsikSiddetiTextField.getText().length()==0 || IsikMesafesiTextField.getText().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
         }
-        else
-        {
+        else if(CheckEkipmanNoExists(EkipmanNoTextField.getText())==false){
             Alert alert = new Alert(Alert.AlertType.WARNING, 
                         "Bu Ekipman No mevcut.\nLütfen farklı bir Ekipman No deneyiniz.", 
                         ButtonType.CLOSE);
             
             Optional<ButtonType> result = alert.showAndWait();
-                        
-            
         }
         
-                
+        else if(Ekipman.UzunlukKontrol(EkipmanNoTextField.getText(), CihazTextField.getText(), KutupMesafesiTextField.getText(), MpTasiyiciOrtamTextField.getText(), MiknatislamaTeknigiTextField.getText(), UVIsikSiddetiTextField.getText(), IsikMesafesiTextField.getText())==false){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 50 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+            Ekipman newEkipman = new Ekipman(EkipmanNoTextField.getText(),CihazTextField.getText(),KutupMesafesiTextField.getText(),MpTasiyiciOrtamTextField.getText(),MiknatislamaTeknigiTextField.getText(),UVIsikSiddetiTextField.getText(),IsikMesafesiTextField.getText());
+            tableView.getItems().add(newEkipman);
+            newEkipman.InsertintoDATABASE();
+        }
+           
     }
     
     
@@ -83,43 +92,151 @@ public class EkipmanEkleController implements Initializable
     public void changeCihazCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
-        EkipmanSelected.setCihaz(edittedCell.getNewValue().toString());
-        EkipmanSelected.UpdateCihaz();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>50){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 50 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+           EkipmanSelected.setCihaz(edittedCell.getNewValue().toString());
+           EkipmanSelected.UpdateCihaz(); 
+        }
+        
     }
     
     public void changeKutupMesafesiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
-        EkipmanSelected.setKutupMesafesi(edittedCell.getNewValue().toString());
-        EkipmanSelected.UpdateKutupMesafesi();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>50){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 50 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+         EkipmanSelected.setKutupMesafesi(edittedCell.getNewValue().toString());
+         EkipmanSelected.UpdateKutupMesafesi();   
+        }
+        
     }
     
     public void changeMpTasiyiciOrtamCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
-        EkipmanSelected.setMpTasiyiciOrtam(edittedCell.getNewValue().toString());
-        EkipmanSelected.UpdateMpTasiyiciOrtam();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>50){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 50 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+         EkipmanSelected.setMpTasiyiciOrtam(edittedCell.getNewValue().toString());
+         EkipmanSelected.UpdateMpTasiyiciOrtam();   
+        }
+        
     }
     
     public void changeMiknatislamaTeknigiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
-        EkipmanSelected.setMiknatislamaTeknigi(edittedCell.getNewValue().toString());
-        EkipmanSelected.UpdateMiknatislamaTeknigi();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>50){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 50 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+            EkipmanSelected.setMiknatislamaTeknigi(edittedCell.getNewValue().toString());
+            EkipmanSelected.UpdateMiknatislamaTeknigi();  
+        }
+        
     }
     
     public void changeUVIsikSiddetiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
-        EkipmanSelected.setUVIsikSiddeti(edittedCell.getNewValue().toString());
-        EkipmanSelected.UpdateUVIsikSiddeti();
+         if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>50){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 50 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+          EkipmanSelected.setUVIsikSiddeti(edittedCell.getNewValue().toString());
+          EkipmanSelected.UpdateUVIsikSiddeti();  
+        }
+        
     }
     
     public void changeIsikMesafesiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Ekipman EkipmanSelected =  tableView.getSelectionModel().getSelectedItem();
-        EkipmanSelected.setIsikMesafesi(edittedCell.getNewValue().toString());
-        EkipmanSelected.UpdateIsikMesafesi();
+         if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>50){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 50 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+            EkipmanSelected.setIsikMesafesi(edittedCell.getNewValue().toString());
+            EkipmanSelected.UpdateIsikMesafesi();  
+        }
+        
     }
     
      public void deleteButtonPushed() throws SQLException

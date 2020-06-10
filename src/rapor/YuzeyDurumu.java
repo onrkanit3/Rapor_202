@@ -75,6 +75,19 @@ public class YuzeyDurumu
                con.close();
         }
     }
+     
+      public static boolean  UzunlukKontrol(String YuzeyDurumNumarasi, String YuzeyDurumu){
+        
+        if(YuzeyDurumNumarasi.length()>=25 || YuzeyDurumu.length()>=25){
+            
+           return false; 
+            
+        }
+        else{
+            
+            return true;
+        }
+    }
     
     public void InsertintoDATABASE() throws SQLException{
         Connection con = null;
@@ -114,7 +127,7 @@ public class YuzeyDurumu
     
      public static boolean CheckYuzeyDurumNumarasiExists(String yuzeydurumnumarasi)
         {
-            boolean YuzeyDurumNumarasiExists = false;
+            boolean YuzeyDurumNumarasiExists = true;
             Connection con = null;
             PreparedStatement preparedStatement = null;
 
@@ -132,8 +145,8 @@ public class YuzeyDurumu
                    YuzeyDurumNumarasiCounter =  r1.getString("YuzeyDurumNumarasi");
                    if(YuzeyDurumNumarasiCounter.equals(yuzeydurumnumarasi)) 
                    {
-                       System.out.println("It already exists");
-                      YuzeyDurumNumarasiExists = true;
+                       
+                      YuzeyDurumNumarasiExists = false;
                    }
                  }
 

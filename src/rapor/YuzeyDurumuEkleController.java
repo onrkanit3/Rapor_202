@@ -58,22 +58,36 @@ public class YuzeyDurumuEkleController implements Initializable {
    
     public void newYuzeyDurumuButtonPushed() throws SQLException
     {
-        YuzeyDurumu newYuzeyDurumu = new YuzeyDurumu(YuzeyDurumNumarasiTextField.getText(),YuzeyDurumuTextField.getText());
-        if(CheckYuzeyDurumNumarasiExists(YuzeyDurumNumarasiTextField.getText())==false)
-        {
-           tableView.getItems().add(newYuzeyDurumu);
-           newYuzeyDurumu.InsertintoDATABASE();
+        if (YuzeyDurumNumarasiTextField.getText().length()==0 || YuzeyDurumuTextField.getText().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
         }
-        else
-        {
+        else if(CheckYuzeyDurumNumarasiExists(YuzeyDurumNumarasiTextField.getText())==false){
             Alert alert = new Alert(Alert.AlertType.WARNING, 
                         "Bu Yuzey Durum Numarası mevcut.\nLütfen farklı bir Yuzey Durum Numarası deneyiniz.", 
                         ButtonType.CLOSE);
             
             Optional<ButtonType> result = alert.showAndWait();
-                        
-            
         }
+        else if(YuzeyDurumu.UzunlukKontrol(YuzeyDurumNumarasiTextField.getText(), YuzeyDurumuTextField.getText())==false){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 25 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else{
+            YuzeyDurumu newYuzeyDurumu = new YuzeyDurumu(YuzeyDurumNumarasiTextField.getText(),YuzeyDurumuTextField.getText());
+            tableView.getItems().add(newYuzeyDurumu);
+            newYuzeyDurumu.InsertintoDATABASE();
+        }
+            
+                        
+          
                 
     }
 
@@ -83,8 +97,26 @@ public class YuzeyDurumuEkleController implements Initializable {
     public void changeYuzeyDurumuCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         YuzeyDurumu YuzeyDurumuSelected =  tableView.getSelectionModel().getSelectedItem();
-        YuzeyDurumuSelected.setYuzeyDurumu(edittedCell.getNewValue().toString());
-        YuzeyDurumuSelected.UpdateYuzeyDurumu();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>25){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 25 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+            YuzeyDurumuSelected.setYuzeyDurumu(edittedCell.getNewValue().toString());
+            YuzeyDurumuSelected.UpdateYuzeyDurumu();
+        }
+        
     }
     
     public void deleteButtonPushed() throws SQLException

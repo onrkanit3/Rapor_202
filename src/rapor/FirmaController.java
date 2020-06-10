@@ -20,7 +20,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -66,21 +65,32 @@ public class FirmaController implements Initializable
     
     public void newFirmaButtonPushed() throws SQLException
     {
-         Firma newFirma = new Firma(MusteriIsmiTextField.getText(),IlTextField.getText(),IlceTextField.getText(),IsEmriNumarasiTextField.getText(),TeklifNoTextField.getText());
-         if(CheckUsernameExists(IsEmriNumarasiTextField.getText())==false)
-        {
-           tableView.getItems().add(newFirma);
-           newFirma.InsertintoDATABASE();
+        if(MusteriIsmiTextField.getText().length()==0 || IlTextField.getText().length()==0 || IlceTextField.getText().length()==0 || IsEmriNumarasiTextField.getText().length()==0 || TeklifNoTextField.getText().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
         }
-        else
-        {
+        
+        else if(Firma.CheckIsEmriNoExists(IsEmriNumarasiTextField.getText())==false){
             Alert alert = new Alert(Alert.AlertType.WARNING, 
                         "Bu İş Emri Numarası mevcut.\nLütfen farklı bir İş Emri Numarası deneyiniz.", 
                         ButtonType.CLOSE);
             
             Optional<ButtonType> result = alert.showAndWait();
-                        
+        }
+        
+        else if(Firma.UzunlukKontrol(MusteriIsmiTextField.getText(), IlTextField.getText(), IlceTextField.getText(), IsEmriNumarasiTextField.getText(), TeklifNoTextField.getText())==false){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 25 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
             
+            Optional<ButtonType> result = alert.showAndWait();
+        }else{
+            Firma newFirma = new Firma(MusteriIsmiTextField.getText(),IlTextField.getText(),IlceTextField.getText(),IsEmriNumarasiTextField.getText(),TeklifNoTextField.getText());
+            tableView.getItems().add(newFirma);
+           newFirma.InsertintoDATABASE();
         }
                 
       
@@ -89,22 +99,76 @@ public class FirmaController implements Initializable
     public void changeFirmaIsmiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Firma FirmaSelected =  tableView.getSelectionModel().getSelectedItem();
-        FirmaSelected.setMusteriIsmi(edittedCell.getNewValue().toString());
-        FirmaSelected.UpdateMusteriIsmi();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>25){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 25 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+            FirmaSelected.setMusteriIsmi(edittedCell.getNewValue().toString());
+            FirmaSelected.UpdateMusteriIsmi();   
+        }
+        
     }
     
     public void changeIlCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Firma FirmaSelected =  tableView.getSelectionModel().getSelectedItem();
-        FirmaSelected.setIl(edittedCell.getNewValue().toString());
-        FirmaSelected.UpdateIl();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>25){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 25 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+          FirmaSelected.setIl(edittedCell.getNewValue().toString());
+          FirmaSelected.UpdateIl();  
+        }
+        
     }
     
     public void changeIlceCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Firma FirmaSelected =  tableView.getSelectionModel().getSelectedItem();
-        FirmaSelected.setIlce(edittedCell.getNewValue().toString());
-        FirmaSelected.UpdateIlce();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>25){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 25 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+           FirmaSelected.setIlce(edittedCell.getNewValue().toString());
+           FirmaSelected.UpdateIlce(); 
+        }
+        
         
     }
     
@@ -112,8 +176,26 @@ public class FirmaController implements Initializable
     public void changeTeklifNoCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException
     {
         Firma FirmaSelected =  tableView.getSelectionModel().getSelectedItem();
-        FirmaSelected.setTeklifNo(edittedCell.getNewValue().toString());
-        FirmaSelected.UpdateTeklifNo();
+        if(edittedCell.getNewValue().toString().length()==0){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        
+        else if(edittedCell.getNewValue().toString().length()>25){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen 25 haneden uzun girdi yapmayınız.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+        }
+        else{
+         FirmaSelected.setTeklifNo(edittedCell.getNewValue().toString());
+         FirmaSelected.UpdateTeklifNo();   
+        }
+        
     }
     
     public void deleteButtonPushed() throws SQLException

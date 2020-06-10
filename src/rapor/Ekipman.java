@@ -141,10 +141,24 @@ public class Ekipman {
         }
         
     }
+    
+    public static boolean  UzunlukKontrol(String EkipmanNo, String Cihaz, String KutupMesafesi, String MpTasyiciOrtam,
+            String MiknatislamaTeknigi, String UVIsikSiddeti, String IsikMesafesi){
+        
+        if(EkipmanNo.length()>=50 || Cihaz.length()>=50 || KutupMesafesi.length()>=50 || MpTasyiciOrtam.length()>=50 || MiknatislamaTeknigi.length()>=50 || UVIsikSiddeti.length()>=50 || IsikMesafesi.length()>=50){
+            
+           return false; 
+            
+        }
+        else{
+            
+            return true;
+        }
+    }
      
     public static boolean CheckEkipmanNoExists(String ekipmanno)
         {
-            boolean ekipmanNoExists = false;
+            boolean ekipmanNoExists = true;
             Connection con = null;
             PreparedStatement preparedStatement = null;
 
@@ -162,8 +176,7 @@ public class Ekipman {
                    EkipmanNoCounter =  r1.getString("EkipmanNo");
                    if(EkipmanNoCounter.equals(ekipmanno)) 
                    {
-                       System.out.println("It already exists");
-                      ekipmanNoExists = true;
+                      ekipmanNoExists = false;
                    }
                  }
 
@@ -429,6 +442,8 @@ public class Ekipman {
                con.close();
         }
     }
+        
+        
     
     
 }

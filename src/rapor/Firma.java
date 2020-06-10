@@ -111,7 +111,7 @@ public class Firma
     }
     public static boolean CheckIsEmriNoExists(String isemrino)
         {
-            boolean IsEmriNoExists = false;
+            boolean IsEmriNoExists = true;
             Connection con = null;
             PreparedStatement preparedStatement = null;
 
@@ -129,8 +129,8 @@ public class Firma
                    IsEmriNumarasiCounter =  r1.getString("IsEmriNumarasi");
                    if(IsEmriNumarasiCounter.equals(isemrino)) 
                    {
-                       System.out.println("It already exists");
-                      IsEmriNoExists = true;
+                       
+                      IsEmriNoExists = false;
                    }
                  }
 
@@ -144,6 +144,20 @@ public class Firma
 
              return IsEmriNoExists;
         }
+    
+    public static boolean  UzunlukKontrol(String MusteriIsmi, String Il, String Ilce, String IsEmriNo,
+            String TeklifNo){
+        
+        if(MusteriIsmi.length()>=25 || Il.length()>=25 || Ilce.length()>=25 || IsEmriNo.length()>=25 || TeklifNo.length()>=25){
+            
+           return false; 
+            
+        }
+        else{
+            
+            return true;
+        }
+    }
      public void DeleteFromDATABASE () throws SQLException
     {
         Connection con = null;
