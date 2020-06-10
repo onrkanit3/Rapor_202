@@ -1,16 +1,16 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Onur Kanıt 170503026
 package rapor;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Optional;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 
 public class Mitarbeiter
@@ -19,13 +19,15 @@ public class Mitarbeiter
     private String level;
     private String firstName, lastName;
     private LocalDate sertifikatarihi;
+    private byte [] salt;
 
-    public Mitarbeiter(String firstName, String lastName, String ID, String password,String level, LocalDate sertifikatarihi)
+    public Mitarbeiter(String firstName, String lastName, String ID, String password,String level, LocalDate sertifikatarihi) throws NoSuchAlgorithmException
     {
         setFirstName(firstName);
         setLastName (lastName);
         setID (ID);
-        setPassword (password);
+        salt = PasswordGenerator.getSalt();
+        this.password = PasswordGenerator.getSHA512Password(password, salt);
         setLevel(level);
         setSertifikatarihi(sertifikatarihi);
         
@@ -124,8 +126,8 @@ public class Mitarbeiter
         try
         {
             con= DataBase.getConnection();
-            String sql = "INSERT INTO Mitarbeiter (firstName, lastName,MitarbeiterID, passw, lvl, sertifikatarihi)"
-                 +"VALUES(?,?,?,?,?,?)"; 
+            String sql = "INSERT INTO Mitarbeiter (firstName, lastName,MitarbeiterID, passw, lvl, sertifikatarihi, salt)"
+                 +"VALUES(?,?,?,?,?,?,?)"; 
 
             preparedStatement = con.prepareStatement(sql);
 
@@ -136,6 +138,7 @@ public class Mitarbeiter
             preparedStatement.setString(4, password);
             preparedStatement.setString(5, level);
             preparedStatement.setDate(6, db);
+            preparedStatement.setBlob(7, new javax.sql.rowset.serial.SerialBlob(salt));
 
             preparedStatement.executeUpdate();
            
@@ -159,7 +162,7 @@ public class Mitarbeiter
     
      public static boolean CheckUsernameExists(String username)
         {
-            boolean usernameExists = false;
+            boolean usernameExists = true;
             Connection con = null;
             PreparedStatement preparedStatement = null;
 
@@ -177,8 +180,8 @@ public class Mitarbeiter
                    MitarbeiterIDCounter =  r1.getString("MitarbeiterID");
                    if(MitarbeiterIDCounter.equals(username)) 
                    {
-                       System.out.println("It already exists");
-                      usernameExists = true;
+                       
+                      usernameExists = false;
                    }
                  }
 
@@ -193,6 +196,58 @@ public class Mitarbeiter
              return usernameExists;
         }
         
+    public static boolean  sifreUzunlukKontrol(String sifre){
+        
+        if(sifre.length()<=5 || sifre.length()>=31){
+            
+           return false; 
+            
+        }
+        else{
+            
+            return true;
+        }
+    }
+    
+    public static boolean  UzunlukKontrol(String isim, String soyisim, String ID){
+        
+        if(isim.length()>=30 || soyisim.length()>=30 || ID.length()>=30){
+            
+           return false; 
+            
+        }
+        else{
+            
+            return true;
+        }
+    }
+    
+    public static boolean LevelKontrol (String level){
+        try{
+          int i=Integer.parseInt(level);  
+        if (i>0 && i<4){
+            return true;
+        }
+        else{
+            return false;
+        }  
+        }
+        catch (Exception e){
+            
+            return false;
+        }
+        
+        
+    }
+    
+    public static boolean DateControl (LocalDate Date){
+        if(Date.isBefore(LocalDate.now())){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
             
     
     

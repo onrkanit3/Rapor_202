@@ -1,7 +1,9 @@
+// Onur Kanıt 170503026
 package rapor;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -64,28 +66,74 @@ public class CalisanEkleController implements Initializable
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy.MM.dd");
      
    
-    public void newMitarbeiterButtonPushed() throws SQLException
+    public void newMitarbeiterButtonPushed() throws SQLException, NoSuchAlgorithmException
     {
-        Mitarbeiter newMitarbeiter = new Mitarbeiter(firstNameTextField.getText(),lastNameTextField.getText(),IDTextField.getText(),ŞifreTextField.getText(),LevelTextField.getText(),sertifikatarihiDatePicker.getValue());
-        if(CheckUsernameExists(IDTextField.getText())==false)
-        {
-           tableView.getItems().add(newMitarbeiter);
-           newMitarbeiter.InsertintoDATABASE();
+        if(firstNameTextField.getText()==null || lastNameTextField.getText()==null || IDTextField.getText()==null ||
+           ŞifreTextField.getText()==null || LevelTextField.getText()==null || sertifikatarihiDatePicker.getValue()==null){
+            Alert alert = new Alert(AlertType.WARNING, 
+                        "Lütfen tüm boşlukları doldurunuz.",
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
         }
-        else
-        {
+        else if(Mitarbeiter.CheckUsernameExists(IDTextField.getText())==false){
             Alert alert = new Alert(AlertType.WARNING, 
                         "Bu ID başkası tarafından kullanılıyor.\nLütfen farklı bir ID deneyiniz.", 
                         ButtonType.CLOSE);
             
             Optional<ButtonType> result = alert.showAndWait();
-                        
+        }
+        
+        else if(Mitarbeiter.sifreUzunlukKontrol(ŞifreTextField.getText())==false){
+            Alert alert = new Alert(AlertType.WARNING, 
+                        "Şifre 6 haneden kısa 30 haneden uzun olamaz.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
             
         }
         
+        else if(Mitarbeiter.UzunlukKontrol(firstNameTextField.getText(),lastNameTextField.getText(),IDTextField.getText())==false){
+            Alert alert = new Alert(AlertType.WARNING, 
+                        "İsim, soyisim ve ID 30 haneden uzun olamaz.", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+            
+        }
+        
+        else if(Mitarbeiter.LevelKontrol(LevelTextField.getText())==false){
+            Alert alert = new Alert(Alert.AlertType.WARNING, 
+                        "Lütfen Level için aşağıdakilerden birini giriniz ve sadece rakam girişi yapınız: \n"
+                                + "1, 2, 3", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+            
+        }
+        
+        else if(Mitarbeiter.DateControl(sertifikatarihiDatePicker.getValue())==false){
+            Alert alert = new Alert(AlertType.WARNING, 
+                        "Lütfen geçerli bir sertifika tarihi giriniz. ", 
+                        ButtonType.CLOSE);
+            
+            Optional<ButtonType> result = alert.showAndWait();
+            
+        }
+        
+        else{
+             Mitarbeiter newMitarbeiter = new Mitarbeiter(firstNameTextField.getText(),lastNameTextField.getText(),IDTextField.getText(),ŞifreTextField.getText(),LevelTextField.getText(),sertifikatarihiDatePicker.getValue());
+             tableView.getItems().add(newMitarbeiter);
+             newMitarbeiter.InsertintoDATABASE();
+            
+        }
+            
+        
+    }
+        
         
                  
-    }
+    
     
     public void changeSertifikaTarihi(TableColumn.CellEditEvent edittedCell) throws SQLException
     {

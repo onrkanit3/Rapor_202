@@ -39,7 +39,7 @@
                         <Font name="Century" size="18.0" />
                      </font>
                   </TextField>
-                  <PasswordField focusTraversable="false" layoutX="121.0" layoutY="63.0" promptText="Şifre" style="-fx-background-color: #37474f; -fx-text-inner-color: #FFFFFF;">
+                  <PasswordField fx:id="password" focusTraversable="false" layoutX="121.0" layoutY="63.0" promptText="Şifre" style="-fx-background-color: #37474f; -fx-text-inner-color: #FFFFFF;">
                      <font>
                         <Font name="Century" size="18.0" />
                      </font>
