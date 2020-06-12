@@ -33,7 +33,7 @@
             <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
          </padding>
       </Label>
-      <Button layoutX="675.0" layoutY="615.0" mnemonicParsing="false" onAction="#ManyetikMuayeneRaporuOlustur" prefHeight="78.0" prefWidth="130.0" style="-fx-background-color: #FFFFFF;" text="Rapor Oluştur" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+      <Button layoutX="675.0" layoutY="615.0" mnemonicParsing="false" onAction="#ManyetikMuayeneRaporuOlustur_1" prefHeight="78.0" prefWidth="130.0" style="-fx-background-color: #FFFFFF;" text="Rapor Oluştur" textAlignment="CENTER" textFill="#37474f" wrapText="true">
          <font>
             <Font name="Century" size="18.0" />
          </font>
@@ -91,7 +91,7 @@
             </VBox>
          </children>
       </HBox>
-      <Button layoutX="623.0" layoutY="708.0" mnemonicParsing="false" onAction="#anaSayfayaDon" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Ana Sayfaya Geri Dön" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+      <Button layoutX="623.0" layoutY="708.0" mnemonicParsing="false" onAction="#anaSayfayaDonPersonelsiz" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Ana Sayfaya Geri Dön" textAlignment="CENTER" textFill="#37474f" wrapText="true">
          <font>
             <Font name="Century" size="18.0" />
          </font>

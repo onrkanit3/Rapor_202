@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="874.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.FirmaController">
+   <children>
+      <HBox layoutX="18.0" layoutY="59.0" prefHeight="135.0" prefWidth="838.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="135.0" prefWidth="873.0" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textAlignment="CENTER" textFill="#37474f">
+               <font>
+                  <Font name="Century" size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="206.0" layoutY="148.0" prefHeight="71.0" prefWidth="483.0" text="MÜŞTERİ/FİRMA" textAlignment="CENTER" textFill="#37474f">
+         <font>
+            <Font name="Century" size="18.0" />
+         </font>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </Label>
+      <VBox layoutX="66.0" layoutY="258.0" prefHeight="418.0" prefWidth="764.0">
+         <children>
+            <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="MusteriIsmiColumn" onEditCommit="#changeFirmaIsmiCellEvent" prefWidth="153.0" text="Müşteri İsmi" />
+                <TableColumn fx:id="IlColumn" onEditCommit="#changeIlCellEvent" prefWidth="153.0" text="İl" />
+                  <TableColumn fx:id="IlceColumn" onEditCommit="#changeIlceCellEvent" prefWidth="153.0" text="İlçe" />
+                  <TableColumn fx:id="IsEmriNumarasiColumn" editable="false" prefWidth="153.0" text="İş Emri Numarası" />
+                  <TableColumn fx:id="TeklifNoColumn" onEditCommit="#changeTeklifNoCellEvent" prefWidth="152.0" text="Teklif No" />
+              </columns>
+            </TableView>
+            <HBox prefHeight="80.0" prefWidth="764.0">
+               <children>
+                  <TextField fx:id="MusteriIsmiTextField" alignment="CENTER" promptText="Müşteri İsmi" />
+                  <TextField fx:id="IlTextField" alignment="CENTER" promptText="İl" />
+                  <TextField fx:id="IlceTextField" alignment="CENTER" promptText="İlçe" />
+                  <TextField fx:id="IsEmriNumarasiTextField" alignment="CENTER" promptText="İş Emri Numarası" />
+                  <TextField fx:id="TeklifNoTextField" alignment="CENTER" promptText="Teklif No" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="400.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#newFirmaButtonPushed" prefHeight="78.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF;" text="Müşteri Ekle" textFill="#37474f">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="78.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF;" text="Müşteri Sil" textFill="#37474f">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button layoutX="648.0" layoutY="676.0" mnemonicParsing="false" onAction="#anaSayfayaDonPersonelsiz" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Ana Sayfaya Geri Dön" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+         <font>
+            <Font name="Century" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

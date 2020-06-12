@@ -56,6 +56,30 @@ public class ProjeEkleController implements Initializable
         window.show();
     }
     
+      public void anaSayfayaDonRaporsuzPersonelsiz(ActionEvent event) throws IOException
+    {
+        Parent MainPageParent = FXMLLoader.load(getClass().getResource("MainPage_1.fxml"));
+        Scene MainPageScene = new Scene(MainPageParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(MainPageScene);
+        window.show();
+    }
+      
+          public void anaSayfayaDonPersonelsiz(ActionEvent event) throws IOException
+    {
+        Parent MainPageParent = FXMLLoader.load(getClass().getResource("MainPage_1_1.fxml"));
+        Scene MainPageScene = new Scene(MainPageParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(MainPageScene);
+        window.show();
+    }
+    
     public void newProjeButtonPushed() throws SQLException
     {
         if (ProjeNumarasiTextField.getText().length()==0 || ProjeAdiTextField.getText().length()==0){

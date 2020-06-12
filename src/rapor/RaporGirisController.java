@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -26,10 +27,32 @@ public class RaporGirisController implements Initializable
     @FXML private TextField RaporNumarasiTextField;
     @FXML private DatePicker RaporTarihiDatePicker;
     @FXML private DatePicker MuayeneTarihiDatePicker;
-
+    @FXML private TextField personel;
+    String ID2 = null;
+    String firstName1 = null;
+    String lastName1 = null;
+    public String getID(String ID,String firstName, String lastName){
+        ID2 = ID;
+        firstName1 = firstName;
+        lastName1 = lastName;
+        personel.setText(firstName1 + " "+ lastName1);
+        return ID;
+    }
     public void anaSayfayaDon(ActionEvent event) throws IOException
     {
         Parent MainPageParent = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+        Scene MainPageScene = new Scene(MainPageParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(MainPageScene);
+        window.show();
+    }
+    
+        public void anaSayfayaDonPersonelsiz(ActionEvent event) throws IOException
+    {
+        Parent MainPageParent = FXMLLoader.load(getClass().getResource("MainPage_1_1.fxml"));
         Scene MainPageScene = new Scene(MainPageParent);
         
         
@@ -50,9 +73,25 @@ public class RaporGirisController implements Initializable
         window.setScene(ManyetikMuayeneRaporuScene);
         window.show();
     }
+    
+    public void ManyetikMuayeneRaporuOlustur_1(ActionEvent event) throws IOException
+    {
+        Parent ManyetikMuayeneRaporuOlusturParent = FXMLLoader.load(getClass().getResource("ManyetikMuayene_1.fxml"));
+        Scene ManyetikMuayeneRaporuScene = new Scene(ManyetikMuayeneRaporuOlusturParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(ManyetikMuayeneRaporuScene);
+        window.show();
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       
+        
+        
     }    
+    
+    
     
 }

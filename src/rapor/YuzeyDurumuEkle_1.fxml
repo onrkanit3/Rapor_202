@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="874.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.YuzeyDurumuEkleController">
+   <children>
+      <HBox layoutX="23.0" layoutY="49.0" prefHeight="135.0" prefWidth="838.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="135.0" prefWidth="873.0" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textAlignment="CENTER" textFill="#37474f">
+               <font>
+                  <Font name="Century" size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="188.0" layoutY="141.0" prefHeight="71.0" prefWidth="483.0" text="YÜZEY DURUMU" textAlignment="CENTER" textFill="#37474f">
+         <font>
+            <Font name="Century" size="18.0" />
+         </font>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </Label>
+      <VBox layoutX="56.0" layoutY="274.0" prefHeight="418.0" prefWidth="764.0">
+         <children>
+            <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="YuzeyDurumNumarasiColumn" editable="false" prefWidth="382.0" text="Yüzey Durum Numarası" />
+                <TableColumn fx:id="YuzeyDurumuColumn" onEditCommit="#changeYuzeyDurumuCellEvent" prefWidth="382.0" text="Yüzey Durumu" />
+              </columns>
+            </TableView>
+            <HBox prefHeight="80.0" prefWidth="764.0">
+               <children>
+                  <TextField fx:id="YuzeyDurumNumarasiTextField" alignment="CENTER" prefHeight="42.0" prefWidth="382.0" promptText="Yüzey Durum Numarası" />
+                  <TextField fx:id="YuzeyDurumuTextField" alignment="CENTER" prefHeight="42.0" prefWidth="382.0" promptText="Yüzey Durumu" />
+               </children>
+            </HBox>
+            <HBox prefHeight="81.0" prefWidth="764.0" spacing="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#newYuzeyDurumuButtonPushed" prefHeight="81.0" prefWidth="283.0" style="-fx-background-color: #FFFFFF;" text="Yüzey Durumu Ekle" textFill="#37474f">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="81.0" prefWidth="283.0" style="-fx-background-color: #FFFFFF;" text="Yüzey Durumu Sil" textFill="#37474f">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button layoutX="611.0" layoutY="684.0" mnemonicParsing="false" onAction="#anaSayfayaDonRaporsuzPersonelsiz" prefHeight="78.0" prefWidth="209.0" style="-fx-background-color: #FFFFFF;" text="Ana Sayfaya Geri Dön" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+         <font>
+            <Font name="Century" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

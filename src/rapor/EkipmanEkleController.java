@@ -264,6 +264,30 @@ public class EkipmanEkleController implements Initializable
         window.setScene(MainPageScene);
         window.show();
     }
+     
+      public void anaSayfayaDonRaporsuzPersonelsiz(ActionEvent event) throws IOException
+    {
+        Parent MainPageParent = FXMLLoader.load(getClass().getResource("MainPage_1.fxml"));
+        Scene MainPageScene = new Scene(MainPageParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(MainPageScene);
+        window.show();
+    }
+      
+        public void anaSayfayaDonPersonelsiz(ActionEvent event) throws IOException
+    {
+        Parent MainPageParent = FXMLLoader.load(getClass().getResource("MainPage_1_1.fxml"));
+        Scene MainPageScene = new Scene(MainPageParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(MainPageScene);
+        window.show();
+    }
     
     
     

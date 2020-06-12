@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="ManMuayene" fitToWidth="true" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="3500.0" prefWidth="1292.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rapor.ManyetikMuayeneController">
+  <content>
+      <VBox fx:id="MMuayene" alignment="CENTER" prefHeight="3500.0" prefWidth="1292.0">
+         <children>
+          <AnchorPane fx:id="ManyetikMuayene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="3500.0" prefWidth="1292.0" style="-fx-background-color: #90a4ae;">
+               <children>
+                  <HBox layoutX="43.0" layoutY="273.0" prefHeight="473.0" prefWidth="1265.0">
+                     <children>
+                        <GridPane gridLinesVisible="true" prefHeight="497.0" prefWidth="431.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="0.0" prefWidth="236.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="195.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="225.0" text="   Müşteri (Customer)" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox fx:id="Musteri" prefHeight="105.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" />
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="219.0" text="Proje Adı (Project Name)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="221.0" text="Test Yeri (Inspection Place)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox fx:id="ProjeAdi" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="MuayeneStandardi" alignment="CENTER" prefHeight="117.0" prefWidth="179.0" text="TS EN ISO 17638" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="228.0" text="Muayene Standardı (Inspection Standart)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="EvaluationStandard" alignment="CENTER" prefHeight="139.0" prefWidth="179.0" text="TS EN ISO 23278 Class B" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="228.0" text="Değerlen. Standardı (Evaluation Standart)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="TestYeri" alignment="CENTER" prefHeight="124.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                        <GridPane gridLinesVisible="true" prefHeight="497.0" prefWidth="431.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="0.0" prefWidth="236.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="195.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="90.0" prefWidth="220.0" text="Muayene Prosedürü (Inspection Procedure)" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="220.0" text="Muayene Kapsamı (Inspection Scope)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="65.0" prefWidth="226.0" text="Resim No (Drawing No)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="228.0" text="Yüzey Durumu (Surface Condition) " textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="87.0" prefWidth="220.0" text="Muayene Aşaması (Stage of Examination)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="ResimNo" alignment="CENTER" prefHeight="185.0" prefWidth="179.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="MuayeneProseduru" alignment="CENTER" prefHeight="132.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" text="P-101-004" GridPane.columnIndex="1" />
+                              <TextField fx:id="MuayeneKapsami" alignment="CENTER" prefHeight="132.0" prefWidth="179.0" text="\%100" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ChoiceBox fx:id="YuzeyDurumu" prefHeight="198.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ChoiceBox fx:id="MuayeneAsamasi" prefHeight="256.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           </children>
+                        </GridPane>
+                        <GridPane gridLinesVisible="true" prefHeight="497.0" prefWidth="431.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="0.0" prefWidth="236.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="195.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="223.0" text="Sayfa No (Page)" textFill="#37474f" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="218.0" text="Rapor No (Report No)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="228.0" text="Rapor Tarihi (Report Date)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="228.0" text="İş Emri No (Job Order No) " textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="63.0" prefWidth="228.0" text="   Teklif No (Offer No)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="RaporTarihi" alignment="CENTER" prefHeight="169.0" prefWidth="179.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="SayfaNo" alignment="CENTER" prefHeight="182.0" prefWidth="179.0" text="1" GridPane.columnIndex="1" />
+                              <TextField fx:id="RaporNo" alignment="CENTER" prefHeight="182.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ChoiceBox fx:id="IsEmriNo" prefHeight="284.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ChoiceBox fx:id="TeklifNo" prefHeight="266.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           </children>
+                        </GridPane>
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="deneme" alignment="CENTER" contentDisplay="CENTER" layoutX="182.0" layoutY="98.0" prefHeight="135.0" prefWidth="873.0" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textAlignment="CENTER" textFill="#37474f">
+                     <font>
+                        <Font name="Century" size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="182.0" layoutY="183.0" prefHeight="135.0" prefWidth="873.0" text="MAGNETIC PARTICLE INSPECTION REPORT" textAlignment="CENTER" textFill="#5e0000" wrapText="true">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="182.0" layoutY="150.0" prefHeight="135.0" prefWidth="873.0" text="MANYETİK PARÇACIK MUAYENE RAPORU" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="43.0" layoutY="746.0" prefHeight="78.0" prefWidth="1198.0" style="-fx-border-style: solid;" text="Ekipman Bilgileri/Equipment Informations" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="43.0" layoutY="824.0" prefHeight="548.0" prefWidth="1265.0">
+                     <children>
+                        <GridPane gridLinesVisible="true" prefHeight="553.0" prefWidth="399.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="0.0" prefWidth="219.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="195.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="105.0" prefWidth="211.0" text="Cihaz (Equipment)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="99.0" prefWidth="211.0" text="MP Taşıyıcı Ortam (MP Carrier Medium)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="155.0" prefWidth="211.0" text="Mıknatıslama Tekniği (Mag.Tech.)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="UVIsıkSiddeti" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="UVIsikSiddeti" alignment="CENTER" prefHeight="144.0" prefWidth="211.0" text="UV Işık Şiddeti (UV Light Intensity)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="IsikMesafesi" alignment="CENTER" prefHeight="94.0" prefWidth="204.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label alignment="CENTER" prefHeight="173.0" prefWidth="211.0" text="Işık Mesafesi (Distance of Light)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="MiknatislamaTeknigi" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label alignment="CENTER" prefHeight="91.0" prefWidth="219.0" text="Kutup Mesafesi,mm(Pole Distance)" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="KutupMesafesi" alignment="CENTER" prefHeight="91.0" prefWidth="195.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="Cihaz" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="MpTasiyiciOrtam" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                        <GridPane gridLinesVisible="true" prefHeight="553.0" prefWidth="399.0">
+                           <columnConstraints>
+                              <ColumnConstraints />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="0.0" prefWidth="219.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="195.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="105.0" prefWidth="211.0" text="Akım Tipi (Current Type)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="169.0" prefWidth="211.0" text="Luxmetre/Işık Şiddeti (Luxmeter)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="163.0" prefWidth="211.0" text="Muayene Ortamı (Test Medium)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="MiknatisGiderimi" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <Label alignment="CENTER" prefHeight="191.0" prefWidth="211.0" text="Mıknatıs Giderimi (Demagnetization)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="IsilIslem" alignment="CENTER" prefHeight="94.0" prefWidth="204.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <Label alignment="CENTER" prefHeight="166.0" prefWidth="211.0" text="Isıl İşlem (Heat Treatment)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="MuayeneOrtami" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Label alignment="CENTER" prefHeight="91.0" prefWidth="219.0" text="Muayene Bölgesi (Examination Area)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="MuayeneBolgesi" alignment="CENTER" prefHeight="91.0" prefWidth="195.0" text="KAYNAK+HAZ" GridPane.columnIndex="2" />
+                              <TextField fx:id="AkimTipi" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="AC" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <TextField fx:id="Luxmetre" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" text="1200 Lux" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                        <GridPane gridLinesVisible="true" prefHeight="553.0" prefWidth="399.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="0.0" prefWidth="219.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="195.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="186.0" minHeight="10.0" prefHeight="182.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="93.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="105.0" prefWidth="211.0" text="Muayene Bölgesindeki Alan Şiddeti, kA/m(Gaus Field Strength)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="221.0" text="Yüzey (Surface Condition)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="IsikCihaziTanimi" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" text="***" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label alignment="CENTER" prefHeight="96.0" prefWidth="211.0" text="Işık Cihazı Tanımı (Identification of Light Equip.)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="KaldirmaTestiTarih" alignment="CENTER" prefHeight="127.0" prefWidth="188.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label alignment="CENTER" prefHeight="106.0" prefWidth="211.0" text="Kaldırma Testi Tarih / No (Lifting Test Date / Number)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="Yuzey" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="TAŞLANMIŞ / GRINDING" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label alignment="CENTER" prefHeight="99.0" prefWidth="211.0" text="Yüzey Sıcaklığı (°C) (Surface Temperature)" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="YuzeySicakligi" alignment="CENTER" prefHeight="111.0" prefWidth="188.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="MuayeneBolgesiAlanSiddeti" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="3.2 kA/m" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="43.0" layoutY="1372.0" prefHeight="178.0" prefWidth="273.0" style="-fx-border-style: solid;">
+                     <children>
+                        <VBox prefHeight="188.0" prefWidth="270.0">
+                           <children>
+                              <AnchorPane prefHeight="179.0" prefWidth="270.0">
+                                 <children>
+                                    <ImageView fx:id="AlinKaynagi" fitHeight="175.0" fitWidth="277.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-style: solid;">
+                                       <image>
+                                          <Image url="@Icons/ForumFoto.png" />
+                                       </image>
+                                    </ImageView>
+                                    <RadioButton fx:id="AlinKaynagiRadio" layoutX="244.0" layoutY="152.0" mnemonicParsing="false" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="316.0" layoutY="1372.0" prefHeight="178.0" prefWidth="273.0" style="-fx-border-style: solid;">
+                     <children>
+                        <VBox prefHeight="188.0" prefWidth="270.0">
+                           <children>
+                              <AnchorPane prefHeight="177.0" prefWidth="277.0">
+                                 <children>
+                                    <ImageView fx:id="KoseKaynagi" fitHeight="218.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-style: solid;">
+                                       <image>
+                                          <Image url="@Icons/ForumFoto2.png" />
+                                       </image>
+                                    </ImageView>
+                                    <RadioButton fx:id="KoseKaynagiRadio" layoutX="273.0" layoutY="153.0" mnemonicParsing="false" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" layoutX="618.0" layoutY="1372.0" prefHeight="52.0" prefWidth="623.0" style="-fx-border-style: solid;" text="Süreksizliğin Yeri / Location of Discontinuity" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="18.0" />
+                     </font>
+                  </Label>
+                  <GridPane gridLinesVisible="true" layoutX="618.0" layoutY="1424.0" prefHeight="127.0" prefWidth="623.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="306.0" minWidth="10.0" prefWidth="157.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="466.0" minWidth="10.0" prefWidth="466.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" prefHeight="43.0" prefWidth="193.0" text="BM" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                           <font>
+                              <Font name="Arial Black" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="43.0" prefWidth="468.0" text="Ana Metal / Base Metal" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Arial Black" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="43.0" prefWidth="193.0" text="HAZ" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial Black" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="43.0" prefWidth="468.0" text="Isıdan Etkilenen Bölge / Heat affected zone" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial Black" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="43.0" prefWidth="193.0" text="W" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial Black" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="43.0" prefWidth="468.0" text="Kaynak / Weld" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial Black" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="43.0" prefWidth="468.0" text="B" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Arial Black" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="43.0" prefWidth="468.0" text="Kaynak Ağzı / Bevel" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Arial Black" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <HBox layoutX="43.0" layoutY="1551.0" prefHeight="237.0" prefWidth="1200.0">
+                     <children>
+                        <GridPane gridLinesVisible="true" prefHeight="254.0" prefWidth="1199.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="0.0" prefWidth="236.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="1000.0" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="79.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="79.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="79.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="123.0" prefWidth="236.0" text="Standart Sapmalar (Standart Deviations)" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="121.0" prefWidth="237.0" text="Muayene Tarihleri (Inspection Dates)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial Black" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="StandartSapmalar" alignment="CENTER" prefHeight="93.0" prefWidth="963.0" style="-fx-background-color: #FFFFFF;" text="Standarttan sapma yoktur" GridPane.columnIndex="1" />
+                              <TextField fx:id="MuayeneTarihleri" alignment="CENTER" prefHeight="132.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label alignment="CENTER" prefHeight="85.0" prefWidth="236.0" text="Açıklamalar ve Ekler (Description and Attachments)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial Black" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="AciklamalarVeEkler" alignment="CENTER" prefHeight="132.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </HBox>
+                  <Label alignment="CENTER" layoutX="41.0" layoutY="1788.0" prefHeight="78.0" prefWidth="1201.0" style="-fx-border-style: solid;" text="Muayene Sonuçları / Inspection Results" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="41.0" layoutY="1866.0" prefHeight="650.0" prefWidth="1204.0">
+                     <children>
+                        <GridPane gridLinesVisible="true" prefHeight="549.0" prefWidth="1200.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="0.0" prefWidth="82.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.0" minWidth="10.0" prefWidth="138.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="0.0" prefWidth="110.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="0.0" prefWidth="159.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="10.0" prefWidth="110.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="10.0" prefWidth="85.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="10.0" prefWidth="106.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="10.0" prefWidth="162.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="10.0" prefWidth="146.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TextField fx:id="HataTipi5" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                              <TextField fx:id="HataTipi6" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+                              <TextField fx:id="HataTipi4" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="110.0" text="Sıra No (Serial No)" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="HataTipi1" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                              <TextField fx:id="HataTipi2" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="217.0" text="Kaynak/ Parça No" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="106.0" text="Kontrol Uzun (Test Length)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="188.0" text="Kaynak Yön. (Welding Process) " textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="57.0" prefWidth="151.0" text="Kalınlık (mm) /Thickness)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="4">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="57.0" prefWidth="118.0" text="Çap (mm) (Diameter)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="5">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="57.0" prefWidth="158.0" text="Hata Tipi (Defect Type)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="6">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="57.0" prefWidth="178.0" text="Hatanın Yeri (Defect Loc.)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="7">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="61.0" prefWidth="159.0" text="Sonuç (Result)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="8">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="SiraNo6" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="6" GridPane.rowIndex="6" />
+                              <TextField fx:id="SiraNo2" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="2" GridPane.rowIndex="2" />
+                              <TextField fx:id="SiraNo5" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="5" GridPane.rowIndex="5" />
+                              <TextField fx:id="SiraNo1" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="SiraNo3" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="3" GridPane.rowIndex="3" />
+                              <TextField fx:id="SiraNo4" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" text="4" GridPane.rowIndex="4" />
+                              <TextField fx:id="KaynakParcaNo2" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="KaynakParcaNo3" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="KaynakParcaNo1" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="KaynakParcaNo4" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="KaynakParcaNo5" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField fx:id="KaynakParcaNo6" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextField fx:id="Kalinlik6" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                              <TextField fx:id="Kalinlik5" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                              <TextField fx:id="Kalinlik4" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                              <TextField fx:id="Kalinlik3" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <TextField fx:id="Kalinlik2" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <TextField fx:id="Kalinlik1" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <TextField fx:id="KaynakYon6" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                              <TextField fx:id="KaynakYon5" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <TextField fx:id="KaynakYon4" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <TextField fx:id="KaynakYon3" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <TextField fx:id="KaynakYon2" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <TextField fx:id="KaynakYon1" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField fx:id="KontrolUzun6" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <TextField fx:id="KontrolUzun5" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <TextField fx:id="KontrolUzun4" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <TextField fx:id="KontrolUzun2" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField fx:id="KontrolUzun3" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <TextField fx:id="HataninYeri1" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                              <TextField fx:id="HataninYeri2" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                              <TextField fx:id="HataninYeri3" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                              <TextField fx:id="HataninYeri4" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                              <TextField fx:id="Cap6" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                              <TextField fx:id="Cap5" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                              <TextField fx:id="Cap4" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                              <TextField fx:id="HataTipi3" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                              <TextField fx:id="Cap3" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <TextField fx:id="Cap2" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <TextField fx:id="Cap1" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <TextField fx:id="KontrolUzun1" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <TextField fx:id="Sonuc6" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+                              <TextField fx:id="Sonuc5" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+                              <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+                              <TextField fx:id="Sonuc4" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+                              <TextField fx:id="Sonuc3" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+                              <TextField fx:id="Sonuc2" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                              <TextField fx:id="Sonuc1" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                              <TextField fx:id="HataninYeri6" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+                              <TextField fx:id="HataninYeri5" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+                              <TextField fx:id="SiraNo7" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="7" GridPane.rowIndex="7" />
+                              <TextField fx:id="SiraNo8" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="8" GridPane.rowIndex="8" />
+                              <TextField fx:id="SiraNo9" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="9" GridPane.rowIndex="9" />
+                              <TextField fx:id="SiraNo10" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="10" GridPane.rowIndex="10" />
+                              <TextField fx:id="KaynakParcaNo7" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <TextField fx:id="KaynakParcaNo8" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <TextField fx:id="KaynakParcaNo9" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <TextField fx:id="KaynakParcaNo10" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                              <TextField fx:id="KontrolUzun7" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                              <TextField fx:id="KontrolUzun8" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                              <TextField fx:id="KontrolUzun9" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                              <TextField fx:id="KontrolUzun10" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                              <TextField fx:id="KaynakYon7" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                              <TextField fx:id="KaynakYon8" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                              <TextField fx:id="KaynakYon9" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                              <TextField fx:id="KaynakYon10" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                              <TextField fx:id="Kalinlik7" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                              <TextField fx:id="Kalinlik8" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                              <TextField fx:id="Kalinlik9" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                              <TextField fx:id="Kalinlik10" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+                              <TextField fx:id="Cap7" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                              <TextField fx:id="Cap8" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+                              <TextField fx:id="Cap9" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+                              <TextField fx:id="Cap10" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="10" />
+                              <TextField fx:id="HataTipi7" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+                              <TextField fx:id="HataTipi8" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+                              <TextField fx:id="HataTipi9" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="6" GridPane.rowIndex="9" />
+                              <TextField fx:id="HataTipi10" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="6" GridPane.rowIndex="10" />
+                              <TextField fx:id="HataninYeri7" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+                              <TextField fx:id="HataninYeri8" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="8" />
+                              <TextField fx:id="HataninYeri9" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="9" />
+                              <TextField fx:id="HataninYeri10" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="10" />
+                              <TextField fx:id="Sonuc7" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+                              <TextField fx:id="Sonuc8" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="8" />
+                              <TextField fx:id="Sonuc9" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="9" />
+                              <TextField fx:id="Sonuc10" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="10" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="40.0" layoutY="2516.0" prefHeight="300.0" prefWidth="1204.0">
+                     <children>
+                        <GridPane gridLinesVisible="true" prefHeight="549.0" prefWidth="1200.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="0.0" prefWidth="82.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.0" minWidth="10.0" prefWidth="138.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="0.0" prefWidth="110.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="0.0" prefWidth="159.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="10.0" prefWidth="110.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="225.0" text="Personel Bilgileri/ Person.Infor." textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="268.0" text="Operatör / Operator" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="263.0" text="Değerlendiren / Evaluated By" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="260.0" text="Onay / Confirmation" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="57.0" prefWidth="251.0" text="Müşteri / Customer" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.columnIndex="4">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="OperatorLevel" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="OperatorTarih" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="OperatorAdSoyad" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="OperatorImza" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="MusteriImza" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                              <TextField fx:id="MusteriTarih" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <TextField fx:id="MusteriLevel" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <TextField fx:id="MusteriAdSoyad" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <TextField fx:id="OnayImza" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <TextField fx:id="OnayTarih" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <TextField fx:id="OnayLevel" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <TextField fx:id="OnayAdSoyad" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField fx:id="DegerlendirenImza" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <TextField fx:id="DegerlendirenLevel" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField fx:id="DegerlendirenTarih" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <TextField fx:id="DegerlendirenAdSoyad" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="225.0" text="Adı Soyadı / Name Surname" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="225.0" text="Seviye / Level" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="225.0" text="Tarih / Date" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="225.0" text="İmza / Signature" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </HBox>
+                  <ImageView fx:id="Logo" fitHeight="118.0" fitWidth="112.0" layoutX="151.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icons/eye-insurance.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="1062.0" layoutY="3101.0" mnemonicParsing="false" onAction="#giriseDon1" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Geri Dön" textFill="#37474f">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="1062.0" layoutY="2866.0" mnemonicParsing="false" onAction="#Workbook" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="Excel'e Aktar" textFill="#37474f">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="1062.0" layoutY="2979.0" mnemonicParsing="false" onAction="#toPDF" prefHeight="78.0" prefWidth="182.0" style="-fx-background-color: #FFFFFF;" text="PDF Formatına Dönüştür" textAlignment="CENTER" textFill="#37474f" wrapText="true">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+  </content>
+</ScrollPane>

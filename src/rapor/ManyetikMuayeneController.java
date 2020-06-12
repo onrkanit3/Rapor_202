@@ -28,7 +28,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
@@ -277,6 +276,17 @@ public class ManyetikMuayeneController implements Initializable
         window.show();
     }
     
+    public void giriseDon1(ActionEvent event) throws IOException
+    {
+        Parent RaporGirisParent = FXMLLoader.load(getClass().getResource("RaporGiris_1.fxml"));
+        Scene RaporGirisScene = new Scene(RaporGirisParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(RaporGirisScene);
+        window.show();
+    }
     
     
     public void Workbook() throws FileNotFoundException, IOException

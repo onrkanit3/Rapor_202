@@ -26,7 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
-import static rapor.Mitarbeiter.CheckUsernameExists;
+
 
 
 /**
@@ -54,6 +54,30 @@ public class FirmaController implements Initializable
     public void anaSayfayaDon(ActionEvent event) throws IOException
     {
         Parent MainPageParent = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+        Scene MainPageScene = new Scene(MainPageParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(MainPageScene);
+        window.show();
+    }
+    
+      public void anaSayfayaDonRaporsuzPersonelsiz(ActionEvent event) throws IOException
+    {
+        Parent MainPageParent = FXMLLoader.load(getClass().getResource("MainPage_1.fxml"));
+        Scene MainPageScene = new Scene(MainPageParent);
+        
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(MainPageScene);
+        window.show();
+    }
+      
+          public void anaSayfayaDonPersonelsiz(ActionEvent event) throws IOException
+    {
+        Parent MainPageParent = FXMLLoader.load(getClass().getResource("MainPage_1_1.fxml"));
         Scene MainPageScene = new Scene(MainPageParent);
         
         
