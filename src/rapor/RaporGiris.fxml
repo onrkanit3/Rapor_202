@@ -78,7 +78,7 @@
                   </TextField>
                   <DatePicker fx:id="RaporTarihiDatePicker" prefHeight="35.0" prefWidth="177.0" />
                   <DatePicker fx:id="MuayeneTarihiDatePicker" prefHeight="35.0" prefWidth="177.0" />
-                  <ChoiceBox prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: #FFFFFF;" />
+                  <ChoiceBox fx:id="ekipmanchoicebox" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: #FFFFFF;" />
                   <TextField fx:id="personel" editable="false">
                      <font>
                         <Font name="Century" size="18.0" />

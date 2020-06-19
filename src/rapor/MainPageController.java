@@ -49,50 +49,62 @@ public class MainPageController implements Initializable
     
     public void calisanEkle(ActionEvent event) throws IOException
     {
-        Parent CalisanEkleParent = FXMLLoader.load(getClass().getResource("CalisanEkle.fxml"));
-        Scene CalisanEkleScene = new Scene(CalisanEkleParent);
+       
         
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(CalisanEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("CalisanEkle.fxml"));
+                        Parent CalisanEkleParent = loader.load();
+                        Scene CalisanEkleScene = new Scene (CalisanEkleParent);
+                        CalisanEkleController calisaneklecontroller = loader.getController();
+                        calisaneklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(CalisanEkleScene);
+                        window.show(); 
     }
     
     public void YuzeyDurumuEkle(ActionEvent event) throws IOException
     {
-        Parent YuzeyDurumuEkleParent = FXMLLoader.load(getClass().getResource("YuzeyDurumuEkle.fxml"));
-        Scene YuzeyDurumuEkleScene = new Scene(YuzeyDurumuEkleParent);
         
         
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(YuzeyDurumuEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("YuzeyDurumuEkle.fxml"));
+                        Parent YuzeyDurumuEkleParent = loader.load();
+                        Scene YuzeyDurumuEkleScene = new Scene (YuzeyDurumuEkleParent);
+                        YuzeyDurumuEkleController yuzeydurumueklecontroller = loader.getController();
+                        yuzeydurumueklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(YuzeyDurumuEkleScene);
+                        window.show(); 
     }
     
     public void YuzeyDurumuEkle1(ActionEvent event) throws IOException
     {
-        Parent YuzeyDurumuEkleParent = FXMLLoader.load(getClass().getResource("YuzeyDurumuEkle_1.fxml"));
-        Scene YuzeyDurumuEkleScene = new Scene(YuzeyDurumuEkleParent);
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(YuzeyDurumuEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("YuzeyDurumuEkle_1.fxml"));
+                        Parent YuzeyDurumuEkleParent = loader.load();
+                        Scene YuzeyDurumuEkleScene = new Scene (YuzeyDurumuEkleParent);
+                        YuzeyDurumuEkleController yuzeydurumueklecontroller = loader.getController();
+                        yuzeydurumueklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(YuzeyDurumuEkleScene);
+                        window.show(); 
     }
     
     public void YuzeyDurumuEkle11(ActionEvent event) throws IOException
     {
-        Parent YuzeyDurumuEkleParent = FXMLLoader.load(getClass().getResource("YuzeyDurumuEkle_1_1.fxml"));
-        Scene YuzeyDurumuEkleScene = new Scene(YuzeyDurumuEkleParent);
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(YuzeyDurumuEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("YuzeyDurumuEkle_1_1.fxml"));
+                        Parent YuzeyDurumuEkleParent = loader.load();
+                        Scene YuzeyDurumuEkleScene = new Scene (YuzeyDurumuEkleParent);
+                        YuzeyDurumuEkleController yuzeydurumueklecontroller = loader.getController();
+                        yuzeydurumueklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(YuzeyDurumuEkleScene);
+                        window.show(); 
     }
     
     public String getID(String ID, String firstName, String lastName){
@@ -137,110 +149,131 @@ public class MainPageController implements Initializable
      
     public void FirmaEkle(ActionEvent event) throws IOException
     {
-        Parent FirmaEkleParent = FXMLLoader.load(getClass().getResource("Firma.fxml"));
-        Scene FirmaEkleScene = new Scene(FirmaEkleParent);
+      
         
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(FirmaEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("Firma.fxml"));
+                        Parent FirmaEkleParent = loader.load();
+                        Scene FirmaEkleScene = new Scene (FirmaEkleParent);
+                        FirmaController firmaeklecontroller = loader.getController();
+                        firmaeklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(FirmaEkleScene);
+                        window.show(); 
     }
     
     public void FirmaEkle1(ActionEvent event) throws IOException
     {
-        Parent FirmaEkleParent = FXMLLoader.load(getClass().getResource("Firma_1.fxml"));
-        Scene FirmaEkleScene = new Scene(FirmaEkleParent);
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(FirmaEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("Firma_1.fxml"));
+                        Parent FirmaEkleParent = loader.load();
+                        Scene FirmaEkleScene = new Scene (FirmaEkleParent);
+                        FirmaController firmaeklecontroller = loader.getController();
+                        firmaeklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(FirmaEkleScene);
+                        window.show(); 
     }
     
      public void FirmaEkle11(ActionEvent event) throws IOException
     {
-        Parent FirmaEkleParent = FXMLLoader.load(getClass().getResource("Firma_1_1.fxml"));
-        Scene FirmaEkleScene = new Scene(FirmaEkleParent);
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(FirmaEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("Firma_1_1.fxml"));
+                        Parent FirmaEkleParent = loader.load();
+                        Scene FirmaEkleScene = new Scene (FirmaEkleParent);
+                        FirmaController firmaeklecontroller = loader.getController();
+                        firmaeklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(FirmaEkleScene);
+                        window.show(); 
     }
     
     public void ProjeEkle(ActionEvent event) throws IOException
     {
-        Parent ProjeEkleParent = FXMLLoader.load(getClass().getResource("ProjeEkle.fxml"));
-        Scene ProjeEkleScene = new Scene(ProjeEkleParent);
         
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(ProjeEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("ProjeEkle.fxml"));
+                        Parent ProjeEkleParent = loader.load();
+                        Scene ProjeEkleScene = new Scene (ProjeEkleParent);
+                        ProjeEkleController projeeklecontroller = loader.getController();
+                        projeeklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(ProjeEkleScene);
+                        window.show(); 
     }
     
     public void ProjeEkle1(ActionEvent event) throws IOException
     {
-        Parent ProjeEkleParent = FXMLLoader.load(getClass().getResource("ProjeEkle_1.fxml"));
-        Scene ProjeEkleScene = new Scene(ProjeEkleParent);
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(ProjeEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("ProjeEkle_1.fxml"));
+                        Parent ProjeEkleParent = loader.load();
+                        Scene ProjeEkleScene = new Scene (ProjeEkleParent);
+                        ProjeEkleController projeeklecontroller = loader.getController();
+                        projeeklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(ProjeEkleScene);
+                        window.show(); 
     }
     
      public void ProjeEkle11(ActionEvent event) throws IOException
     {
-        Parent ProjeEkleParent = FXMLLoader.load(getClass().getResource("ProjeEkle_1_1.fxml"));
-        Scene ProjeEkleScene = new Scene(ProjeEkleParent);
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(ProjeEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("ProjeEkle_1_1.fxml"));
+                        Parent ProjeEkleParent = loader.load();
+                        Scene ProjeEkleScene = new Scene (ProjeEkleParent);
+                        ProjeEkleController projeeklecontroller = loader.getController();
+                        projeeklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(ProjeEkleScene);
+                        window.show(); 
     }
     
     public void EkipmanEkle(ActionEvent event) throws IOException
     {
-        Parent EkipmanEkleParent = FXMLLoader.load(getClass().getResource("EkipmanEkle.fxml"));
-        Scene EkipmanEkleScene = new Scene(EkipmanEkleParent);
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(EkipmanEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("EkipmanEkle.fxml"));
+                        Parent EkipmanEkleParent = loader.load();
+                        Scene EkipmanEkleScene = new Scene (EkipmanEkleParent);
+                        EkipmanEkleController ekipmaneklecontroller = loader.getController();
+                        ekipmaneklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(EkipmanEkleScene);
+                        window.show(); 
     }
     
      public void EkipmanEkle1(ActionEvent event) throws IOException
     {
-        Parent EkipmanEkleParent = FXMLLoader.load(getClass().getResource("EkipmanEkle_1.fxml"));
-        Scene EkipmanEkleScene = new Scene(EkipmanEkleParent);
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(EkipmanEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("EkipmanEkle_1.fxml"));
+                        Parent EkipmanEkleParent = loader.load();
+                        Scene EkipmanEkleScene = new Scene (EkipmanEkleParent);
+                        EkipmanEkleController ekipmaneklecontroller = loader.getController();
+                        ekipmaneklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(EkipmanEkleScene);
+                        window.show(); 
     }
      
       public void EkipmanEkle2(ActionEvent event) throws IOException
     {
-        Parent EkipmanEkleParent = FXMLLoader.load(getClass().getResource("EkipmanEkle_2.fxml"));
-        Scene EkipmanEkleScene = new Scene(EkipmanEkleParent);
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(EkipmanEkleScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("EkipmanEkle_2.fxml"));
+                        Parent EkipmanEkleParent = loader.load();
+                        Scene EkipmanEkleScene = new Scene (EkipmanEkleParent);
+                        EkipmanEkleController ekipmaneklecontroller = loader.getController();
+                        ekipmaneklecontroller.getID(ID1,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(EkipmanEkleScene);
+                        window.show(); 
     }
     
     @Override

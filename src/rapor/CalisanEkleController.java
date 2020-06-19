@@ -41,6 +41,8 @@ import javafx.util.converter.LocalDateStringConverter;
  *
  * @author izmir
  */
+
+
 public class CalisanEkleController implements Initializable
 {
     
@@ -59,6 +61,17 @@ public class CalisanEkleController implements Initializable
     @FXML private TextField LevelTextField;
     @FXML private DatePicker sertifikatarihiDatePicker;
     @FXML private Button personelEkle;
+    
+    String ID2 = null;
+    String firstName1 = null;
+    String lastName1 = null;
+    public String getID(String ID,String firstName, String lastName){
+        ID2 = ID;
+        firstName1 = firstName;
+        lastName1 = lastName;
+        
+        return ID + firstName + lastName;
+    }
     
 
      
@@ -309,14 +322,16 @@ public class CalisanEkleController implements Initializable
 
    public void anaSayfayaDon(ActionEvent event) throws IOException
     {
-        Parent MainPageParent = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
-        Scene MainPageScene = new Scene(MainPageParent);
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(MainPageScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("MainPage.fxml"));
+                        Parent MainPageParent = loader.load();
+                        Scene MainPageScene = new Scene (MainPageParent);
+                        MainPageController mainpagecontroller = loader.getController();
+                        mainpagecontroller.getID(ID2,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(MainPageScene);
+                        window.show(); 
     }
    
    public void excelButtonPushed(){

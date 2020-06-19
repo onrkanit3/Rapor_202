@@ -209,7 +209,16 @@ public class ManyetikMuayeneController implements Initializable
     @FXML private TextField OnayImza;
     @FXML private TextField MusteriImza;
     @FXML private ImageView Logo;
-    
+    String ID2 = null;
+    String firstName1 = null;
+    String lastName1 = null;
+    public String getID(String ID,String firstName, String lastName){
+        ID2 = ID;
+        firstName1 = firstName;
+        lastName1 = lastName;
+        
+        return ID + firstName + lastName;
+    }
     
    @FXML
     public void toPDF(ActionEvent event) {
@@ -266,26 +275,30 @@ public class ManyetikMuayeneController implements Initializable
     
     public void giriseDon(ActionEvent event) throws IOException
     {
-        Parent RaporGirisParent = FXMLLoader.load(getClass().getResource("RaporGiris.fxml"));
-        Scene RaporGirisScene = new Scene(RaporGirisParent);
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(RaporGirisScene);
-        window.show();
+       FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("RaporGiris.fxml"));
+                        Parent RaporGirisParent = loader.load();
+                        Scene RaporGirisScene = new Scene (RaporGirisParent);
+                        RaporGirisController raporgiriscontroller = loader.getController();
+                        raporgiriscontroller.getID(ID2,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(RaporGirisScene);
+                        window.show(); 
     }
     
     public void giriseDon1(ActionEvent event) throws IOException
     {
-        Parent RaporGirisParent = FXMLLoader.load(getClass().getResource("RaporGiris_1.fxml"));
-        Scene RaporGirisScene = new Scene(RaporGirisParent);
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(RaporGirisScene);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("RaporGiris_1.fxml"));
+                        Parent RaporGirisParent = loader.load();
+                        Scene RaporGirisScene = new Scene (RaporGirisParent);
+                        RaporGirisController raporgiriscontroller = loader.getController();
+                        raporgiriscontroller.getID(ID2,firstName1,lastName1);
+                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                        window.setScene(RaporGirisScene);
+                        window.show(); 
     }
     
     
