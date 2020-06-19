@@ -130,7 +130,7 @@ public class FXMLDocumentController implements Initializable
                         Parent MainPageParent = loader.load();
                         Scene MainPageScene = new Scene (MainPageParent);
                         MainPageController mainpagecontroller = loader.getController();
-                        mainpagecontroller.getID(dbID,firstName,lastName);
+                        mainpagecontroller.getID(dbID,firstName,lastName,dbLevel);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(MainPageScene);
@@ -167,7 +167,7 @@ public class FXMLDocumentController implements Initializable
                         Parent MainPageParent = loader.load();
                         Scene MainPageScene = new Scene (MainPageParent);
                         MainPageController mainpagecontroller = loader.getController();
-                        mainpagecontroller.getID(dbID,firstName,lastName);
+                        mainpagecontroller.getID(dbID,firstName,lastName,dbLevel);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(MainPageScene);

@@ -44,6 +44,7 @@ public class MainPageController implements Initializable
     String ID1 = null;
     String firstName1 = null;
     String lastName1 =null;
+    String level = null;
     
          
     
@@ -56,7 +57,7 @@ public class MainPageController implements Initializable
                         Parent CalisanEkleParent = loader.load();
                         Scene CalisanEkleScene = new Scene (CalisanEkleParent);
                         CalisanEkleController calisaneklecontroller = loader.getController();
-                        calisaneklecontroller.getID(ID1,firstName1,lastName1);
+                        calisaneklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(CalisanEkleScene);
@@ -72,7 +73,7 @@ public class MainPageController implements Initializable
                         Parent YuzeyDurumuEkleParent = loader.load();
                         Scene YuzeyDurumuEkleScene = new Scene (YuzeyDurumuEkleParent);
                         YuzeyDurumuEkleController yuzeydurumueklecontroller = loader.getController();
-                        yuzeydurumueklecontroller.getID(ID1,firstName1,lastName1);
+                        yuzeydurumueklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(YuzeyDurumuEkleScene);
@@ -86,7 +87,7 @@ public class MainPageController implements Initializable
                         Parent YuzeyDurumuEkleParent = loader.load();
                         Scene YuzeyDurumuEkleScene = new Scene (YuzeyDurumuEkleParent);
                         YuzeyDurumuEkleController yuzeydurumueklecontroller = loader.getController();
-                        yuzeydurumueklecontroller.getID(ID1,firstName1,lastName1);
+                        yuzeydurumueklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(YuzeyDurumuEkleScene);
@@ -100,21 +101,22 @@ public class MainPageController implements Initializable
                         Parent YuzeyDurumuEkleParent = loader.load();
                         Scene YuzeyDurumuEkleScene = new Scene (YuzeyDurumuEkleParent);
                         YuzeyDurumuEkleController yuzeydurumueklecontroller = loader.getController();
-                        yuzeydurumueklecontroller.getID(ID1,firstName1,lastName1);
+                        yuzeydurumueklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(YuzeyDurumuEkleScene);
                         window.show(); 
     }
     
-    public String getID(String ID, String firstName, String lastName){
+    public String getID(String ID, String firstName, String lastName, String lvl){
         ID1 = ID;
         firstName1 = firstName;
         lastName1 = lastName;
+        level = lvl;
         
         
         
-        return ID+firstName+lastName;
+        return ID+firstName+lastName+lvl;
     }
     
     public  void RaporEkle(ActionEvent event) throws IOException
@@ -124,7 +126,7 @@ public class MainPageController implements Initializable
                         Parent RaporEkleParent = loader.load();
                         Scene RaporEkleScene = new Scene (RaporEkleParent);
                         RaporGirisController raporgiriscontroller = loader.getController();
-                        raporgiriscontroller.getID(ID1,firstName1,lastName1);
+                        raporgiriscontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(RaporEkleScene);
@@ -139,7 +141,7 @@ public class MainPageController implements Initializable
                         Parent RaporEkleParent = loader.load();
                         Scene RaporEkleScene = new Scene (RaporEkleParent);
                         RaporGirisController raporgiriscontroller = loader.getController();
-                        raporgiriscontroller.getID(ID1,firstName1,lastName1);
+                        raporgiriscontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(RaporEkleScene);
@@ -156,7 +158,7 @@ public class MainPageController implements Initializable
                         Parent FirmaEkleParent = loader.load();
                         Scene FirmaEkleScene = new Scene (FirmaEkleParent);
                         FirmaController firmaeklecontroller = loader.getController();
-                        firmaeklecontroller.getID(ID1,firstName1,lastName1);
+                        firmaeklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(FirmaEkleScene);
@@ -170,7 +172,7 @@ public class MainPageController implements Initializable
                         Parent FirmaEkleParent = loader.load();
                         Scene FirmaEkleScene = new Scene (FirmaEkleParent);
                         FirmaController firmaeklecontroller = loader.getController();
-                        firmaeklecontroller.getID(ID1,firstName1,lastName1);
+                        firmaeklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(FirmaEkleScene);
@@ -184,7 +186,7 @@ public class MainPageController implements Initializable
                         Parent FirmaEkleParent = loader.load();
                         Scene FirmaEkleScene = new Scene (FirmaEkleParent);
                         FirmaController firmaeklecontroller = loader.getController();
-                        firmaeklecontroller.getID(ID1,firstName1,lastName1);
+                        firmaeklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(FirmaEkleScene);
@@ -199,7 +201,7 @@ public class MainPageController implements Initializable
                         Parent ProjeEkleParent = loader.load();
                         Scene ProjeEkleScene = new Scene (ProjeEkleParent);
                         ProjeEkleController projeeklecontroller = loader.getController();
-                        projeeklecontroller.getID(ID1,firstName1,lastName1);
+                        projeeklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(ProjeEkleScene);
@@ -213,7 +215,7 @@ public class MainPageController implements Initializable
                         Parent ProjeEkleParent = loader.load();
                         Scene ProjeEkleScene = new Scene (ProjeEkleParent);
                         ProjeEkleController projeeklecontroller = loader.getController();
-                        projeeklecontroller.getID(ID1,firstName1,lastName1);
+                        projeeklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(ProjeEkleScene);
@@ -227,7 +229,7 @@ public class MainPageController implements Initializable
                         Parent ProjeEkleParent = loader.load();
                         Scene ProjeEkleScene = new Scene (ProjeEkleParent);
                         ProjeEkleController projeeklecontroller = loader.getController();
-                        projeeklecontroller.getID(ID1,firstName1,lastName1);
+                        projeeklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(ProjeEkleScene);
@@ -241,7 +243,7 @@ public class MainPageController implements Initializable
                         Parent EkipmanEkleParent = loader.load();
                         Scene EkipmanEkleScene = new Scene (EkipmanEkleParent);
                         EkipmanEkleController ekipmaneklecontroller = loader.getController();
-                        ekipmaneklecontroller.getID(ID1,firstName1,lastName1);
+                        ekipmaneklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(EkipmanEkleScene);
@@ -255,7 +257,7 @@ public class MainPageController implements Initializable
                         Parent EkipmanEkleParent = loader.load();
                         Scene EkipmanEkleScene = new Scene (EkipmanEkleParent);
                         EkipmanEkleController ekipmaneklecontroller = loader.getController();
-                        ekipmaneklecontroller.getID(ID1,firstName1,lastName1);
+                        ekipmaneklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(EkipmanEkleScene);
@@ -269,7 +271,7 @@ public class MainPageController implements Initializable
                         Parent EkipmanEkleParent = loader.load();
                         Scene EkipmanEkleScene = new Scene (EkipmanEkleParent);
                         EkipmanEkleController ekipmaneklecontroller = loader.getController();
-                        ekipmaneklecontroller.getID(ID1,firstName1,lastName1);
+                        ekipmaneklecontroller.getID(ID1,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(EkipmanEkleScene);

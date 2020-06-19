@@ -67,6 +67,11 @@
                         <Font name="Century" size="18.0" />
                      </font>
                   </Label>
+                  <Label prefHeight="56.0" prefWidth="182.0" text="Müşteri Firma        :" textFill="#37474f">
+                     <font>
+                        <Font name="Century" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </VBox>
             <VBox prefHeight="226.0" prefWidth="177.0" spacing="31.0">
@@ -84,6 +89,7 @@
                         <Font name="Century" size="18.0" />
                      </font>
                   </TextField>
+                  <ChoiceBox fx:id="MusteriChoiceBox" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: #FFFFFF;" />
                </children>
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />

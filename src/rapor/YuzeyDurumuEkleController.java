@@ -46,12 +46,14 @@ public class YuzeyDurumuEkleController implements Initializable {
     String ID2 = null;
     String firstName1 = null;
     String lastName1 = null;
-    public String getID(String ID,String firstName, String lastName){
+    String level = null;
+    public String getID(String ID,String firstName, String lastName, String lvl){
         ID2 = ID;
         firstName1 = firstName;
         lastName1 = lastName;
+        level = lvl;
         
-        return ID + firstName + lastName;
+        return ID + firstName + lastName+ lvl;
     }
     
 
@@ -62,7 +64,7 @@ public class YuzeyDurumuEkleController implements Initializable {
                         Parent MainPageParent = loader.load();
                         Scene MainPageScene = new Scene (MainPageParent);
                         MainPageController mainpagecontroller = loader.getController();
-                        mainpagecontroller.getID(ID2,firstName1,lastName1);
+                        mainpagecontroller.getID(ID2,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(MainPageScene);
@@ -76,7 +78,7 @@ public class YuzeyDurumuEkleController implements Initializable {
                         Parent MainPageParent = loader.load();
                         Scene MainPageScene = new Scene (MainPageParent);
                         MainPageController mainpagecontroller = loader.getController();
-                        mainpagecontroller.getID(ID2,firstName1,lastName1);
+                        mainpagecontroller.getID(ID2,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(MainPageScene);
@@ -90,7 +92,7 @@ public class YuzeyDurumuEkleController implements Initializable {
                         Parent MainPageParent = loader.load();
                         Scene MainPageScene = new Scene (MainPageParent);
                         MainPageController mainpagecontroller = loader.getController();
-                        mainpagecontroller.getID(ID2,firstName1,lastName1);
+                        mainpagecontroller.getID(ID2,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(MainPageScene);

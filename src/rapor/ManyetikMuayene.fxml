@@ -43,7 +43,6 @@
                                     <Font name="Arial Black" size="18.0" />
                                  </font>
                               </Label>
-                              <ChoiceBox fx:id="Musteri" prefHeight="105.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" />
                               <Label alignment="CENTER" prefHeight="63.0" prefWidth="219.0" text="Proje Adı (Project Name)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="Arial Black" size="18.0" />
@@ -54,7 +53,7 @@
                                     <Font name="Arial Black" size="18.0" />
                                  </font>
                               </Label>
-                              <ChoiceBox fx:id="ProjeAdi" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ChoiceBox fx:id="ProjeAdi" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="MuayeneStandardi" alignment="CENTER" prefHeight="117.0" prefWidth="179.0" text="TS EN ISO 17638" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label alignment="CENTER" prefHeight="63.0" prefWidth="228.0" text="Muayene Standardı (Inspection Standart)" textAlignment="CENTER" textFill="#37474f" wrapText="true" GridPane.rowIndex="3">
                                  <font>
@@ -67,7 +66,8 @@
                                     <Font name="Arial Black" size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="TestYeri" alignment="CENTER" prefHeight="124.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="TestYeri" alignment="CENTER" editable="false" prefHeight="124.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="Musteri" alignment="CENTER" editable="false" prefHeight="124.0" prefWidth="179.0" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane gridLinesVisible="true" prefHeight="497.0" prefWidth="431.0">
@@ -111,8 +111,8 @@
                               <TextField fx:id="ResimNo" alignment="CENTER" prefHeight="185.0" prefWidth="179.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField fx:id="MuayeneProseduru" alignment="CENTER" prefHeight="132.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" text="P-101-004" GridPane.columnIndex="1" />
                               <TextField fx:id="MuayeneKapsami" alignment="CENTER" prefHeight="132.0" prefWidth="179.0" text="\%100" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <ChoiceBox fx:id="YuzeyDurumu" prefHeight="198.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <ChoiceBox fx:id="MuayeneAsamasi" prefHeight="256.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <ChoiceBox fx:id="YuzeyDurumu" prefHeight="198.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ChoiceBox fx:id="MuayeneAsamasi" prefHeight="256.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                            </children>
                         </GridPane>
                         <GridPane gridLinesVisible="true" prefHeight="497.0" prefWidth="431.0">
@@ -156,8 +156,8 @@
                               <TextField fx:id="RaporTarihi" alignment="CENTER" prefHeight="169.0" prefWidth="179.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField fx:id="SayfaNo" alignment="CENTER" prefHeight="182.0" prefWidth="179.0" text="1" GridPane.columnIndex="1" />
                               <TextField fx:id="RaporNo" alignment="CENTER" prefHeight="182.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <ChoiceBox fx:id="IsEmriNo" prefHeight="284.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <ChoiceBox fx:id="TeklifNo" prefHeight="266.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <ChoiceBox fx:id="IsEmriNo" prefHeight="284.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ChoiceBox fx:id="TeklifNo" prefHeight="266.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                            </children>
                         </GridPane>
                         <VBox prefHeight="200.0" prefWidth="100.0" />
@@ -295,8 +295,8 @@
                                  </font>
                               </Label>
                               <TextField fx:id="MuayeneBolgesi" alignment="CENTER" prefHeight="91.0" prefWidth="195.0" text="KAYNAK+HAZ" GridPane.columnIndex="2" />
-                              <TextField fx:id="AkimTipi" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="AC" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                               <TextField fx:id="Luxmetre" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" text="1200 Lux" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <ChoiceBox fx:id="AkimTipi" prefHeight="91.0" prefWidth="195.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane gridLinesVisible="true" prefHeight="553.0" prefWidth="399.0">
@@ -600,13 +600,6 @@
                               <TextField fx:id="Cap2" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
                               <TextField fx:id="Cap1" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
                               <TextField fx:id="KontrolUzun1" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <TextField fx:id="Sonuc6" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="6" />
-                              <TextField fx:id="Sonuc5" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="8" GridPane.rowIndex="5" />
-                              <TextField alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
-                              <TextField fx:id="Sonuc4" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
-                              <TextField fx:id="Sonuc3" alignment="CENTER" prefHeight="226.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
-                              <TextField fx:id="Sonuc2" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-                              <TextField fx:id="Sonuc1" alignment="CENTER" prefHeight="132.0" prefWidth="117.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
                               <TextField fx:id="HataninYeri6" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="6" />
                               <TextField fx:id="HataninYeri5" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
                               <TextField fx:id="SiraNo7" alignment="CENTER" prefHeight="180.0" prefWidth="179.0" text="7" GridPane.rowIndex="7" />
@@ -641,10 +634,16 @@
                               <TextField fx:id="HataninYeri8" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="8" />
                               <TextField fx:id="HataninYeri9" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="9" />
                               <TextField fx:id="HataninYeri10" alignment="CENTER" prefHeight="183.0" prefWidth="179.0" GridPane.columnIndex="7" GridPane.rowIndex="10" />
-                              <TextField fx:id="Sonuc7" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="7" />
-                              <TextField fx:id="Sonuc8" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="8" />
-                              <TextField fx:id="Sonuc9" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="9" />
-                              <TextField fx:id="Sonuc10" alignment="CENTER" prefHeight="174.0" prefWidth="179.0" GridPane.columnIndex="8" GridPane.rowIndex="10" />
+                              <ChoiceBox fx:id="Sonuc1" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                              <ChoiceBox fx:id="Sonuc2" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                              <ChoiceBox fx:id="Sonuc3" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+                              <ChoiceBox fx:id="Sonuc4" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+                              <ChoiceBox fx:id="Sonuc5" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+                              <ChoiceBox fx:id="Sonuc6" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+                              <ChoiceBox fx:id="Sonuc7" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+                              <ChoiceBox fx:id="Sonuc8" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="8" GridPane.rowIndex="8" />
+                              <ChoiceBox fx:id="Sonuc9" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="8" GridPane.rowIndex="9" />
+                              <ChoiceBox fx:id="Sonuc10" prefHeight="122.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-font-size: 15pt;" GridPane.columnIndex="8" GridPane.rowIndex="10" />
                            </children>
                         </GridPane>
                      </children>

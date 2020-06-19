@@ -10,7 +10,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -63,7 +68,7 @@ public class ManyetikMuayeneController implements Initializable
     @FXML private ScrollPane ManMuayene;
     @FXML private VBox MMuayene;
     @FXML private Button PDF;
-    @FXML private ChoiceBox Musteri;
+    @FXML private TextField Musteri;
     @FXML private ChoiceBox ProjeAdi;
     @FXML private TextField TestYeri;
     @FXML private TextField MuayeneStandardi;
@@ -85,7 +90,7 @@ public class ManyetikMuayeneController implements Initializable
     @FXML private TextField UVIsıkSiddeti;
     @FXML private TextField IsikMesafesi;
     @FXML private TextField MuayeneBolgesi;
-    @FXML private TextField AkimTipi;
+    @FXML private ChoiceBox AkimTipi;
     @FXML private TextField Luxmetre;
     @FXML private TextField MuayeneOrtami;
     @FXML private TextField MiknatisGiderimi;
@@ -182,16 +187,16 @@ public class ManyetikMuayeneController implements Initializable
     @FXML private TextField HataninYeri8;
     @FXML private TextField HataninYeri9;
     @FXML private TextField HataninYeri10;
-    @FXML private TextField Sonuc1;
-    @FXML private TextField Sonuc2;
-    @FXML private TextField Sonuc3;
-    @FXML private TextField Sonuc4;
-    @FXML private TextField Sonuc5;
-    @FXML private TextField Sonuc6;
-    @FXML private TextField Sonuc7;
-    @FXML private TextField Sonuc8;
-    @FXML private TextField Sonuc9;
-    @FXML private TextField Sonuc10;
+    @FXML private ChoiceBox Sonuc1;
+    @FXML private ChoiceBox Sonuc2;
+    @FXML private ChoiceBox Sonuc3;
+    @FXML private ChoiceBox Sonuc4;
+    @FXML private ChoiceBox Sonuc5;
+    @FXML private ChoiceBox Sonuc6;
+    @FXML private ChoiceBox Sonuc7;
+    @FXML private ChoiceBox Sonuc8;
+    @FXML private ChoiceBox Sonuc9;
+    @FXML private ChoiceBox Sonuc10;
     @FXML private TextField OperatorAdSoyad;
     @FXML private TextField DegerlendirenAdSoyad;
     @FXML private TextField OnayAdSoyad;
@@ -212,12 +217,71 @@ public class ManyetikMuayeneController implements Initializable
     String ID2 = null;
     String firstName1 = null;
     String lastName1 = null;
-    public String getID(String ID,String firstName, String lastName){
+    String Raportarihi = null;
+    String Muayenetarihi = null;
+    String Rapornumarasi = null;
+    String MusteriIsmi = null;
+    String testyeri = null;
+    String kutupmesafesi = null;
+    String cihaz = null;
+    String mptasiyiciortam = null;
+    String miknatislamateknigi = null;
+    String UVIsikSiddeti = null;
+    String isikmesafesi = null;
+    String level = null;
+    String Musteriilce = null;
+    
+    public String getID(String ID,String firstName, String lastName, String lvl){
         ID2 = ID;
         firstName1 = firstName;
         lastName1 = lastName;
+        level = lvl;
+        OperatorAdSoyad.setText(firstName1+" " + lastName1);
+        DegerlendirenAdSoyad.setText(firstName1+" "+ lastName1);
+        OnayAdSoyad.setText(firstName1+" "+ lastName1);
+        OperatorLevel.setText("LEVEL "+level);
+        OnayLevel.setText("LEVEL "+level);
+        DegerlendirenLevel.setText("LEVEL "+level);
+        return ID + firstName + lastName+ lvl;
+    }
+    
+    public String getInfo(String RaporTarihi1, String MuayeneTarihi, String RaporNo1){
+        Raportarihi=RaporTarihi1;
+        Muayenetarihi=MuayeneTarihi;
+        Rapornumarasi=RaporNo1;
+        RaporNo.setText(Rapornumarasi);
+        RaporTarihi.setText(Raportarihi);
+        MuayeneTarihleri.setText(Muayenetarihi);
+        OperatorTarih.setText(Raportarihi);
+        DegerlendirenTarih.setText(Raportarihi);
+        OnayTarih.setText(Raportarihi);
         
-        return ID + firstName + lastName;
+        return RaporTarihi + MuayeneTarihi + RaporNo ;
+    }
+    
+    public void verilerial (String aMusteriIsmi, String aTestYeri,String MusteriIlc, String aKutupMesafesi, String aCihaz, String aMpTasiyiciOrtam,String aMiknatislamateknigi, String aUVIsikSiddeti, String aIsikMesafesi){
+         MusteriIsmi = aMusteriIsmi;
+         testyeri = aTestYeri;
+         kutupmesafesi = aKutupMesafesi;
+         cihaz = aCihaz;
+         mptasiyiciortam = aMpTasiyiciOrtam;
+         miknatislamateknigi = aMiknatislamateknigi;
+         UVIsikSiddeti = aUVIsikSiddeti;
+         isikmesafesi = aIsikMesafesi;
+         Musteriilce = MusteriIlc;
+         Musteri.setText(MusteriIsmi);
+         TestYeri.setText(Musteriilce+"/" +testyeri);
+         KutupMesafesi.setText(kutupmesafesi);
+         Cihaz.setText(cihaz);
+         MpTasiyiciOrtam.setText(mptasiyiciortam);
+         MiknatislamaTeknigi.setText(miknatislamateknigi);
+         UVIsıkSiddeti.setText(UVIsikSiddeti);
+         IsikMesafesi.setText(isikmesafesi);
+         
+        
+        
+         
+         
     }
     
    @FXML
@@ -263,6 +327,7 @@ public class ManyetikMuayeneController implements Initializable
 
                 
             } catch (Exception e) {
+                
             }
 
         
@@ -280,7 +345,7 @@ public class ManyetikMuayeneController implements Initializable
                         Parent RaporGirisParent = loader.load();
                         Scene RaporGirisScene = new Scene (RaporGirisParent);
                         RaporGirisController raporgiriscontroller = loader.getController();
-                        raporgiriscontroller.getID(ID2,firstName1,lastName1);
+                        raporgiriscontroller.getID(ID2,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(RaporGirisScene);
@@ -294,7 +359,7 @@ public class ManyetikMuayeneController implements Initializable
                         Parent RaporGirisParent = loader.load();
                         Scene RaporGirisScene = new Scene (RaporGirisParent);
                         RaporGirisController raporgiriscontroller = loader.getController();
-                        raporgiriscontroller.getID(ID2,firstName1,lastName1);
+                        raporgiriscontroller.getID(ID2,firstName1,lastName1,level);
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
                         window.setScene(RaporGirisScene);
@@ -905,7 +970,7 @@ public class ManyetikMuayeneController implements Initializable
              }
              cell =  row.createCell(2); 
              
-             cell.setCellValue((String)Musteri.getSelectionModel().getSelectedItem());  
+             cell.setCellValue(Musteri.getText());  
              sheet.addMergedRegion(new CellRangeAddress(7,8,2,9));  
              cell.setCellStyle(style7);
              
@@ -1706,7 +1771,7 @@ public class ManyetikMuayeneController implements Initializable
              }
              cell =  row.createCell(10); 
              
-             cell.setCellValue(AkimTipi.getText());  
+             cell.setCellValue((String)AkimTipi.getSelectionModel().getSelectedItem());  
              sheet.addMergedRegion(new CellRangeAddress(20,21,10,14));  
              cell.setCellStyle(style7);
              
@@ -3202,7 +3267,7 @@ public class ManyetikMuayeneController implements Initializable
              }
               
              cell =  row.createCell(20); 
-             cell.setCellValue(Sonuc1.getText());  
+             cell.setCellValue((String)Sonuc1.getSelectionModel().getSelectedItem());  
              sheet.addMergedRegion(new CellRangeAddress(46,47,20,20));  
              cell.setCellStyle(style22);
              
@@ -3323,7 +3388,7 @@ public class ManyetikMuayeneController implements Initializable
              }
               
              cell =  row.createCell(20); 
-             cell.setCellValue(Sonuc2.getText());  
+             cell.setCellValue((String)Sonuc2.getSelectionModel().getSelectedItem());  
              sheet.addMergedRegion(new CellRangeAddress(48,49,20,20));  
              cell.setCellStyle(style22);
              
@@ -3442,7 +3507,7 @@ public class ManyetikMuayeneController implements Initializable
              }
               
              cell =  row.createCell(20); 
-             cell.setCellValue(Sonuc3.getText());  
+             cell.setCellValue((String)Sonuc3.getSelectionModel().getSelectedItem());  
              sheet.addMergedRegion(new CellRangeAddress(50,51,20,20));  
              cell.setCellStyle(style22);
              
@@ -3560,7 +3625,7 @@ public class ManyetikMuayeneController implements Initializable
              }
               
              cell =  row.createCell(20); 
-             cell.setCellValue(Sonuc4.getText());  
+             cell.setCellValue((String)Sonuc4.getSelectionModel().getSelectedItem());  
              sheet.addMergedRegion(new CellRangeAddress(52,53,20,20));  
              cell.setCellStyle(style22);
              
@@ -3679,7 +3744,7 @@ public class ManyetikMuayeneController implements Initializable
              }
               
              cell =  row.createCell(20); 
-             cell.setCellValue(Sonuc5.getText());  
+             cell.setCellValue((String)Sonuc5.getSelectionModel().getSelectedItem());  
              sheet.addMergedRegion(new CellRangeAddress(54,55,20,20));  
              cell.setCellStyle(style22);
              
@@ -3798,7 +3863,7 @@ public class ManyetikMuayeneController implements Initializable
              }
               
              cell =  row.createCell(20); 
-             cell.setCellValue(Sonuc6.getText());  
+             cell.setCellValue((String)Sonuc6.getSelectionModel().getSelectedItem());  
              sheet.addMergedRegion(new CellRangeAddress(56,57,20,20));  
              cell.setCellStyle(style22);
              
@@ -3916,7 +3981,7 @@ public class ManyetikMuayeneController implements Initializable
              }
               
              cell =  row.createCell(20); 
-             cell.setCellValue(Sonuc7.getText());  
+             cell.setCellValue((String)Sonuc7.getSelectionModel().getSelectedItem());  
              sheet.addMergedRegion(new CellRangeAddress(58,59,20,20));  
              cell.setCellStyle(style22);
              
@@ -4034,7 +4099,7 @@ public class ManyetikMuayeneController implements Initializable
              }
               
              cell =  row.createCell(20); 
-             cell.setCellValue(Sonuc8.getText());  
+             cell.setCellValue((String)Sonuc8.getSelectionModel().getSelectedItem());  
              sheet.addMergedRegion(new CellRangeAddress(60,61,20,20));  
              cell.setCellStyle(style22);
              
@@ -4152,7 +4217,7 @@ public class ManyetikMuayeneController implements Initializable
              }
               
              cell =  row.createCell(20); 
-             cell.setCellValue(Sonuc9.getText());  
+             cell.setCellValue((String)Sonuc9.getSelectionModel().getSelectedItem());  
              sheet.addMergedRegion(new CellRangeAddress(62,63,20,20));  
              cell.setCellStyle(style22);
               
@@ -4271,7 +4336,7 @@ public class ManyetikMuayeneController implements Initializable
              }
               
              cell =  row.createCell(20); 
-             cell.setCellValue(Sonuc10.getText());  
+             cell.setCellValue((String)Sonuc10.getSelectionModel().getSelectedItem());  
              sheet.addMergedRegion(new CellRangeAddress(64,65,20,20));  
              cell.setCellStyle(style22);
              
@@ -4643,7 +4708,123 @@ public class ManyetikMuayeneController implements Initializable
      }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        ObservableList<Firma> firma = FXCollections.observableArrayList();
+        Connection con= null;
+        Statement statement = null;
+        ResultSet ResultSet = null;
+        
+        try
+        {
+           con = DataBase.getConnection();
+           statement = con.createStatement();
+           ResultSet = statement.executeQuery("SELECT *FROM Firma");
+           while (ResultSet.next())
+           {
+                Firma newfirma = new Firma (ResultSet.getString("MusteriIsmi"),
+                                                             ResultSet.getString("Il"),
+                                                             ResultSet.getString("Ilce"),
+                                                             ResultSet.getString("IsEmriNumarasi"),
+                                                             ResultSet.getString("TeklifNo"));
+                
+                
+                IsEmriNo.getItems().add(ResultSet.getString("IsEmriNumarasi"));
+                TeklifNo.getItems().add(ResultSet.getString("TeklifNo"));
+                
+                
+                firma.add(newfirma);
+              
+           }
+           
+           
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        ObservableList<Proje> proje = FXCollections.observableArrayList();
+        Connection con2= null;
+        Statement statement2 = null;
+        ResultSet ResultSet2 = null;
+        
+        try
+        {
+           con2 = DataBase.getConnection();
+           statement2 = con2.createStatement();
+           ResultSet2 = statement2.executeQuery("SELECT *FROM Proje");
+           while (ResultSet2.next())
+           {
+                Proje newproje = new Proje (ResultSet2.getString("ProjeNumarasi"),
+                                                             ResultSet2.getString("ProjeAdi"));
+                
+                ProjeAdi.getItems().add(ResultSet2.getString("ProjeAdi"));
+                
+                proje.add(newproje);
+              
+           }
+           
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        ObservableList<YuzeyDurumu> yuzeydurumu = FXCollections.observableArrayList();
+        Connection con3= null;
+        Statement statement3 = null;
+        ResultSet ResultSet3 = null;
+        
+        try
+        {
+           con3 = DataBase.getConnection();
+           statement3 = con3.createStatement();
+           ResultSet3 = statement3.executeQuery("SELECT *FROM YuzeyDurumu");
+           while (ResultSet3.next())
+           {
+                YuzeyDurumu newyuzeydurumu = new YuzeyDurumu (ResultSet3.getString("YuzeyDurumNumarasi"),
+                                                             ResultSet3.getString("YuzeyDurumu"));
+                
+                YuzeyDurumu.getItems().add(ResultSet3.getString("YuzeyDurumu"));
+                
+                yuzeydurumu.add(newyuzeydurumu);
+              
+           }
+           
+        }
+        
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+        
+        MuayeneAsamasi.getItems().add("Treated");
+        MuayeneAsamasi.getItems().add("Untreated");
+        Sonuc1.getItems().add("OK");
+        Sonuc1.getItems().add("RED");
+        Sonuc2.getItems().add("OK");
+        Sonuc2.getItems().add("RED");
+        Sonuc3.getItems().add("OK");
+        Sonuc3.getItems().add("RED");
+        Sonuc4.getItems().add("OK");
+        Sonuc4.getItems().add("RED");
+        Sonuc5.getItems().add("OK");
+        Sonuc5.getItems().add("RED");
+        Sonuc6.getItems().add("OK");
+        Sonuc6.getItems().add("RED");
+        Sonuc7.getItems().add("OK");
+        Sonuc7.getItems().add("RED");
+        Sonuc8.getItems().add("OK");
+        Sonuc8.getItems().add("RED");
+        Sonuc9.getItems().add("OK");
+        Sonuc9.getItems().add("RED");
+        Sonuc10.getItems().add("OK");
+        Sonuc10.getItems().add("RED");
+        AkimTipi.getItems().add("AC");
+        AkimTipi.getItems().add("DC");
+        
     }    
     
 }
