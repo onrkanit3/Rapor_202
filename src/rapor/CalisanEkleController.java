@@ -82,8 +82,8 @@ public class CalisanEkleController implements Initializable
    
     public void newMitarbeiterButtonPushed() throws SQLException, NoSuchAlgorithmException
     {
-        if(firstNameTextField.getText()==null || lastNameTextField.getText()==null || IDTextField.getText()==null ||
-           ŞifreTextField.getText()==null || LevelTextField.getText()==null || sertifikatarihiDatePicker.getValue()==null){
+        if(firstNameTextField.getText().length()==0 || lastNameTextField.getText().length()==0 || IDTextField.getText().length()==0 ||
+           ŞifreTextField.getText().length()==0 || LevelTextField.getText().length()==0 || sertifikatarihiDatePicker.getValue()==null){
             Alert alert = new Alert(AlertType.WARNING, 
                         "Lütfen tüm boşlukları doldurunuz.",
                         ButtonType.CLOSE);
